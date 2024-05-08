@@ -2,19 +2,17 @@
 
 namespace O_que_comeu_a_Ritinha.Models
 {
-    public class blog
+    public class Blog
     {
         [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
 
-        public string title { get; set; }
+        public string Title { get; set; }
 
-        public string image { get; set; }
+        public string Image { get; set; }
 
-        public string description { get; set; }
+        public string Description { get; set; }
 
-        public string instagram { get; set; }
-
-        public Boolean editing { get; set; }
+        public string Instagram { get; set; }
     }
 }

@@ -2,13 +2,10 @@
 
 namespace O_que_comeu_a_Ritinha.Models
 {
-    public class tags
+    public class Tags
     {
         [Key]
-        public int id { get; set; }
-
-        public string tag { get; set; }
-
-        public int order { get; set; }
+        public int Id { get; set; }
+        public string Tag { get; set; }
     }
 }

@@ -1,14 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace O_que_comeu_a_Ritinha.Models
 {
-    public class ingredients
+    public class Ingredients
     {
         [Key]
-        public int id { get; set; }
-
-        public string ingredient { get; set; }
-
-        public int order { get; set; }
+        public int Id { get; set; }
+        public string Ingredient { get; set; }
     }
 }
