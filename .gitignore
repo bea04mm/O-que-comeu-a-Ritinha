@@ -128,4 +128,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+<<<<<<< Updated upstream
 /Servidor/O-que-comeu-a-Ritinha/.vs/O-que-comeu-a-Ritinha/FileContentIndex
+=======
+/Servidor/O-que-comeu-a-Ritinha/.vs/O-que-comeu-a-Ritinha/FileContentIndex/349c2031-6a24-4a2f-a80e-52c68e3587c3.vsidx
+>>>>>>> Stashed changes
