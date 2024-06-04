@@ -18,5 +18,54 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    text-align: -webkit-center;
 }
+
+header {
+    background-color: #f0aec0;
+    border-radius: 0px 0px 10px 10px;
+}
+
+footer {
+    background-color: #f0aec0;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.without_ampm::-webkit-datetime-edit-ampm-field {
+    display: none;
+}
+
+input[type=time]::-webkit-clear-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    margin: -10px;
+}
+
+#listrecipes {
+    background-color: #f0aec0;
+    border-radius: 10px;
+}
+
+.table-custom {
+    width: 95%;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+    .table-custom th, .table-custom td {
+        vertical-align: middle;
+        width: 33.33%;
+    }
+
+    .table-custom img {
+        height: 100px;
+        width: auto;
+        max-width: 100%;
+    }
+
+    .table-custom tr:last-child td {
+        border-bottom: hidden;
+    }

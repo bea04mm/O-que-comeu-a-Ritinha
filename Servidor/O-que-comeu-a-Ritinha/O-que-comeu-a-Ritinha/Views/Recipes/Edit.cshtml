@@ -4,70 +4,102 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>Recipes</h4>
+<h1 class="text-center">Editar Receita</h1>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
+            <div class="form-group m-2">
+                <label asp-for="Title" class="control-label">Título</label>
                 <input asp-for="Title" class="form-control" />
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
+            <div class="form-group m-2">
+                <label asp-for="Image" class="control-label">Imagem</label>
                 <input asp-for="Image" class="form-control" />
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Time" class="control-label"></label>
+            <div class="form-group m-2">
+                <label asp-for="Time" class="control-label">Tempo</label>
                 <input asp-for="Time" class="form-control" />
                 <span asp-validation-for="Time" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Portions" class="control-label"></label>
+            <div class="form-group m-2">
+                <label asp-for="Portions" class="control-label">Porções</label>
                 <input asp-for="Portions" class="form-control" />
                 <span asp-validation-for="Portions" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Suggestions" class="control-label"></label>
+            <div class="form-group m-2">
+                <label asp-for="Suggestions" class="control-label">Sugestões</label>
                 <input asp-for="Suggestions" class="form-control" />
                 <span asp-validation-for="Suggestions" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group m-2">
                 <label asp-for="Instagram" class="control-label"></label>
                 <input asp-for="Instagram" class="form-control" />
                 <span asp-validation-for="Instagram" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Steps" class="control-label"></label>
+            <div class="form-group m-2">
+                <label asp-for="Steps" class="control-label">Passos</label>
                 <input asp-for="Steps" class="form-control" />
                 <span asp-validation-for="Steps" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="IngredientFK" class="control-label"></label>
-                <select asp-for="IngredientFK" class="form-control" asp-items="ViewBag.IngredientFK"></select>
-                <span asp-validation-for="IngredientFK" class="text-danger"></span>
+            <div class="row m-2">
+                <div class="col-md-3">
+                    <label>Ingredientes</label>
+                    @Html.DropDownList("IngredientSelect", ViewBag.ListIngredients as SelectList, new { @class = "form-control", id = "ingredientSelect" })
+                    <button type="button" class="form-control mt-2" onclick="addIngredientToList()">Escolher Ingrediente</button>
+                </div>
+                <div class="col-md-9">
+                    <label>Ingredientes Selecionados</label>
+                    <div id="ListaIngredientsSelect">
+                        @foreach (var item in Model.ListIngredients)
+                        {
+                            <div class="row" id="ingredient_@item.Id">
+                                <div class="col-4">
+                                    <input class="form-control" name="Quantities" type="text" value="@item.Quantity" />
+                                </div>
+                                <div class="col-5">
+                                    <input type="hidden" name="Ingredients" value="@item.Ingredient.Id" />
+                                    <input class="form-control" type="text" value="@item.Ingredient.Ingredient" readonly />
+                                </div>
+                                <div class="col-3">
+                                    <button class="form-control" type="button" onclick="removeIngredientFromList('@item.Id')">❌</button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="TagFK" class="control-label"></label>
-                <select asp-for="TagFK" class="form-control" asp-items="ViewBag.TagFK"></select>
-                <span asp-validation-for="TagFK" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="form-group m-2">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar à Lista!</a>
 </div>
+
+<script>
+    function addIngredientToList() {
+        let listEnd = $('#ListaIngredientsSelect');
+        let ingredientFromSelect = $("#ingredientSelect option:selected");
+        let idSelect = new Date().getTime();
+
+        listEnd.append('<div id = "' + idSelect + '" class= "row"> <div class="col-4"> <input class="form-control" name="Quantities" type="text"/> </div> <div class="col-5"> <input type="hidden" name="Ingredients" value="' + ingredientFromSelect.val() + '"/> <input class="form-control" type="text" value="' + ingredientFromSelect.text() + '" readonly/> </div> <div class="col-3"> <button class="form-control" type="button" onclick="removeIngredientFromList(' + idSelect + ')">❌</button> </div> </div>');
+        
+        $("#ingredientSelect option:selected").remove();
+    }
+
+    function removeIngredientFromList(id) {
+        $("#ingredient_" + id).remove();
+        $("#ingredientSelect").append(`<option value="${id}">${ingredientText}</option>`);
+    }
+</script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

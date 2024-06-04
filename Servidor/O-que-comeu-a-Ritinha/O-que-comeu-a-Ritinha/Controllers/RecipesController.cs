@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using O_que_comeu_a_Ritinha.Data;
+using O_que_comeu_a_Ritinha.Migrations;
 using O_que_comeu_a_Ritinha.Models;
 
 namespace O_que_comeu_a_Ritinha.Controllers
@@ -14,16 +15,18 @@ namespace O_que_comeu_a_Ritinha.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public RecipesController(ApplicationDbContext context)
+		private readonly IWebHostEnvironment _webHostEnvironment;
+
+		public RecipesController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
-        }
+			_webHostEnvironment = webHostEnvironment;
+		}
 
         // GET: Recipes
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Recipes.Include(r => r.Ingredient).Include(r => r.Tag);
-            return View(await applicationDbContext.ToListAsync());
+            return View(await _context.Recipes.ToListAsync());
         }
 
         // GET: Recipes/Details/5
@@ -35,8 +38,6 @@ namespace O_que_comeu_a_Ritinha.Controllers
             }
 
             var recipes = await _context.Recipes
-                .Include(r => r.Ingredient)
-                .Include(r => r.Tag)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (recipes == null)
             {
@@ -49,8 +50,9 @@ namespace O_que_comeu_a_Ritinha.Controllers
         // GET: Recipes/Create
         public IActionResult Create()
         {
-            ViewData["IngredientFK"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
-            ViewData["TagFK"] = new SelectList(_context.Tags, "Id", "Tag");
+            var listaIngredientes = _context.Ingredients;
+            ViewData["ListIngredients"] = new SelectList(listaIngredientes, "Id", "Ingredient");
+
             return View();
         }
 
@@ -59,16 +61,93 @@ namespace O_que_comeu_a_Ritinha.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Image,Time,Portions,Suggestions,Instagram,Steps,IngredientFK,TagFK")] Recipes recipes)
-        {
+        public async Task<IActionResult> Create([Bind("Title,Time,Portions,Suggestions,Instagram,Steps")] Recipes recipes, List<int> Ingredients, List<string> Quantities, IFormFile ImageRecipe)
+		{
+            var listaIngredientes = _context.Ingredients;
+            ViewData["ListIngredients"] = new SelectList(listaIngredientes, "Id", "Ingredient");
+
             if (ModelState.IsValid)
             {
-                _context.Add(recipes);
+				string nomeImagem = "";
+				bool haImagem = false;
+
+				// há ficheiro?
+				if (ImageRecipe == null)
+				{
+					// não há
+					// crio mensagem de erro
+					ModelState.AddModelError("", "Deve fornecer uma imagem");
+					// devolve controlo à View
+					return View(recipes);
+				}
+				else
+				{
+					// há ficheiro, mas é uma imagem?
+					if (!(ImageRecipe.ContentType == "image/png" || ImageRecipe.ContentType == "image/jpeg"))
+					{
+						// não
+						// vamos usar uma imagem pré-definida
+						recipes.Image = "imageRecipe.jpg";
+					}
+					else
+					{
+						// há imagem
+						haImagem = true;
+						// gera nome imagem
+						Guid g = Guid.NewGuid();
+						nomeImagem = g.ToString();
+						string extensaoImagem = Path.GetExtension(ImageRecipe.FileName).ToLowerInvariant();
+						nomeImagem += extensaoImagem;
+						// guardar nome do ficheiro na BD
+						recipes.Image = nomeImagem;
+
+					}
+				}
+
+				_context.Add(recipes);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+				// adicionar os ingredientes
+				List<IngredientsRecipes> listIngredients = new List<IngredientsRecipes>();
+				for (int i = 0; i < Ingredients.Count; i++)
+				{
+					IngredientsRecipes ingredientsRecipes = new IngredientsRecipes
+					{
+						IngredientFK = Ingredients[i],
+						RecipeFK = recipes.Id,
+						Quantity = Quantities[i]
+					};
+
+					listIngredients.Add(ingredientsRecipes);
+				}
+
+				recipes.ListIngredients = listIngredients;
+                _context.Update(recipes);
+				await _context.SaveChangesAsync();
+
+				// guardar a imagem do logótipo
+				if (haImagem)
+				{
+					// encolher a imagem ao tamanho certo --> fazer por mim (NuGet resize image)
+					// determinar o local de armazenamento da imagem
+					string localizacaoImagem = _webHostEnvironment.WebRootPath;
+					// adicionar à raiz da parte web, o nome da pasta onde queremos guardar a imagem
+					localizacaoImagem = Path.Combine(localizacaoImagem, "Images");
+					// será que o local existe?
+					if (!Directory.Exists(localizacaoImagem))
+					{
+						Directory.CreateDirectory(localizacaoImagem);
+					}
+					// atribuir ao caminho o nome da imagem
+					localizacaoImagem = Path.Combine(localizacaoImagem, nomeImagem);
+					// guardar imagem no Disco Rígido
+					using var stream = new FileStream(localizacaoImagem, FileMode.Create);
+					await ImageRecipe.CopyToAsync(stream);
+				}
+
+				// redireciona o utilizador para a página de 'início' das Recipes
+				return RedirectToAction(nameof(Index));
             }
-            ViewData["IngredientFK"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
-            ViewData["TagFK"] = new SelectList(_context.Tags, "Id", "Tag");
             return View(recipes);
         }
 
@@ -80,22 +159,23 @@ namespace O_que_comeu_a_Ritinha.Controllers
                 return NotFound();
             }
 
-            var recipes = await _context.Recipes.FindAsync(id);
-            if (recipes == null)
-            {
-                return NotFound();
-            }
-            ViewData["IngredientFK"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
-            ViewData["TagFK"] = new SelectList(_context.Tags, "Id", "Tag");
-            return View(recipes);
-        }
+			var recipes = await _context.Recipes.Include(r => r.ListIngredients).ThenInclude(ir => ir.Ingredient).FirstOrDefaultAsync(m => m.Id == id);
+
+			if (recipes == null)
+			{
+				return NotFound();
+			}
+
+			ViewData["ListIngredients"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
+			return View(recipes);
+		}
 
         // POST: Recipes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Image,Time,Portions,Suggestions,Instagram,Steps,IngredientFK,TagFK")] Recipes recipes)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Image,Time,Portions,Suggestions,Instagram,Steps")] Recipes recipes, List<int> Ingredients, List<string> Quantities)
         {
             if (id != recipes.Id)
             {
@@ -108,7 +188,27 @@ namespace O_que_comeu_a_Ritinha.Controllers
                 {
                     _context.Update(recipes);
                     await _context.SaveChangesAsync();
-                }
+
+					var existingIngredients = _context.IngredientsRecipes.Where(ir => ir.RecipeFK == id).ToList();
+					_context.IngredientsRecipes.RemoveRange(existingIngredients);
+					await _context.SaveChangesAsync();
+
+					List<IngredientsRecipes> listIngredients = new List<IngredientsRecipes>();
+                    for (int i = 0; i < Ingredients.Count; i++)
+                    {
+                        IngredientsRecipes ingredientsRecipes = new IngredientsRecipes
+                        {
+                            IngredientFK = Ingredients[i],
+                            RecipeFK = recipes.Id,
+                            Quantity = Quantities[i]
+                        };
+
+                        listIngredients.Add(ingredientsRecipes);
+                    }
+					recipes.ListIngredients = listIngredients;
+					_context.Update(recipes);
+					await _context.SaveChangesAsync();
+				}
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!RecipesExists(recipes.Id))
@@ -122,9 +222,8 @@ namespace O_que_comeu_a_Ritinha.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IngredientFK"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
-            ViewData["TagFK"] = new SelectList(_context.Tags, "Id", "Tag");
-            return View(recipes);
+			ViewData["ListIngredients"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
+			return View(recipes);
         }
 
         // GET: Recipes/Delete/5
@@ -136,8 +235,6 @@ namespace O_que_comeu_a_Ritinha.Controllers
             }
 
             var recipes = await _context.Recipes
-                .Include(r => r.Ingredient)
-                .Include(r => r.Tag)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (recipes == null)
             {
