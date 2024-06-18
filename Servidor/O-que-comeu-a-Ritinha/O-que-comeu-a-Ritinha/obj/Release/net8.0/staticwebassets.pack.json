@@ -5,35 +5,36 @@
       "PackagePath": "staticwebassets\\O-que-comeu-a-Ritinha.bundle.scp.css"
     },
     {
-<<<<<<< Updated upstream
-=======
-      "Id": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\Images\\0ed2bb45-d4d6-4358-a313-7e99419d1519.png",
-      "PackagePath": "staticwebassets\\Images\\0ed2bb45-d4d6-4358-a313-7e99419d1519.png"
-    },
-    {
-      "Id": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\Images\\98f3cbb7-5a43-45c0-96a9-4a5c308c21da.png",
-      "PackagePath": "staticwebassets\\Images\\98f3cbb7-5a43-45c0-96a9-4a5c308c21da.png"
-    },
-    {
-      "Id": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\Images\\99c54ff4-6488-47f1-996e-4dcf78ee96d1.png",
-      "PackagePath": "staticwebassets\\Images\\99c54ff4-6488-47f1-996e-4dcf78ee96d1.png"
-    },
-    {
-      "Id": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\Images\\e98cedcb-9c2f-4eaf-81f4-093eb86ca770.png",
-      "PackagePath": "staticwebassets\\Images\\e98cedcb-9c2f-4eaf-81f4-093eb86ca770.png"
-    },
-    {
-      "Id": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\Images\\imageRecipe.jpg",
-      "PackagePath": "staticwebassets\\Images\\imageRecipe.jpg"
-    },
-    {
->>>>>>> Stashed changes
       "Id": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\0ed2bb45-d4d6-4358-a313-7e99419d1519.png",
+      "PackagePath": "staticwebassets\\images\\0ed2bb45-d4d6-4358-a313-7e99419d1519.png"
+    },
+    {
+      "Id": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\78f3cbb7-5a43-45c0-96a9-4a5c308c21da.png",
+      "PackagePath": "staticwebassets\\images\\78f3cbb7-5a43-45c0-96a9-4a5c308c21da.png"
+    },
+    {
+      "Id": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\8c2f56a4-e2b0-4b70-a805-4b7c74a5c140.png",
+      "PackagePath": "staticwebassets\\images\\8c2f56a4-e2b0-4b70-a805-4b7c74a5c140.png"
+    },
+    {
+      "Id": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\99c54ff4-6488-47f1-996e-4dcf78ee96d1.png",
+      "PackagePath": "staticwebassets\\images\\99c54ff4-6488-47f1-996e-4dcf78ee96d1.png"
+    },
+    {
+      "Id": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\d98cedcb-9c2f-4eaf-81f4-093eb86ca770.png",
+      "PackagePath": "staticwebassets\\images\\d98cedcb-9c2f-4eaf-81f4-093eb86ca770.png"
+    },
+    {
+      "Id": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\imageRecipe.jpg",
+      "PackagePath": "staticwebassets\\images\\imageRecipe.jpg"
     },
     {
       "Id": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\js\\site.js",

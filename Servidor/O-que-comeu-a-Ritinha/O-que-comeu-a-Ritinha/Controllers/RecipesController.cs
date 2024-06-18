@@ -129,10 +129,11 @@ namespace O_que_comeu_a_Ritinha.Controllers
 				if (haImagem)
 				{
 					// encolher a imagem ao tamanho certo --> fazer por mim (NuGet resize image)
+
 					// determinar o local de armazenamento da imagem
 					string localizacaoImagem = _webHostEnvironment.WebRootPath;
 					// adicionar à raiz da parte web, o nome da pasta onde queremos guardar a imagem
-					localizacaoImagem = Path.Combine(localizacaoImagem, "Images");
+					localizacaoImagem = Path.Combine(localizacaoImagem, "images");
 					// será que o local existe?
 					if (!Directory.Exists(localizacaoImagem))
 					{

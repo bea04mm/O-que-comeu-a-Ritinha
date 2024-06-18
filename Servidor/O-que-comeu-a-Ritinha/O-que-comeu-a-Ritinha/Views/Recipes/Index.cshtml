@@ -3,7 +3,8 @@
 @{
 	ViewData["Title"] = "Receitas";
 }
-<div id="listrecipes" class="m-4 p-4">
+
+<div id="backcolor" class="m-5 p-4">
 
 	<h1 class="text-center text-black m-0">Lista de Receitas</h1>
 
@@ -11,7 +12,7 @@
 		<a asp-action="Create" class="btn btn-light bg-white">Criar nova Receita!</a>
 	</p>
 
-	<div class="d-flex justify-content-center">
+	<div class="justify-content-center">
 		<table class="table table-custom text-center m-0">
 			<thead>
 				<tr>
@@ -28,20 +29,12 @@
 							@Html.DisplayFor(modelItem => item.Title)
 						</td>
 						<td>
-							<img src="~/Images/@Html.DisplayFor(modelItem => item.Image)"
-								 alt="Receita de @Html.DisplayFor(modelItem => item.Title)"
-								 title="@Html.DisplayFor(modelItem => item.Title)"
-								 width="75px" />
-							<br />
-							<img src="~/Images/@item.Image"
-								 alt="Receita de @item.Title"
-								 title="@item.Title"
-								 width="75px" />
+							<img src="~/images/@item.Image" alt="Receita de @item.Title" title="@item.Title" width="100px" />
 						</td>
 						<td>
 							<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-secondary btn-sm btn-block m-1">Editar</a>
+							<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm btn-block m-1">Apagar</a>
 							<a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info btn-sm btn-block m-1">Detalhes</a>
-							<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm btn-block m-1">Eliminar</a>
 						</td>
 					</tr>
 				}

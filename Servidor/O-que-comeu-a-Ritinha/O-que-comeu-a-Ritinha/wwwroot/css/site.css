@@ -44,7 +44,7 @@ input[type=time]::-webkit-clear-button {
     margin: -10px;
 }
 
-#listrecipes {
+#backcolor {
     background-color: #f0aec0;
     border-radius: 10px;
 }
@@ -58,12 +58,6 @@ input[type=time]::-webkit-clear-button {
     .table-custom th, .table-custom td {
         vertical-align: middle;
         width: 33.33%;
-    }
-
-    .table-custom img {
-        height: 100px;
-        width: auto;
-        max-width: 100%;
     }
 
     .table-custom tr:last-child td {

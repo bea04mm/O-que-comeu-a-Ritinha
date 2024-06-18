@@ -1,7 +1,7 @@
 ﻿@model O_que_comeu_a_Ritinha.Models.Recipes
 
 @{
-    ViewData["Title"] = "Criar Receita";
+	ViewData["Title"] = "Criar Receita";
 }
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -10,104 +10,120 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" rel="stylesheet" />
 
-<h1 class="text-center">Criar Receita</h1>
-<hr />
-<div class="row">
-    <div class="col">
-        <form asp-action="Create" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group m-2">
-                <label asp-for="Title" class="control-label">Título </label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group m-2">
-                <label asp-for="Image" class="control-label">Imagem</label>
-                <input type="file" name="ImageRecipe" accept=".png, .jpg, .jpeg" class="form-control" />
-            </div>
-            <div class="form-group m-2">
-                <label asp-for="Time" class="control-label">Tempo</label>
-                <input asp-for="Time" class="form-control without_ampm" />
-                <span asp-validation-for="Time" class="text-danger"></span>
-            </div>
-            <div class="form-group m-2">
-                <label asp-for="Portions" class="control-label">Porções</label>
-                <input asp-for="Portions" class="form-control" />
-                <span asp-validation-for="Portions" class="text-danger"></span>
-            </div>
-            <div class="form-group m-2">
-                <label asp-for="Suggestions" class="control-label">Sugestões</label>
-                <input asp-for="Suggestions" class="form-control" />
-                <span asp-validation-for="Suggestions" class="text-danger"></span>
-            </div>
-            <div class="form-group m-2">
-                <label asp-for="Instagram" class="control-label"></label>
-                <input asp-for="Instagram" class="form-control" />
-                <span asp-validation-for="Instagram" class="text-danger"></span>
-            </div>
-            <div class="form-group m-2 ">
-                <label asp-for="Steps" class="control-label">Passos</label>
-                <input asp-for="Steps" class="form-control" />
-                <span asp-validation-for="Steps" class="text-danger"></span>
-            </div>
-            <div class="row m-2">
-                <div class="col-md-3">
-                    <label for="ingredientSelect">Ingredientes</label>
-                    <select class="form-control selectpicker" id="ingredientSelect" data-live-search="true">
-                        <option selected>Escolha um ingrediente</option>
-                        @foreach (var ingredient in ViewBag.ListIngredients)
-                        {
-                            <option data-tokens="@ingredient.Text" value="@ingredient.Value">@ingredient.Text</option>
-                        }
-                    </select>
-                </div>
-                <div class="col-md-9">
-                    <label>Ingredientes Selecionados</label>
-                    <div id="ListIngredientsSelect"></div>
-                </div>
-            </div>
-            <div class="form-group m-2">
-                <input type="submit" value="Criar" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+<div id="backcolor" class="m-4 p-4">
+
+	<h1 class="text-center text-black m-0">Criar Receita</h1>
+
+	<div class="justify-content-center">
+		<div class="row">
+			<div class="col">
+				<form asp-action="Create" enctype="multipart/form-data">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<div class="form-group m-2">
+						<label asp-for="Title" class="control-label">Título </label>
+						<input asp-for="Title" class="form-control" />
+						<span asp-validation-for="Title" class="text-danger"></span>
+					</div>
+					<div class="form-group m-2">
+						<label asp-for="Image" class="control-label">Imagem</label>
+						<input type="file" name="ImageRecipe" accept=".png, .jpg, .jpeg" class="form-control" />
+					</div>
+					<div class="form-group m-2">
+						<label asp-for="Time" class="control-label">Tempo</label>
+						<input asp-for="Time" class="form-control without_ampm" />
+						<span asp-validation-for="Time" class="text-danger"></span>
+					</div>
+					<div class="form-group m-2">
+						<label asp-for="Portions" class="control-label">Porções</label>
+						<input asp-for="Portions" class="form-control" />
+						<span asp-validation-for="Portions" class="text-danger"></span>
+					</div>
+					<div class="form-group m-2">
+						<label asp-for="Suggestions" class="control-label">Sugestões</label>
+						<input asp-for="Suggestions" class="form-control" />
+						<span asp-validation-for="Suggestions" class="text-danger"></span>
+					</div>
+					<div class="form-group m-2">
+						<label asp-for="Instagram" class="control-label"></label>
+						<input asp-for="Instagram" class="form-control" />
+						<span asp-validation-for="Instagram" class="text-danger"></span>
+					</div>
+					<div class="form-group m-2 ">
+						<label asp-for="Steps" class="control-label">Passos</label>
+						<input asp-for="Steps" class="form-control" />
+						<span asp-validation-for="Steps" class="text-danger"></span>
+					</div>
+					<div class="row m-2">
+						<div class="col-md-3">
+							<label for="ingredientSelect">Ingredientes</label>
+							<select class="form-control selectpicker" id="ingredientSelect" data-live-search="true" data-title="Escolha um ingrediente">
+								@foreach (var ingredient in ViewBag.ListIngredients)
+								{
+									<option data-tokens="@ingredient.Text" value="@ingredient.Value">@ingredient.Text</option>
+								}
+							</select>
+						</div>
+						<div class="col-md-9">
+							<label>Ingredientes Selecionados</label>
+							<div id="ListIngredientsSelect"></div>
+						</div>
+					</div>
+					<div class="form-group m-0">
+						<input type="submit" value="Criar" class="btn btn-primary" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div>
-    <a asp-action="Index">Voltar à Lista!</a>
+	<a asp-action="Index">Voltar à Lista!</a>
 </div>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
 
-    <script>
-        $(function () {
-            $('.selectpicker').selectpicker();
-        });
+	<script>
+		$(function () {
+			$('.selectpicker').selectpicker();
+		});
 
-        $(document).ready(function () {
-            $('#ingredientSelect').change(function () {
-                addIngredientToList();
-            });
-        });
+		$(document).ready(function () {
+			$('#ingredientSelect').change(function () {
+				addIngredientToList();
+			});
+		});
 
-        function addIngredientToList() {
-            let listEnd = $('#ListIngredientsSelect');
-            let ingredientFromSelect = $("#ingredientSelect option:selected");
-            let idSelect = new Date().getTime();
+		function addIngredientToList() {
+			let listEnd = $('#ListIngredientsSelect');
+			let ingredientFromSelect = $("#ingredientSelect option:selected");
+			let idSelect = new Date().getTime();
 
-            listEnd.append('<div id = "' + idSelect + '" class= "row mb-2"> <div class="col-4"> <input class="form-control" name="Quantities" type="text"/> </div> <div class="col-5"> <input type="hidden" name="Ingredients" value="' + ingredientFromSelect.val() + '"/> <input class="form-control" type="text" value="' + ingredientFromSelect.text() + '" readonly/> </div> <div class="col-3"> <button class="form-control" type="button" onclick="removeIngredientFromList(' + idSelect + ', \'' + ingredientFromSelect.val() + '\', \'' + ingredientFromSelect.text() + '\')">❌</button> </div> </div>');
+			if ($('#ListIngredientsSelect input[type="hidden"][value="' + ingredientFromSelect.val() + '"]').length > 0) {
+				alert(ingredientFromSelect.text() + ' já está na lista.');
+				return;
+			}
 
-            $("#ingredientSelect option:selected").remove();
-            $('.selectpicker').selectpicker('refresh');
-        }
+			listEnd.append('<div id="' + idSelect + '" class="row mb-2">' +
+				'<div class="col-4">' +
+				'<input class="form-control" name="Quantities" type="text"/>' +
+				'</div>' +
+				'<div class="col-5">' +
+				'<input type="hidden" name="Ingredients" value="' + ingredientFromSelect.val() + '"/>' +
+				'<input class="form-control" type="text" value="' + ingredientFromSelect.text() + '" readonly/>' +
+				'</div>' +
+				'<div class="col-3">' +
+				'<button class="form-control" type="button" onclick="removeIngredientFromList(' + idSelect + ', \'' + ingredientFromSelect.val() + '\', \'' + ingredientFromSelect.text() + '\')">❌</button>' +
+				'</div>' +
+				'</div>'
+			);
+		}
 
-        function removeIngredientFromList(id, idIngredient, ingredientText) {
-            $("#" + id).remove();
-            $("#ingredientSelect").append('<option value="' + idIngredient + '">' + ingredientText + '</option>');
-            $('.selectpicker').selectpicker('refresh');
-        }
-    </script>
+		function removeIngredientFromList(id) {
+			$("#" + id).remove();
+		}
+	</script>
 }
