@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace O_que_comeu_a_Ritinha.Models
 {
@@ -15,24 +14,34 @@ namespace O_que_comeu_a_Ritinha.Models
         [Key]
         public int Id { get; set; }
 
-        public string Title { get; set; }
+		[Display(Name = "Título")]
+		[Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
+		public string Title { get; set; }
 
-        public string Image { get; set; }
+		[Display(Name = "Imagem")]
+		public string Image { get; set; }
 
 		[Display(Name = "Tempo")]
+		[Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
 		[DataType(DataType.Time)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm}")]
         public TimeOnly Time { get; set; }
 
-        public int Portions { get; set; }
+		[Display(Name = "Porções")]
+		[Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
+		public int Portions { get; set; }
 
-        public string Suggestions { get; set; }
+		[Display(Name = "Sugestões")]
+		[Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
+		public string Suggestions { get; set; }
 
-        public string Instagram { get; set; }
+		public string Instagram { get; set; }
 
-        public string Steps { get; set; }
+		[Display(Name = "Passos")]
+		[Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
+		public string Steps { get; set; }
 
-        public ICollection<IngredientsRecipes> ListIngredients { get; set; }
+		public ICollection<IngredientsRecipes> ListIngredients { get; set; }
 
         public ICollection<RecipesTags> ListTags { get; set; }
     }

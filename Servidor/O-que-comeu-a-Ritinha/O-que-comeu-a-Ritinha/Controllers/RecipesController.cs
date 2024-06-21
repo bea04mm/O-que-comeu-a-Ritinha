@@ -50,10 +50,10 @@ namespace O_que_comeu_a_Ritinha.Controllers
         // GET: Recipes/Create
         public IActionResult Create()
         {
-            var listaIngredientes = _context.Ingredients;
-            ViewData["ListIngredients"] = new SelectList(listaIngredientes, "Id", "Ingredient");
+            ViewData["ListIngredients"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
+			ViewData["ListTags"] = new SelectList(_context.Tags, "Id", "Tag");
 
-            return View();
+			return View();
         }
 
         // POST: Recipes/Create
@@ -61,15 +61,15 @@ namespace O_que_comeu_a_Ritinha.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Title,Time,Portions,Suggestions,Instagram,Steps")] Recipes recipes, List<int> Ingredients, List<string> Quantities, IFormFile ImageRecipe)
+        public async Task<IActionResult> Create([Bind("Title,Time,Portions,Suggestions,Instagram,Steps")] Recipes recipes, List<int> Ingredients, List<string> Quantities, List<int> Tags, IFormFile ImageRecipe)
 		{
-            var listaIngredientes = _context.Ingredients;
-            ViewData["ListIngredients"] = new SelectList(listaIngredientes, "Id", "Ingredient");
+            ViewData["ListIngredients"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
+			ViewData["ListTags"] = new SelectList(_context.Tags, "Id", "Tag");
 
-            if (ModelState.IsValid)
+			if (ModelState.IsValid)
             {
 				string nomeImagem = "";
-				bool haImagem = false;
+                bool haImagem = false;
 
 				// há ficheiro?
 				if (ImageRecipe == null)
@@ -121,8 +121,23 @@ namespace O_que_comeu_a_Ritinha.Controllers
 					listIngredients.Add(ingredientsRecipes);
 				}
 
+				// adicionar as tags
+				List<RecipesTags> listTags = new List<RecipesTags>();
+				for (int i = 0; i < Tags.Count; i++)
+				{
+					RecipesTags recipesTags = new RecipesTags
+					{
+						TagFK = Tags[i],
+						RecipeFK = recipes.Id
+					};
+
+					listTags.Add(recipesTags);
+				}
+
 				recipes.ListIngredients = listIngredients;
-                _context.Update(recipes);
+				recipes.ListTags = listTags;
+
+				_context.Update(recipes);
 				await _context.SaveChangesAsync();
 
 				// guardar a imagem do logótipo
@@ -168,6 +183,8 @@ namespace O_que_comeu_a_Ritinha.Controllers
 			}
 
 			ViewData["ListIngredients"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
+			ViewData["ListTags"] = new SelectList(_context.Tags, "Id", "Tag");
+
 			return View(recipes);
 		}
 
@@ -176,7 +193,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Image,Time,Portions,Suggestions,Instagram,Steps")] Recipes recipes, List<int> Ingredients, List<string> Quantities)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Image,Time,Portions,Suggestions,Instagram,Steps")] Recipes recipes, List<int> Ingredients, List<string> Quantities, List<int> Tags)
         {
             if (id != recipes.Id)
             {
@@ -192,6 +209,9 @@ namespace O_que_comeu_a_Ritinha.Controllers
 
 					var existingIngredients = _context.IngredientsRecipes.Where(ir => ir.RecipeFK == id).ToList();
 					_context.IngredientsRecipes.RemoveRange(existingIngredients);
+					var existingTags = _context.RecipesTags.Where(ir => ir.RecipeFK == id).ToList();
+					_context.RecipesTags.RemoveRange(existingTags);
+
 					await _context.SaveChangesAsync();
 
 					List<IngredientsRecipes> listIngredients = new List<IngredientsRecipes>();
@@ -206,7 +226,22 @@ namespace O_que_comeu_a_Ritinha.Controllers
 
                         listIngredients.Add(ingredientsRecipes);
                     }
+
+					List<RecipesTags> listTags = new List<RecipesTags>();
+					for (int i = 0; i < Tags.Count; i++)
+					{
+						RecipesTags recipesTags = new RecipesTags
+						{
+							TagFK = Tags[i],
+							RecipeFK = recipes.Id,
+						};
+
+						listTags.Add(recipesTags);
+					}
+
 					recipes.ListIngredients = listIngredients;
+					recipes.ListTags = listTags;
+
 					_context.Update(recipes);
 					await _context.SaveChangesAsync();
 				}
@@ -223,7 +258,10 @@ namespace O_que_comeu_a_Ritinha.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
 			ViewData["ListIngredients"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
+			ViewData["ListTags"] = new SelectList(_context.Tags, "Id", "Tag");
+
 			return View(recipes);
         }
 

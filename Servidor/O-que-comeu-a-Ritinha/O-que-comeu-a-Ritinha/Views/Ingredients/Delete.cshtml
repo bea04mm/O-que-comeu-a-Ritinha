@@ -3,18 +3,19 @@
 @{
 	ViewData["Title"] = "Apagar Ingrediente";
 }
-<div class="mt-5 pt-5 mb-5 pb-5">
-	<div id="backcolor" class="m-5 p-4">
+
+<div class="mt-5 mb-5 pt-4 pb-4">
+	<div id="backcolor" class="mt-5 mb-5 pt-5 pb-5">
 
 		<h1>Apagar</h1>
 
 		<h3>Tens a certeza que queres apagar este ingrediente?</h3>
-		<h3 class="text-black bg-white m-3 mb-0">@Html.DisplayFor(model => model.Ingredient)</h3>
+		<h3 class="text-black bg-white m-3 p-2 rounded">@Html.DisplayFor(model => model.Ingredient)</h3>
 
 		<form asp-action="Delete">
 			<input type="hidden" asp-for="Id" />
-			<input type="submit" value="Apagar" class="btn btn-danger m-3 mb-0" />
-			<a asp-action="Index" class="btn btn-info m-3 mb-0">Voltar à lista!</a>
+			<input type="submit" value="Apagar" class="btn btn-danger m-2" />
+			<a asp-action="Index" class="btn btn-info m-2">Voltar à lista!</a>
 		</form>
 	</div>
 </div>

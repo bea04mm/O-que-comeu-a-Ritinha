@@ -12,7 +12,9 @@ namespace O_que_comeu_a_Ritinha.Models
         [Key]
         public int Id { get; set; }
 
-        public string Tag { get; set; }
+		[Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
+
+		public string Tag { get; set; }
 
         public ICollection<RecipesTags> ListRecipesT { get; set; }
     }
