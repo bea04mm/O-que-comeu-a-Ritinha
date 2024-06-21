@@ -8,6 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using O_que_comeu_a_Ritinha.Data;
 using O_que_comeu_a_Ritinha.Migrations;
 using O_que_comeu_a_Ritinha.Models;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.ImageSharp.Formats.Jpeg;
+using System.IO;
 
 namespace O_que_comeu_a_Ritinha.Controllers
 {
@@ -68,7 +72,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
 
 			if (ModelState.IsValid)
             {
-				string nomeImagem = "";
+				string imageName = "";
                 bool haImagem = false;
 
 				// há ficheiro?
@@ -95,11 +99,11 @@ namespace O_que_comeu_a_Ritinha.Controllers
 						haImagem = true;
 						// gera nome imagem
 						Guid g = Guid.NewGuid();
-						nomeImagem = g.ToString();
-						string extensaoImagem = Path.GetExtension(ImageRecipe.FileName).ToLowerInvariant();
-						nomeImagem += extensaoImagem;
+						imageName = g.ToString();
+						string exeImage = Path.GetExtension(ImageRecipe.FileName).ToLowerInvariant();
+						imageName += exeImage;
 						// guardar nome do ficheiro na BD
-						recipes.Image = nomeImagem;
+						recipes.Image = imageName;
 
 					}
 				}
@@ -134,35 +138,43 @@ namespace O_que_comeu_a_Ritinha.Controllers
 					listTags.Add(recipesTags);
 				}
 
-				recipes.ListIngredients = listIngredients;
+                // atualiza a receita com os ingredientes e tags associados
+                recipes.ListIngredients = listIngredients;
 				recipes.ListTags = listTags;
 
 				_context.Update(recipes);
 				await _context.SaveChangesAsync();
 
-				// guardar a imagem do logótipo
-				if (haImagem)
-				{
-					// encolher a imagem ao tamanho certo --> fazer por mim (NuGet resize image)
+				// guardar a imagem da receita
+                if (haImagem)
+                {
+                    // encolher a imagem ao tamanho certo (api ImageSharp)
+                    using (var image = Image.Load(ImageRecipe.OpenReadStream()))
+                    {
+                        // encolhe para um quadrado
+                        image.Mutate(x => x.Resize(200, 200));
+                        // determinar o local de armazenamento da imagem
+                        string imagePath = _webHostEnvironment.WebRootPath;
+                        // adicionar à raiz da parte web, o nome da pasta onde queremos guardar a imagem
+                        imagePath = Path.Combine(imagePath, "images");
+                        // será que o local existe?
+                        if (!Directory.Exists(imagePath))
+                        {
+                            Directory.CreateDirectory(imagePath);
+                        }
+                        // atribuir ao caminho o nome da imagem
+                        imagePath = Path.Combine(imagePath, imageName);
+                        // guardar imagem no Disco Rígido
+                        using (var stream = new FileStream(imagePath, FileMode.Create))
+                        {
+                            image.SaveAsJpeg(stream, new JpegEncoder { Quality = 75 });
+                            await ImageRecipe.CopyToAsync(stream);
+                        }
+                    }
+                }
 
-					// determinar o local de armazenamento da imagem
-					string localizacaoImagem = _webHostEnvironment.WebRootPath;
-					// adicionar à raiz da parte web, o nome da pasta onde queremos guardar a imagem
-					localizacaoImagem = Path.Combine(localizacaoImagem, "images");
-					// será que o local existe?
-					if (!Directory.Exists(localizacaoImagem))
-					{
-						Directory.CreateDirectory(localizacaoImagem);
-					}
-					// atribuir ao caminho o nome da imagem
-					localizacaoImagem = Path.Combine(localizacaoImagem, nomeImagem);
-					// guardar imagem no Disco Rígido
-					using var stream = new FileStream(localizacaoImagem, FileMode.Create);
-					await ImageRecipe.CopyToAsync(stream);
-				}
-
-				// redireciona o utilizador para a página de 'início' das Recipes
-				return RedirectToAction(nameof(Index));
+                // redireciona o utilizador para a página de 'início' das Recipes
+                return RedirectToAction(nameof(Index));
             }
             return View(recipes);
         }
@@ -175,9 +187,12 @@ namespace O_que_comeu_a_Ritinha.Controllers
                 return NotFound();
             }
 
-			var recipes = await _context.Recipes.Include(r => r.ListIngredients).ThenInclude(ir => ir.Ingredient).FirstOrDefaultAsync(m => m.Id == id);
+            var recipes = await _context.Recipes
+                    .Include(r => r.ListIngredients).ThenInclude(ir => ir.Ingredient)
+                    .Include(r => r.ListTags).ThenInclude(rt => rt.Tag)
+                    .FirstOrDefaultAsync(m => m.Id == id);
 
-			if (recipes == null)
+            if (recipes == null)
 			{
 				return NotFound();
 			}
@@ -209,6 +224,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
 
 					var existingIngredients = _context.IngredientsRecipes.Where(ir => ir.RecipeFK == id).ToList();
 					_context.IngredientsRecipes.RemoveRange(existingIngredients);
+
 					var existingTags = _context.RecipesTags.Where(ir => ir.RecipeFK == id).ToList();
 					_context.RecipesTags.RemoveRange(existingTags);
 
@@ -273,8 +289,8 @@ namespace O_que_comeu_a_Ritinha.Controllers
                 return NotFound();
             }
 
-            var recipes = await _context.Recipes
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var recipes = await _context.Recipes.FirstOrDefaultAsync(m => m.Id == id);
+
             if (recipes == null)
             {
                 return NotFound();
@@ -289,6 +305,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var recipes = await _context.Recipes.FindAsync(id);
+
             if (recipes != null)
             {
                 _context.Recipes.Remove(recipes);

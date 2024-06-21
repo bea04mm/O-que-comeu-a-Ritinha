@@ -44,7 +44,7 @@ function addIngredientToList() {
 function addTagToList() {
     let listEnd = $('#ListTagsSelect');
     let tagFromSelect = $("#tagSelect option:selected");
-    
+
     if ($('#ListTagsSelect input[type="hidden"][value="' + tagFromSelect.val() + '"]').length > 0) {
         alert(tagFromSelect.text() + ' já está na lista de tags.');
         $('#ingredientSelect').selectpicker('deselectAll');
@@ -70,3 +70,9 @@ function addTagToList() {
 function removeFromList(id) {
     $("#" + id).remove();
 }
+
+ClassicEditor
+    .create(document.querySelector('#stepsEditor'))
+    .catch(error => {
+        console.error(error);
+    });

@@ -233,6 +233,7 @@ namespace O_que_comeu_a_Ritinha.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Ingredient")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -284,15 +285,18 @@ namespace O_que_comeu_a_Ritinha.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Steps")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Suggestions")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<TimeOnly>("Time")
+                    b.Property<TimeSpan>("Time")
                         .HasColumnType("time");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -332,6 +336,7 @@ namespace O_que_comeu_a_Ritinha.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Tag")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

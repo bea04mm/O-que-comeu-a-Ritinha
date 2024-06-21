@@ -24,8 +24,7 @@ namespace O_que_comeu_a_Ritinha.Models
 		[Display(Name = "Tempo")]
 		[Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
 		[DataType(DataType.Time)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm}")]
-        public TimeOnly Time { get; set; }
+        public TimeSpan Time { get; set; }
 
 		[Display(Name = "Porções")]
 		[Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]

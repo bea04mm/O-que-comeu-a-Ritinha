@@ -69,6 +69,7 @@ C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\obj\Release\net8.0\PubTmp\Out\NuGet.ProjectModel.dll
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\obj\Release\net8.0\PubTmp\Out\NuGet.Protocol.dll
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\obj\Release\net8.0\PubTmp\Out\NuGet.Versioning.dll
+C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\obj\Release\net8.0\PubTmp\Out\SixLabors.ImageSharp.dll
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\obj\Release\net8.0\PubTmp\Out\System.CodeDom.dll
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\obj\Release\net8.0\PubTmp\Out\System.Composition.AttributedModel.dll
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\obj\Release\net8.0\PubTmp\Out\System.Composition.Convention.dll

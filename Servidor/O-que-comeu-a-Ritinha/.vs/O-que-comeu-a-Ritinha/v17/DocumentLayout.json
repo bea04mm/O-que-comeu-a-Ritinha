@@ -3,28 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|c:\\users\\utilizador\\documents\\github\\o-que-comeu-a-ritinha\\servidor\\o-que-comeu-a-ritinha\\o-que-comeu-a-ritinha\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|solutionrelative:o-que-comeu-a-ritinha\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|c:\\users\\utilizador\\documents\\github\\o-que-comeu-a-ritinha\\servidor\\o-que-comeu-a-ritinha\\o-que-comeu-a-ritinha\\views\\recipes\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|solutionrelative:o-que-comeu-a-ritinha\\views\\recipes\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|c:\\users\\utilizador\\documents\\github\\o-que-comeu-a-ritinha\\servidor\\o-que-comeu-a-ritinha\\o-que-comeu-a-ritinha\\views\\recipes\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|solutionrelative:o-que-comeu-a-ritinha\\views\\recipes\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|c:\\users\\utilizador\\documents\\github\\o-que-comeu-a-ritinha\\servidor\\o-que-comeu-a-ritinha\\o-que-comeu-a-ritinha\\controllers\\api\\apicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|solutionrelative:o-que-comeu-a-ritinha\\controllers\\api\\apicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|c:\\users\\utilizador\\documents\\github\\o-que-comeu-a-ritinha\\servidor\\o-que-comeu-a-ritinha\\o-que-comeu-a-ritinha\\controllers\\recipescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|solutionrelative:o-que-comeu-a-ritinha\\controllers\\recipescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|c:\\users\\utilizador\\documents\\github\\o-que-comeu-a-ritinha\\servidor\\o-que-comeu-a-ritinha\\o-que-comeu-a-ritinha\\views\\recipes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|solutionrelative:o-que-comeu-a-ritinha\\views\\recipes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|c:\\users\\utilizador\\documents\\github\\o-que-comeu-a-ritinha\\servidor\\o-que-comeu-a-ritinha\\o-que-comeu-a-ritinha\\views\\recipes\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|solutionrelative:o-que-comeu-a-ritinha\\views\\recipes\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|c:\\users\\utilizador\\documents\\github\\o-que-comeu-a-ritinha\\servidor\\o-que-comeu-a-ritinha\\o-que-comeu-a-ritinha\\models\\recipes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|solutionrelative:o-que-comeu-a-ritinha\\models\\recipes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|c:\\users\\utilizador\\documents\\github\\o-que-comeu-a-ritinha\\servidor\\o-que-comeu-a-ritinha\\o-que-comeu-a-ritinha\\views\\recipes\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|solutionrelative:o-que-comeu-a-ritinha\\views\\recipes\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|c:\\users\\utilizador\\documents\\github\\o-que-comeu-a-ritinha\\servidor\\o-que-comeu-a-ritinha\\o-que-comeu-a-ritinha\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|solutionrelative:o-que-comeu-a-ritinha\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|c:\\users\\utilizador\\documents\\github\\o-que-comeu-a-ritinha\\servidor\\o-que-comeu-a-ritinha\\o-que-comeu-a-ritinha\\controllers\\api\\apicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69DC6E6-BD05-4660-B65D-03665E0726DB}|O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha.csproj|solutionrelative:o-que-comeu-a-ritinha\\controllers\\api\\apicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,11 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 324,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "apiController.cs",
               "DocumentMoniker": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\Controllers\\API\\apiController.cs",
               "RelativeDocumentMoniker": "O-que-comeu-a-Ritinha\\Controllers\\API\\apiController.cs",
@@ -52,26 +56,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "site.js",
               "DocumentMoniker": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\js\\site.js",
               "RelativeDocumentMoniker": "O-que-comeu-a-Ritinha\\wwwroot\\js\\site.js",
               "ToolTip": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\js\\site.js",
               "RelativeToolTip": "O-que-comeu-a-Ritinha\\wwwroot\\js\\site.js",
-              "ViewState": "AQIAABsAAAAAAAAAAAAAAEEAAAAAAAAA",
+              "ViewState": "AQIAADsAAAAAAAAAAAAAAE0AAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-06-21T09:13:08.728Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\Views\\Recipes\\Index.cshtml",
               "RelativeDocumentMoniker": "O-que-comeu-a-Ritinha\\Views\\Recipes\\Index.cshtml",
               "ToolTip": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\Views\\Recipes\\Index.cshtml",
               "RelativeToolTip": "O-que-comeu-a-Ritinha\\Views\\Recipes\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAtAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAB8AAABYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-21T08:36:34.555Z",
               "EditorCaption": ""
@@ -92,20 +96,20 @@
               "RelativeDocumentMoniker": "O-que-comeu-a-Ritinha\\Views\\Recipes\\Create.cshtml",
               "ToolTip": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\Views\\Recipes\\Create.cshtml",
               "RelativeToolTip": "O-que-comeu-a-Ritinha\\Views\\Recipes\\Create.cshtml",
-              "ViewState": "AQIAAEAAAAAAAAAAAAAowGIAAAABAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACAAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-05T17:01:50.277Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "RecipesController.cs",
               "DocumentMoniker": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\Controllers\\RecipesController.cs",
               "RelativeDocumentMoniker": "O-que-comeu-a-Ritinha\\Controllers\\RecipesController.cs",
               "ToolTip": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\Controllers\\RecipesController.cs",
               "RelativeToolTip": "O-que-comeu-a-Ritinha\\Controllers\\RecipesController.cs",
-              "ViewState": "AQIAAHQAAAAAAAAAAAAawIUAAAARAAAA",
+              "ViewState": "AQIAAIoAAAAAAAAAAAAYwKAAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-18T17:37:42.283Z",
               "EditorCaption": ""
@@ -118,13 +122,26 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "Recipes.cs",
+              "DocumentMoniker": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\Models\\Recipes.cs",
+              "RelativeDocumentMoniker": "O-que-comeu-a-Ritinha\\Models\\Recipes.cs",
+              "ToolTip": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\Models\\Recipes.cs",
+              "RelativeToolTip": "O-que-comeu-a-Ritinha\\Models\\Recipes.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAA2wBoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T10:51:28.371Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\Views\\Recipes\\Edit.cshtml",
               "RelativeDocumentMoniker": "O-que-comeu-a-Ritinha\\Views\\Recipes\\Edit.cshtml",
               "ToolTip": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\Views\\Recipes\\Edit.cshtml",
               "RelativeToolTip": "O-que-comeu-a-Ritinha\\Views\\Recipes\\Edit.cshtml",
-              "ViewState": "AQIAAEkAAAAAAAAAAAAowFYAAAALAAAA",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAQwCwAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-21T08:57:38.967Z",
               "EditorCaption": ""

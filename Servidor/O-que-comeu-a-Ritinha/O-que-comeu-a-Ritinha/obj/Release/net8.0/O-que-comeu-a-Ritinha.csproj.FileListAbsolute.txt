@@ -261,3 +261,4 @@ C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\obj\Release\net8.0\O-que-comeu-a-Ritinha.pdb
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\obj\Release\net8.0\O-que-comeu-a-Ritinha.genruntimeconfig.cache
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\obj\Release\net8.0\ref\O-que-comeu-a-Ritinha.dll
+C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Release\net8.0\SixLabors.ImageSharp.dll
