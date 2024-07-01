@@ -1,0 +1,101 @@
+﻿@model O_que_comeu_a_Ritinha.Models.Recipes
+
+@{
+	ViewData["Title"] = "Criar Receita";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" rel="stylesheet" />
+
+<div id="backcolor" class="mt-4 mb-4 p-4">
+
+	<h1 class="text-center text-black m-0">Criar Receita</h1>
+
+	<div class="justify-content-center">
+		<div class="row">
+			<div class="col">
+				<form asp-action="Create" enctype="multipart/form-data">
+					<div class="form-group m-3">
+						<label asp-for="Title" class="control-label"></label>
+						<input asp-for="Title" class="form-control text-center mb-2" />
+						<span asp-validation-for="Title" class="text-danger"></span>
+					</div>
+					<div class="form-group m-3">
+						<label asp-for="Image" class="control-label"></label>
+						<input type="file" name="ImageRecipe" accept=".png, .jpg, .jpeg" class="form-control mb-2" />
+						<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					</div>
+					<div class="col-md-6">
+						<label asp-for="Time" class="control-label"></label>
+						<input asp-for="Time" class="form-control text-center mb-2" />
+						<span asp-validation-for="Time" class="text-danger"></span>
+					</div>
+					<div class="col-md-6">
+						<label asp-for="Portions" class="control-label"></label>
+						<input asp-for="Portions" class="form-control text-center mb-2" />
+						<span asp-validation-for="Portions" class="text-danger"></span>
+					</div>
+					<div class="form-group m-3">
+						<label asp-for="Suggestions" class="control-label"></label>
+						<input asp-for="Suggestions" class="form-control text-center mb-2" />
+						<span asp-validation-for="Suggestions" class="text-danger"></span>
+					</div>
+					<div class="form-group m-3">
+						<label asp-for="Instagram" class="control-label"></label>
+						<input asp-for="Instagram" class="form-control text-center mb-2" />
+						<span asp-validation-for="Instagram" class="text-danger"></span>
+					</div>
+					<div class="form-group m-3">
+						<label asp-for="Steps" class="control-label"></label>
+						<textarea asp-for="Steps" class="form-control mb-2" id="stepsEditor"></textarea>
+						<span asp-validation-for="Steps" class="text-danger"></span>
+					</div>
+					<div class="row m-3">
+						<div class="col-md-3">
+							<label for="ingredientSelect">Ingredientes</label>
+							<select class="form-control selectpicker" id="ingredientSelect" data-live-search="true" data-title="Escolha um ingrediente">
+								@foreach (var ingredient in ViewBag.ListIngredients)
+								{
+									<option data-tokens="@ingredient.Text" value="@ingredient.Value">@ingredient.Text</option>
+								}
+							</select>
+						</div>
+						<div class="col-md-9">
+							<label>Ingredientes Selecionados</label>
+							<div id="ListIngredientsSelect"></div>
+						</div>
+					</div>
+					<div class="row m-3">
+						<div class="col-md-3">
+							<label for="tagSelect">Tags</label>
+							<select class="form-control selectpicker" id="tagSelect" data-live-search="true" data-title="Escolha uma tag">
+								@foreach (var tag in ViewBag.ListTags)
+								{
+									<option data-tokens="@tag.Text" value="@tag.Value">@tag.Text</option>
+								}
+							</select>
+						</div>
+						<div class="col-md-9">
+							<label>Tags Selecionadas</label>
+							<div id="ListTagsSelect"></div>
+						</div>
+					</div>
+					<div class="form-group m-0">
+						<input type="submit" value="Criar" class="btn btn-light m-2" />
+						<a asp-action="Index" class="btn btn-info m-2">Voltar à lista!</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+	<script src="~/js/site.js"></script>
+}

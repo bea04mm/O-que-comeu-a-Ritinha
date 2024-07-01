@@ -1,0 +1,44 @@
+﻿@model IEnumerable<O_que_comeu_a_Ritinha.Models.Recipes>
+
+@{
+	ViewData["Title"] = "Receitas";
+}
+
+<div id="backcolor" class="mt-4 mb-4 pt-4 pb-4">
+
+	<h1 class="text-center text-black m-0">Lista de Receitas</h1>
+
+	<p class="text-center m-4">
+		<a asp-action="Create" class="btn btn-light">Criar nova Receita!</a>
+	</p>
+
+	<div class="justify-content-center">
+		<table class="table table-custom text-center m-0">
+			<thead>
+				<tr>
+					<th>Título</th>
+					<th>Imagem</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td>
+							@Html.DisplayFor(modelItem => item.Title)
+						</td>
+						<td>
+							<img src="~/images/@item.Image" alt="Receita @item.Title" title="@item.Title" class="rounded" />
+						</td>
+						<td>
+							<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-secondary btn-sm btn-block m-1">Editar</a>
+							<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm btn-block m-1">Apagar</a>
+							<a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info btn-sm btn-block m-1">Detalhes</a>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>
