@@ -1,60 +1,44 @@
 ﻿@model O_que_comeu_a_Ritinha.Models.Recipes
 
 @{
-    ViewData["Title"] = "Details";
+	ViewData["Title"] = "Detalhes Receita";
 }
 
-<h1>Details</h1>
+<div id="backcolor" class="mt-4 mb-4 pt-4 pb-4">
 
-<div>
-    <h4>Recipes</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Image)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Time)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Time)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Portions)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Portions)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Suggestions)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Suggestions)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Instagram)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Instagram)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Steps)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Steps)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+	<div class="justify-content-center bg-white m-4 rounded">
+		<h1 class="text-black m-0">@Html.DisplayFor(model => model.Title)</h1>
+
+		<img src="~/images/@Model.Image" alt="Receita @Model.Title" title="@Model.Title" class="w-25 rounded" />
+
+		<p>@Html.DisplayNameFor(model => model.Time): @Html.DisplayFor(model => model.Time)</p>
+
+		<p>@Html.DisplayNameFor(model => model.Portions): @Html.DisplayFor(model => model.Portions)</p>
+
+		<p>@Html.DisplayNameFor(model => model.Suggestions): @Html.DisplayFor(model => model.Suggestions)</p>
+
+		<iframe width="320" height="440" src="@Html.DisplayFor(model => model.Instagram)" frameborder="0"></iframe>
+		
+		<p>@Html.DisplayNameFor(model => model.Steps)</p>
+		<div>@Html.Raw(Model.Steps)</div>
+
+		<p>Ingredientes</p>
+		<ul>
+			@foreach (var ingredient in Model.ListIngredients)
+			{
+				<li>@ingredient.Quantity de @ingredient.Ingredient.Ingredient</li>
+			}
+		</ul>
+
+		<p>Tags</p>
+		<ul>
+			@foreach (var tag in Model.ListTags)
+			{
+				<li>@tag.Tag.Tag</li>
+			}
+		</ul>
+
+	</div>
+	<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-light m-2">Editar</a>
+	<a asp-action="Index" class="btn btn-info m-2">Voltar à lista!</a>
 </div>

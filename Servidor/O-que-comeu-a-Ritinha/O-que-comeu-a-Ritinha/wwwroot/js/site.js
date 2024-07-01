@@ -76,3 +76,11 @@ ClassicEditor
     .catch(error => {
         console.error(error);
     });
+
+function removeImage() {
+    // Oculta div da imagem atual
+    $('#imageCurrent').hide();
+
+    // Mostra o input do upload da imagem
+    $('input[type=file]').show();
+}

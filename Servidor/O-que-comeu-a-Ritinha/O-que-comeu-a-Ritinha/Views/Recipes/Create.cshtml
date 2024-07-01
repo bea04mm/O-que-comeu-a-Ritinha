@@ -28,12 +28,12 @@
 						<input type="file" name="ImageRecipe" accept=".png, .jpg, .jpeg" class="form-control mb-2" />
 						<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 					</div>
-					<div class="form-group m-3">
+					<div class="col-md-6">
 						<label asp-for="Time" class="control-label"></label>
 						<input asp-for="Time" class="form-control text-center mb-2" />
 						<span asp-validation-for="Time" class="text-danger"></span>
 					</div>
-					<div class="form-group m-3">
+					<div class="col-md-6">
 						<label asp-for="Portions" class="control-label"></label>
 						<input asp-for="Portions" class="form-control text-center mb-2" />
 						<span asp-validation-for="Portions" class="text-danger"></span>
@@ -94,6 +94,8 @@
 </div>
 
 @section Scripts {
-	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
 	<script src="~/js/site.js"></script>
 }
