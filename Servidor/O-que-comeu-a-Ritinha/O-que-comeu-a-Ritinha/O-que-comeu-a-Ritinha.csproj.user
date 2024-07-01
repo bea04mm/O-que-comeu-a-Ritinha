@@ -8,10 +8,12 @@
     <WebStackScaffolding_IsLayoutPageSelected>True</WebStackScaffolding_IsLayoutPageSelected>
     <WebStackScaffolding_IsPartialViewSelected>False</WebStackScaffolding_IsPartialViewSelected>
     <WebStackScaffolding_IsReferencingScriptLibrariesSelected>True</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
-    <WebStackScaffolding_LayoutPageFile />
     <WebStackScaffolding_DbContextTypeFullName>O_que_comeu_a_Ritinha.Data.ApplicationDbContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
     <NameOfLastUsedPublishProfile>C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\Properties\PublishProfiles\O-que-comeu-a-Ritinha-Server - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <_SelectedScaffolderID>IdentityScaffolder</_SelectedScaffolderID>
+    <_SelectedScaffolderCategoryPath>root/Identity</_SelectedScaffolderCategoryPath>
+    <WebStackScaffolding_ViewDialogWidth>800</WebStackScaffolding_ViewDialogWidth>
   </PropertyGroup>
 </Project>
