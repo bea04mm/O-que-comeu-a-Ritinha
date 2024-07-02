@@ -23,8 +23,7 @@ namespace O_que_comeu_a_Ritinha.Models
         /// </summary>
         [Display(Name = "Data de Nascimento")]
         [DataType(DataType.Date)] // informa a View de como deve tratar este atributo
-        [DisplayFormat(ApplyFormatInEditMode = true,
-                       DataFormatString = "{0:dd-MM-yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
         [Required(ErrorMessage = "A {0} é de preenchimento obrigatório")]
         public DateOnly Birthday { get; set; }
 
