@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("O-que-comeu-a-Ritinha")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8af79270b494b65d26136b0fee3a311e1ba87eb6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e103934c81cd80ccaa475996dc3db1571aef0980")]
 [assembly: System.Reflection.AssemblyProductAttribute("O-que-comeu-a-Ritinha")]
 [assembly: System.Reflection.AssemblyTitleAttribute("O-que-comeu-a-Ritinha")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

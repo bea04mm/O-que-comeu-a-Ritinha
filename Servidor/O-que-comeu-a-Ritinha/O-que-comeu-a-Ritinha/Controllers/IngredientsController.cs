@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace O_que_comeu_a_Ritinha.Controllers
 {
-    /* apenas as pessoas autenticadas E que pertençam ao Role de ADMIN podem entrar */
+    /* apenas as pessoas autenticadas e que pertençam ao Role de ADMIN podem entrar */
     [Authorize(Roles = "Admin")]
     public class IngredientsController : Controller
     {

@@ -152,6 +152,11 @@ namespace O_que_comeu_a_Ritinha.Areas.Identity.Pages.Account
                     _logger.LogInformation("User created a new account with password.");
 
                     // **********************************************
+                    // Vamos atribuir à pessoa que se registou o Role Utilizador
+                    await _userManager.AddToRoleAsync(user, "Utilizador");
+                    // **********************************************
+
+                    // **********************************************
                     // vamos escrever na BD os dados do Utilizador. na prática, quero guardar na BD os dados do atributo 'input.Utilizador'
                     // **********************************************
 

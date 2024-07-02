@@ -1,44 +1,33 @@
 ﻿@model IEnumerable<O_que_comeu_a_Ritinha.Models.Recipes>
 
 @{
-	ViewData["Title"] = "Receitas";
+    ViewData["Title"] = "Receitas";
 }
 
-<div id="backcolor" class="mt-4 mb-4 pt-4 pb-4">
+<div id="backcolor" class="p-4">
+    @if (User.IsInRole("Admin"))
+    {
+        <p class="text-center m-4">
+            <a asp-action="Create" class="btn btn-light bg-white">Criar nova Receita!</a>
+        </p>
+    }
 
-	<h1 class="text-center text-black m-0">Lista de Receitas</h1>
-
-	<p class="text-center m-4">
-		<a asp-action="Create" class="btn btn-light">Criar nova Receita!</a>
-	</p>
-
-	<div class="justify-content-center">
-		<table class="table table-custom text-center m-0">
-			<thead>
-				<tr>
-					<th>Título</th>
-					<th>Imagem</th>
-					<th>Ações</th>
-				</tr>
-			</thead>
-			<tbody>
-				@foreach (var item in Model)
-				{
-					<tr>
-						<td>
-							@Html.DisplayFor(modelItem => item.Title)
-						</td>
-						<td>
-							<img src="~/images/@item.Image" alt="Receita @item.Title" title="@item.Title" class="rounded" />
-						</td>
-						<td>
-							<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-secondary btn-sm btn-block m-1">Editar</a>
-							<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm btn-block m-1">Apagar</a>
-							<a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info btn-sm btn-block m-1">Detalhes</a>
-						</td>
-					</tr>
-				}
-			</tbody>
-		</table>
-	</div>
+    <div class="row justify-content-center">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 mb-4 d-flex justify-content-center">
+                <a asp-action="Details" asp-route-id="@item.Id" class="text-black text-decoration-none">
+                    <div class="text-center bg-white rounded p-3 h-100">
+                        <img src="~/images/@item.Image" alt="Receita @item.Title" title="@item.Title" class="rounded img-fluid" />
+                        <p class="m-2">@Html.DisplayFor(modelItem => item.Title)</p>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-info btn-sm btn-block m-1">Editar</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm btn-block m-1">Apagar</a>
+                        }
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
 </div>

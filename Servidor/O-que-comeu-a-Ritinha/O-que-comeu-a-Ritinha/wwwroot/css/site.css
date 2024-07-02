@@ -1,5 +1,28 @@
 html {
   font-size: 14px;
+  position: relative;
+  min-height: 100%;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (min-width: 768px) {
@@ -12,11 +35,6 @@ html {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
     text-align: -webkit-center;
 }
@@ -26,9 +44,22 @@ header {
     border-radius: 0px 0px 10px 10px;
 }
 
+header, .p-5, footer {
+    width: 100%;
+}
+
+.p-5 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+}
+
 footer {
     background-color: #f0aec0;
     border-radius: 10px 10px 0px 0px;
+    padding: 10px;
 }
 
 .without_ampm::-webkit-datetime-edit-ampm-field {
@@ -46,7 +77,7 @@ input[type=time]::-webkit-clear-button {
 
 #backcolor {
     background-color: #f0aec0;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .table-custom {

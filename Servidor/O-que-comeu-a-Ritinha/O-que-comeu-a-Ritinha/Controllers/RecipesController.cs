@@ -12,6 +12,7 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Formats.Jpeg;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace O_que_comeu_a_Ritinha.Controllers
 {
@@ -53,7 +54,8 @@ namespace O_que_comeu_a_Ritinha.Controllers
 
             return View(recipes);
         }
-
+        
+        [Authorize(Roles = "Admin")]
         // GET: Recipes/Create
         public IActionResult Create()
         {
@@ -182,6 +184,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
             return View(recipes);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Recipes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -334,6 +337,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
             return View(recipes);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Recipes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
