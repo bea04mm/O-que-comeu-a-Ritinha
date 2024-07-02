@@ -4,7 +4,7 @@
 	ViewData["Title"] = "Detalhes Receita";
 }
 
-<div id="backcolor" class="mt-4 mb-4 pt-4 pb-4">
+<div id="backcolor">
 
 	<div class="justify-content-center bg-white m-4 rounded">
 		<h1 class="text-black m-0">@Html.DisplayFor(model => model.Title)</h1>
@@ -39,6 +39,9 @@
 		</ul>
 
 	</div>
-	<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-light m-2">Editar</a>
+	 @if (User.IsInRole("Admin"))
+     {
+		<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-light m-2">Editar</a>
+	 }
 	<a asp-action="Index" class="btn btn-info m-2">Voltar à lista!</a>
 </div>

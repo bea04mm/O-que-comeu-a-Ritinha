@@ -12,6 +12,8 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Formats.Jpeg;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
+using X.PagedList;
 
 namespace O_que_comeu_a_Ritinha.Controllers
 {
@@ -28,9 +30,16 @@ namespace O_que_comeu_a_Ritinha.Controllers
         }
 
         // GET: Recipes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page)
         {
-            return View(await _context.Recipes.ToListAsync());
+            int pageNumber = page ?? 1; // Se nenhum número de página for fornecido, padrão para a página 1
+            int pageSize = 8; // Número de receitas por página
+
+            var recipes = await _context.Recipes
+                .OrderByDescending(r => r.Id)
+                .ToPagedListAsync(pageNumber, pageSize); // Usando ToPagedListAsync para obter a página especificada
+
+            return View(recipes);
         }
 
         // GET: Recipes/Details/5
@@ -54,6 +63,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
             return View(recipes);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Recipes/Create
         public IActionResult Create()
         {
@@ -182,6 +192,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
             return View(recipes);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Recipes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -334,6 +345,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
             return View(recipes);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Recipes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

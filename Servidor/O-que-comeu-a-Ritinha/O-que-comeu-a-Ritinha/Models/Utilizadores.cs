@@ -7,7 +7,12 @@ namespace O_que_comeu_a_Ritinha.Models
     /// </summary>
     public class Utilizadores
     {
-        [Key] // PK
+		public Utilizadores()
+		{
+			ListRecipesU = new HashSet<RecipesUtilizadores>();
+		}
+
+		[Key] // PK
         public int Id { get; set; }
 
         /// <summary>
@@ -44,5 +49,7 @@ namespace O_que_comeu_a_Ritinha.Models
         /// </summary>
         [StringLength(40)]
         public string UserId { get; set; }
-    }
+
+		public ICollection<RecipesUtilizadores> ListRecipesU { get; set; }
+	}
 }

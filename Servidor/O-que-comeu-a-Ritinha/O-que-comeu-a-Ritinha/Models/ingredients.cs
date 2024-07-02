@@ -17,6 +17,5 @@ namespace O_que_comeu_a_Ritinha.Models
 		public string Ingredient { get; set; }
 
         public ICollection<IngredientsRecipes> ListRecipesI { get; set; }
-
     }
 }

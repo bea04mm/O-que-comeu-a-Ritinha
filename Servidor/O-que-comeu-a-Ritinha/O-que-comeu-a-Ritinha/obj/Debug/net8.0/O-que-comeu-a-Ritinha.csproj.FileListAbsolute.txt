@@ -287,3 +287,5 @@ C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\X.PagedList.dll
+C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll
