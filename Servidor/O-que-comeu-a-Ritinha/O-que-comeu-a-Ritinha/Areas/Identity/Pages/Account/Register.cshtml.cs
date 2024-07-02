@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using O_que_comeu_a_Ritinha.Data;
 using O_que_comeu_a_Ritinha.Models;
 
 namespace O_que_comeu_a_Ritinha.Areas.Identity.Pages.Account
@@ -31,12 +32,19 @@ namespace O_que_comeu_a_Ritinha.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
+        /// <summary>
+        /// referência à BD do projeto
+        /// </summary>
+        private readonly ApplicationDbContext _context;
+
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             IUserStore<IdentityUser> userStore,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            ApplicationDbContext context
+            )
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -44,6 +52,7 @@ namespace O_que_comeu_a_Ritinha.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _context = context;
         }
 
         /// <summary>
@@ -141,6 +150,44 @@ namespace O_que_comeu_a_Ritinha.Areas.Identity.Pages.Account
                 {
                     // houve sucesso na criação da conta de autenticação
                     _logger.LogInformation("User created a new account with password.");
+
+                    // **********************************************
+                    // vamos escrever na BD os dados do Utilizador. na prática, quero guardar na BD os dados do atributo 'input.Utilizador'
+                    // **********************************************
+
+                    // vamos guardar o valor do atributo que fará a 'ponte' entre a BD de autenticação e a BD do 'negócio'
+                    Input.Utilizador.UserId = user.Id;
+
+                    try
+                    {
+                        // guardar os dados na BD
+                        _context.Add(Input.Utilizador);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (Exception ex)
+                    {
+                        // há que registar os dados do que
+                        // aconteceu mal, para se reparar
+                        // o problema
+
+                        // se cheguei aqui é pq não se conseguiu
+                        // escrever os dados do Professor na BD
+                        // há que tomar uma decisão sobre o que fazer...
+
+                        // Sugestão:
+                        // - guardar os dados da exceção num ficheiro de 'log'
+                        //      no disco rígido do servidor
+                        // - guardar os dados da exceção numa tabela da BD
+                        // - apagar o 'utilizador' criado na linha 154
+                        // - notificar a pessoa que está a interagir com a 
+                        //      aplicação do sucedido
+                        // - redirecionar a pessoa para uma página de erro
+
+                        _logger.LogInformation(ex.ToString());
+
+                        throw;
+                    }
+                    // **********************************************
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

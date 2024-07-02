@@ -7,9 +7,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using O_que_comeu_a_Ritinha.Data;
 using O_que_comeu_a_Ritinha.Models;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace O_que_comeu_a_Ritinha.Controllers
 {
+    /* apenas as pessoas autenticadas E que pertençam ao Role de ADMIN podem entrar */
+    [Authorize(Roles = "Admin")]
     public class IngredientsController : Controller
     {
         private readonly ApplicationDbContext _context;
