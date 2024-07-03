@@ -1,236 +1,296 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using O_que_comeu_a_Ritinha.Data;
-using O_que_comeu_a_Ritinha.Migrations;
 using O_que_comeu_a_Ritinha.Models;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Formats.Jpeg;
-using System.IO;
 using Microsoft.AspNetCore.Authorization;
 using X.PagedList;
+using System.Security.Claims;
 
 namespace O_que_comeu_a_Ritinha.Controllers
 {
-    public class RecipesController : Controller
-    {
-        private readonly ApplicationDbContext _context;
+	public class RecipesController : Controller
+	{
+		private readonly ApplicationDbContext _context;
 
-        private readonly IWebHostEnvironment _webHostEnvironment;
+		private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public RecipesController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
-        {
-            _context = context;
-            _webHostEnvironment = webHostEnvironment;
-        }
+		public RecipesController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
+		{
+			_context = context;
+			_webHostEnvironment = webHostEnvironment;
 
-        // GET: Recipes
-        public async Task<IActionResult> Index(int? page)
-        {
-            int pageNumber = page ?? 1; // Se nenhum número de página for fornecido, padrão para a página 1
-            int pageSize = 8; // Número de receitas por página
+		}
 
-            var recipes = await _context.Recipes
-                .OrderByDescending(r => r.Id)
-                .ToPagedListAsync(pageNumber, pageSize); // Usando ToPagedListAsync para obter a página especificada
+		// GET: Recipes
+		public async Task<IActionResult> Index(int? page)
+		{
+			int pageNumber = page ?? 1; // Se nenhum número de página for fornecido, padrão para a página 1
+			int pageSize = 8; // Número de receitas por página
 
-            return View(recipes);
-        }
+			var recipe = await _context.Recipes
+				.OrderBy(r => r.Id)
+				.ToPagedListAsync(pageNumber, pageSize); // Uso do ToPagedListAsync para obter a página especificada
 
-        // GET: Recipes/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+			return View(recipe);
+		}
 
-			var recipes = await _context.Recipes
+		// GET: Recipes/Details/5
+		public async Task<IActionResult> Details(int? id)
+		{
+			if (id == null)
+			{
+				return NotFound();
+			}
+
+			var recipe = await _context.Recipes
 					.Include(r => r.ListIngredients).ThenInclude(ir => ir.Ingredient)
 					.Include(r => r.ListTags).ThenInclude(rt => rt.Tag)
 					.FirstOrDefaultAsync(m => m.Id == id);
 
-			if (recipes == null)
-            {
-                return NotFound();
-            }
+			var favorites = await _context.Recipes
+			.Include(r => r.ListUtilizadores)
+			.ThenInclude(ru => ru.Utilizador)
+			.FirstOrDefaultAsync(r => r.Id == id);
 
-            return View(recipes);
-        }
+			if (recipe == null)
+			{
+				return NotFound();
+			}
 
-        [Authorize(Roles = "Admin")]
-        // GET: Recipes/Create
-        public IActionResult Create()
-        {
-            ViewData["ListIngredients"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
-            ViewData["ListTags"] = new SelectList(_context.Tags, "Id", "Tag");
+			// Verifica se o utilizador atual está autenticado
+			if (User.Identity.IsAuthenticated)
+			{
+				var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // Obtém o ID do utilizador atual
 
-            return View();
-        }
+				// Busca o ID do Utilizador baseado no userId
+				var utilizadorId = await _context.Utilizadores
+					.Where(u => u.UserId == userId)
+					.Select(u => u.Id)
+					.FirstOrDefaultAsync();
 
-        // POST: Recipes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Title,Time,Portions,Suggestions,Instagram,Steps")] Recipes recipes, List<int> Ingredients, List<string> Quantities, List<int> Tags, IFormFile ImageRecipe)
-        {
-            ViewData["ListIngredients"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
-            ViewData["ListTags"] = new SelectList(_context.Tags, "Id", "Tag");
+				// Verificar se a receita está nos favoritos do utilizador
+				var isFavorite = favorites.ListUtilizadores
+					.Any(ru => ru.Utilizador.Id == utilizadorId && ru.Recipe.Id == favorites.Id);
 
-            if (ModelState.IsValid)
-            {
-                string imageName = "";
-                bool haImagem = false;
+				// Devolve os bool para o isFavorite
+				ViewBag.IsFavorite = isFavorite;
+			}
+			else
+			{
+				ViewBag.IsFavorite = false;
+			}
 
-                // há ficheiro?
-                if (ImageRecipe == null)
-                {
-                    // não há
-                    // crio mensagem de erro
-                    ModelState.AddModelError("", "Deve fornecer uma imagem");
-                    // devolve controlo à View
-                    return View(recipes);
-                }
-                else
-                {
-                    // há ficheiro, mas é uma imagem?
-                    if (!(ImageRecipe.ContentType == "image/png" || ImageRecipe.ContentType == "image/jpeg"))
-                    {
-                        // não
-                        // vamos usar uma imagem pré-definida
-                        recipes.Image = "imageRecipe.jpg";
-                    }
-                    else
-                    {
-                        // há imagem
-                        haImagem = true;
-                        // gera nome imagem
-                        Guid g = Guid.NewGuid();
-                        imageName = g.ToString();
-                        string exeImage = Path.GetExtension(ImageRecipe.FileName).ToLowerInvariant();
-                        imageName += exeImage;
-                        // guardar nome do ficheiro na BD
-                        recipes.Image = imageName;
+			return View(recipe);
+		}
 
-                    }
-                }
+		[Authorize] // Somente utilizadores autenticados podem adicionar aos favoritos
+		[HttpPost]
+		public async Task<IActionResult> AddToFavorites(int recipeId)
+		{
+			var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // Obtém o ID do utilizador atual
 
-                _context.Add(recipes);
-                await _context.SaveChangesAsync();
+			// Verifica se já existe essa associação na tabela de associação
+			var existingAssociation = await _context.RecipesUtilizadores.FirstOrDefaultAsync(ru => ru.RecipeFK == recipeId && ru.Utilizador.UserId == userId);
 
-                // adicionar os ingredientes
-                List<IngredientsRecipes> listIngredients = new List<IngredientsRecipes>();
-                for (int i = 0; i < Ingredients.Count; i++)
-                {
-                    IngredientsRecipes ingredientsRecipes = new IngredientsRecipes
-                    {
-                        IngredientFK = Ingredients[i],
-                        RecipeFK = recipes.Id,
-                        Quantity = Quantities[i]
-                    };
+			if (existingAssociation != null)
+			{
+				// Já está nos favoritos, então remove
+				_context.RecipesUtilizadores.Remove(existingAssociation);
+			}
+			else
+			{
+				// Não está nos favoritos, adiciona
+				// Encontra o Utilizador pelo UserId
+				var utilizador = await _context.Utilizadores.FirstOrDefaultAsync(u => u.UserId == userId);
 
-                    listIngredients.Add(ingredientsRecipes);
-                }
+				// Cria uma nova entrada na tabela de associação
+				var newAssociation = new RecipesUtilizadores
+				{
+					RecipeFK = recipeId,
+					UtilizadorFK = utilizador.Id // Utiliza o Id do Utilizador encontrado
+				};
 
-                // adicionar as tags
-                List<RecipesTags> listTags = new List<RecipesTags>();
-                for (int i = 0; i < Tags.Count; i++)
-                {
-                    RecipesTags recipesTags = new RecipesTags
-                    {
-                        TagFK = Tags[i],
-                        RecipeFK = recipes.Id
-                    };
+				_context.RecipesUtilizadores.Add(newAssociation);
+			}
 
-                    listTags.Add(recipesTags);
-                }
+			await _context.SaveChangesAsync();
 
-                // atualiza a receita com os ingredientes e tags associados
-                recipes.ListIngredients = listIngredients;
-                recipes.ListTags = listTags;
+			return RedirectToAction("Details", new { id = recipeId });
+		}
 
-                _context.Update(recipes);
-                await _context.SaveChangesAsync();
 
-                // guardar a imagem da receita
-                if (haImagem)
-                {
-                    // encolher a imagem ao tamanho certo (api ImageSharp)
-                    using (var image = Image.Load(ImageRecipe.OpenReadStream()))
-                    {
-                        // encolhe para um quadrado
-                        image.Mutate(x => x.Resize(200, 200));
-                        // determinar o local de armazenamento da imagem
-                        string imagePath = _webHostEnvironment.WebRootPath;
-                        // adicionar à raiz da parte web, o nome da pasta onde queremos guardar a imagem
-                        imagePath = Path.Combine(imagePath, "images");
-                        // será que o local existe?
-                        if (!Directory.Exists(imagePath))
-                        {
-                            Directory.CreateDirectory(imagePath);
-                        }
-                        // atribuir ao caminho o nome da imagem
-                        imagePath = Path.Combine(imagePath, imageName);
-                        // guardar imagem no Disco Rígido
-                        using (var stream = new FileStream(imagePath, FileMode.Create))
-                        {
-                            image.SaveAsJpeg(stream, new JpegEncoder { Quality = 100 });
-                            await ImageRecipe.CopyToAsync(stream);
-                        }
-                    }
-                }
+		[Authorize(Roles = "Admin")]
+		// GET: Recipes/Create
+		public IActionResult Create()
+		{
+			ViewData["ListIngredients"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
+			ViewData["ListTags"] = new SelectList(_context.Tags, "Id", "Tag");
 
-                // redireciona o utilizador para a página de 'início' das Recipes
-                return RedirectToAction(nameof(Index));
-            }
-            return View(recipes);
-        }
+			return View();
+		}
 
-        [Authorize(Roles = "Admin")]
-        // GET: Recipes/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+		// POST: Recipes/Create
+		// To protect from overposting attacks, enable the specific properties you want to bind to.
+		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> Create([Bind("Title,Time,Portions,Suggestions,Instagram,Steps")] Recipes recipe, List<int> Ingredients, List<string> Quantities, List<int> Tags, IFormFile ImageRecipe)
+		{
+			ViewData["ListIngredients"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
+			ViewData["ListTags"] = new SelectList(_context.Tags, "Id", "Tag");
 
-            var recipes = await _context.Recipes
-                    .Include(r => r.ListIngredients).ThenInclude(ir => ir.Ingredient)
-                    .Include(r => r.ListTags).ThenInclude(rt => rt.Tag)
-                    .FirstOrDefaultAsync(m => m.Id == id);
+			if (ModelState.IsValid)
+			{
+				string imageName = "";
+				bool haImagem = false;
 
-            if (recipes == null)
-            {
-                return NotFound();
-            }
+				// há ficheiro?
+				if (ImageRecipe == null)
+				{
+					// não há
+					// crio mensagem de erro
+					ModelState.AddModelError("", "Deve fornecer uma imagem");
+					// devolve controlo à View
+					return View(recipe);
+				}
+				else
+				{
+					// há ficheiro, mas é uma imagem?
+					if (!(ImageRecipe.ContentType == "image/png" || ImageRecipe.ContentType == "image/jpeg"))
+					{
+						// não
+						// vamos usar uma imagem pré-definida
+						recipe.Image = "imageRecipe.jpg";
+					}
+					else
+					{
+						// há imagem
+						haImagem = true;
+						// gera nome imagem
+						Guid g = Guid.NewGuid();
+						imageName = g.ToString();
+						string exeImage = Path.GetExtension(ImageRecipe.FileName).ToLowerInvariant();
+						imageName += exeImage;
+						// guardar nome do ficheiro na BD
+						recipe.Image = imageName;
 
-            ViewData["ListIngredients"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
-            ViewData["ListTags"] = new SelectList(_context.Tags, "Id", "Tag");
+					}
+				}
 
-            return View(recipes);
-        }
+				_context.Add(recipe);
+				await _context.SaveChangesAsync();
 
-        // POST: Recipes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Time,Portions,Suggestions,Instagram,Steps")] Recipes recipes, List<int> Ingredients, List<string> Quantities, List<int> Tags, IFormFile ImageRecipe, string CurrentImageName)
-        {
-            if (id != recipes.Id)
-            {
-                return NotFound();
-            }
+				// adicionar os ingredientes
+				List<IngredientsRecipes> listIngredients = new List<IngredientsRecipes>();
+				for (int i = 0; i < Ingredients.Count; i++)
+				{
+					IngredientsRecipes ingredientsRecipes = new IngredientsRecipes
+					{
+						IngredientFK = Ingredients[i],
+						RecipeFK = recipe.Id,
+						Quantity = Quantities[i]
+					};
 
-            if (ModelState.IsValid)
-            {
+					listIngredients.Add(ingredientsRecipes);
+				}
+
+				// adicionar as tags
+				List<RecipesTags> listTags = new List<RecipesTags>();
+				for (int i = 0; i < Tags.Count; i++)
+				{
+					RecipesTags recipesTags = new RecipesTags
+					{
+						TagFK = Tags[i],
+						RecipeFK = recipe.Id
+					};
+
+					listTags.Add(recipesTags);
+				}
+
+				// atualiza a receita com os ingredientes e tags associados
+				recipe.ListIngredients = listIngredients;
+				recipe.ListTags = listTags;
+
+				_context.Update(recipe);
+				await _context.SaveChangesAsync();
+
+				// guardar a imagem da receita
+				if (haImagem)
+				{
+					// encolher a imagem ao tamanho certo (api ImageSharp)
+					using (var image = Image.Load(ImageRecipe.OpenReadStream()))
+					{
+						// encolhe para um quadrado
+						image.Mutate(x => x.Resize(200, 200));
+						// determinar o local de armazenamento da imagem
+						string imagePath = _webHostEnvironment.WebRootPath;
+						// adicionar à raiz da parte web, o nome da pasta onde queremos guardar a imagem
+						imagePath = Path.Combine(imagePath, "images");
+						// será que o local existe?
+						if (!Directory.Exists(imagePath))
+						{
+							Directory.CreateDirectory(imagePath);
+						}
+						// atribuir ao caminho o nome da imagem
+						imagePath = Path.Combine(imagePath, imageName);
+						// guardar imagem no Disco Rígido
+						using (var stream = new FileStream(imagePath, FileMode.Create))
+						{
+							image.SaveAsJpeg(stream, new JpegEncoder { Quality = 100 });
+							await ImageRecipe.CopyToAsync(stream);
+						}
+					}
+				}
+
+				// redireciona o utilizador para a página de 'início' das Recipes
+				return RedirectToAction(nameof(Index));
+			}
+			return View(recipe);
+		}
+
+		[Authorize(Roles = "Admin")]
+		// GET: Recipes/Edit/5
+		public async Task<IActionResult> Edit(int? id)
+		{
+			if (id == null)
+			{
+				return NotFound();
+			}
+
+			var recipe = await _context.Recipes
+					.Include(r => r.ListIngredients).ThenInclude(ir => ir.Ingredient)
+					.Include(r => r.ListTags).ThenInclude(rt => rt.Tag)
+					.FirstOrDefaultAsync(m => m.Id == id);
+
+			if (recipe == null)
+			{
+				return NotFound();
+			}
+
+			ViewData["ListIngredients"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
+			ViewData["ListTags"] = new SelectList(_context.Tags, "Id", "Tag");
+
+			return View(recipe);
+		}
+
+		// POST: Recipes/Edit/5
+		// To protect from overposting attacks, enable the specific properties you want to bind to.
+		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Time,Portions,Suggestions,Instagram,Steps")] Recipes recipe, List<int> Ingredients, List<string> Quantities, List<int> Tags, IFormFile ImageRecipe, string CurrentImageName)
+		{
+			if (id != recipe.Id)
+			{
+				return NotFound();
+			}
+
+			if (ModelState.IsValid)
+			{
 				try
 				{
 					string imageName = CurrentImageName;
@@ -241,16 +301,16 @@ namespace O_que_comeu_a_Ritinha.Controllers
 						// Nova imagem dada
 						if (!(ImageRecipe.ContentType == "image/png" || ImageRecipe.ContentType == "image/jpeg"))
 						{
-							recipes.Image = "imageRecipe.jpg";
+							recipe.Image = "imageRecipe.jpg";
 						}
 						else
-					    {
-                            haImagem = true;
+						{
+							haImagem = true;
 							Guid g = Guid.NewGuid();
 							imageName = g.ToString();
 							string exeImage = Path.GetExtension(ImageRecipe.FileName).ToLowerInvariant();
 							imageName += exeImage;
-							recipes.Image = imageName;
+							recipe.Image = imageName;
 						}
 
 						// Remove a imagem antiga se existe
@@ -263,14 +323,14 @@ namespace O_que_comeu_a_Ritinha.Controllers
 							}
 						}
 					}
-                    else
-                    {
-                        // Não há nova imagem, continua com a antiga
-                        recipes.Image = CurrentImageName;
-                    }
+					else
+					{
+						// Não há nova imagem, continua com a antiga
+						recipe.Image = CurrentImageName;
+					}
 
 					// Update dos detalhes das receitas
-					_context.Update(recipes);
+					_context.Update(recipe);
 					await _context.SaveChangesAsync();
 
 					// Update dos ingredientes e tags
@@ -287,7 +347,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
 						IngredientsRecipes ingredientsRecipes = new IngredientsRecipes
 						{
 							IngredientFK = Ingredients[i],
-							RecipeFK = recipes.Id,
+							RecipeFK = recipe.Id,
 							Quantity = Quantities[i]
 						};
 						listIngredients.Add(ingredientsRecipes);
@@ -299,15 +359,15 @@ namespace O_que_comeu_a_Ritinha.Controllers
 						RecipesTags recipesTags = new RecipesTags
 						{
 							TagFK = Tags[i],
-							RecipeFK = recipes.Id
+							RecipeFK = recipe.Id
 						};
 						listTags.Add(recipesTags);
 					}
 
-					recipes.ListIngredients = listIngredients;
-					recipes.ListTags = listTags;
+					recipe.ListIngredients = listIngredients;
+					recipe.ListTags = listTags;
 
-					_context.Update(recipes);
+					_context.Update(recipe);
 					await _context.SaveChangesAsync();
 
 					// Guarda a nova imagem se dada
@@ -320,69 +380,69 @@ namespace O_que_comeu_a_Ritinha.Controllers
 							using (var stream = new FileStream(imagePath, FileMode.Create))
 							{
 								image.SaveAsJpeg(stream, new JpegEncoder { Quality = 100 });
-                                await ImageRecipe.CopyToAsync(stream);
-                            }
+								await ImageRecipe.CopyToAsync(stream);
+							}
 						}
 					}
 				}
 				catch (DbUpdateConcurrencyException)
-                {
-                    if (!RecipesExists(recipes.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
+				{
+					if (!RecipesExists(recipe.Id))
+					{
+						return NotFound();
+					}
+					else
+					{
+						throw;
+					}
+				}
+				return RedirectToAction(nameof(Index));
+			}
 
-            ViewData["ListIngredients"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
-            ViewData["ListTags"] = new SelectList(_context.Tags, "Id", "Tag");
+			ViewData["ListIngredients"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
+			ViewData["ListTags"] = new SelectList(_context.Tags, "Id", "Tag");
 
-            return View(recipes);
-        }
+			return View(recipe);
+		}
 
-        [Authorize(Roles = "Admin")]
-        // GET: Recipes/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+		[Authorize(Roles = "Admin")]
+		// GET: Recipes/Delete/5
+		public async Task<IActionResult> Delete(int? id)
+		{
+			if (id == null)
+			{
+				return NotFound();
+			}
 
-            var recipes = await _context.Recipes.FirstOrDefaultAsync(m => m.Id == id);
+			var recipe = await _context.Recipes.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (recipes == null)
-            {
-                return NotFound();
-            }
+			if (recipe == null)
+			{
+				return NotFound();
+			}
 
-            return View(recipes);
-        }
+			return View(recipe);
+		}
 
-        // POST: Recipes/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var recipes = await _context.Recipes.FindAsync(id);
+		// POST: Recipes/Delete/5
+		[HttpPost, ActionName("Delete")]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> DeleteConfirmed(int id)
+		{
+			var recipe = await _context.Recipes.FindAsync(id);
 
-            if (recipes != null)
-            {
-                _context.Recipes.Remove(recipes);
-            }
+			if (recipe != null)
+			{
+				_context.Recipes.Remove(recipe);
+			}
 
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+			await _context.SaveChangesAsync();
+			return RedirectToAction(nameof(Index));
+		}
 
-        private bool RecipesExists(int id)
-        {
-            return _context.Recipes.Any(e => e.Id == id);
-        }
-    }
+		private bool RecipesExists(int id)
+		{
+			return _context.Recipes.Any(e => e.Id == id);
+		}
+	}
 }
