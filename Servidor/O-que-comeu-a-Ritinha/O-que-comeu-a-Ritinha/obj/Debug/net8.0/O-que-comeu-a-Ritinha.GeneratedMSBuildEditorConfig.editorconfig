@@ -42,6 +42,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Utilizador/Documents/GitHub/O-que-comeu-a-Ritinha/Servidor/O-que-comeu-a-Ritinha/O-que-comeu-a-Ritinha/Areas/Identity/Pages/Account/Manage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Utilizador/Documents/GitHub/O-que-comeu-a-Ritinha/Servidor/O-que-comeu-a-Ritinha/O-que-comeu-a-Ritinha/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX01hbmFnZU5hdi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Utilizador/Documents/GitHub/O-que-comeu-a-Ritinha/Servidor/O-que-comeu-a-Ritinha/O-que-comeu-a-Ritinha/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Utilizador/Documents/GitHub/O-que-comeu-a-Ritinha/Servidor/O-que-comeu-a-Ritinha/O-que-comeu-a-Ritinha/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -96,6 +108,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Utilizador/Documents/GitHub/O-que-comeu-a-Ritinha/Servidor/O-que-comeu-a-Ritinha/O-que-comeu-a-Ritinha/Views/Ingredients/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5ncmVkaWVudHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Utilizador/Documents/GitHub/O-que-comeu-a-Ritinha/Servidor/O-que-comeu-a-Ritinha/O-que-comeu-a-Ritinha/Views/RecipesUtilizadores/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlc1V0aWxpemFkb3Jlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Utilizador/Documents/GitHub/O-que-comeu-a-Ritinha/Servidor/O-que-comeu-a-Ritinha/O-que-comeu-a-Ritinha/Views/RecipesUtilizadores/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjaXBlc1V0aWxpemFkb3Jlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Utilizador/Documents/GitHub/O-que-comeu-a-Ritinha/Servidor/O-que-comeu-a-Ritinha/O-que-comeu-a-Ritinha/Views/Recipes/Create.cshtml]

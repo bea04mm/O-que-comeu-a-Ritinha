@@ -21,7 +21,13 @@
                         <li class="nav-item">
                             <a class="nav-link text-black" asp-area="" asp-controller="Recipes" asp-action="Index">Receitas</a>
                         </li>
-                         @if (User.IsInRole("Admin"))
+                         @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-black" asp-area="" asp-controller="RecipesUtilizadores" asp-action="Index">Favoritos</a>
+                            </li>
+                        }
+                        @if (User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-black" asp-area="" asp-controller="Ingredients" asp-action="Index">Ingredientes</a>

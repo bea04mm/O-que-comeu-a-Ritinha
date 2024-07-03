@@ -1,0 +1,23 @@
+﻿@model IEnumerable<O_que_comeu_a_Ritinha.Models.RecipesUtilizadores>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div id="backcolor">
+
+    <div class="row justify-content-center">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 mb-4">
+                <div class="text-center bg-white rounded p-3 h-100 w-auto d-inline-block">
+                    <a asp-controller="Recipes" asp-action="Details" asp-route-id="@item.Recipe.Id" class="text-black text-decoration-none">
+                        <img src="~/images/@Html.DisplayFor(modelItem => item.Recipe.Image)" alt="Receita @Html.DisplayFor(modelItem => item.Recipe.Title)" title="@Html.DisplayFor(modelItem => item.Recipe.Title)" class="rounded img-fluid" />
+                        <p class="mt-2 mb-0">@Html.DisplayFor(modelItem => item.Recipe.Title)</p>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm btn-block m-1">Remover</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
