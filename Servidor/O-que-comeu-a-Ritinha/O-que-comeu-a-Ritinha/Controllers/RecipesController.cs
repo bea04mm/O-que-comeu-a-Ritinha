@@ -164,7 +164,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
 					{
 						// não
 						// vamos usar uma imagem pré-definida
-						recipe.Image = "imageRecipe.jpg";
+						recipe.Image = "imageRecipe.png";
 					}
 					else
 					{
@@ -301,7 +301,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
 						// Nova imagem dada
 						if (!(ImageRecipe.ContentType == "image/png" || ImageRecipe.ContentType == "image/jpeg"))
 						{
-							recipe.Image = "imageRecipe.jpg";
+							recipe.Image = "imageRecipe.png";
 						}
 						else
 						{
@@ -314,7 +314,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
 						}
 
 						// Remove a imagem antiga se existe
-						if (!string.IsNullOrEmpty(CurrentImageName) && CurrentImageName != "imageRecipe.jpg")
+						if (!string.IsNullOrEmpty(CurrentImageName) && CurrentImageName != "imageRecipe.png")
 						{
 							var oldImagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", CurrentImageName);
 							if (System.IO.File.Exists(oldImagePath))
@@ -433,8 +433,18 @@ namespace O_que_comeu_a_Ritinha.Controllers
 
 			if (recipe != null)
 			{
-				_context.Recipes.Remove(recipe);
-			}
+                // Caminho da imagem a ser apagada
+                string imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", recipe.Image);
+
+                // Remove a receita
+                _context.Recipes.Remove(recipe);
+
+                // Apaga a imagem física do servidor, se não for a imagem padrão
+                if (recipe.Image != "imageRecipe.png" && System.IO.File.Exists(imagePath))
+                {
+                    System.IO.File.Delete(imagePath);
+                }
+            }
 
 			await _context.SaveChangesAsync();
 			return RedirectToAction(nameof(Index));
