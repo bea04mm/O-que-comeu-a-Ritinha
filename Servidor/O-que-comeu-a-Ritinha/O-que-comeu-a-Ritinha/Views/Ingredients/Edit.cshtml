@@ -4,26 +4,24 @@
 	ViewData["Title"] = "Editar Ingrediente";
 }
 
-<div class="mt-5 mb-5 pt-5 pb-5">
-	<div id="backcolor" class="mt-5 mb-5 pt-5 pb-5">
+<div id="backcolor">
 
-		<h1 class="text-center text-black m-0">Editar Ingrediente</h1>
+	<h1 class="text-center text-black m-0">Editar Ingrediente</h1>
 
-		<div class="justify-content-center">
-			<div class="col">
-				<form asp-action="Edit">
-					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-					<input type="hidden" asp-for="Id" />
-					<div class="form-group m-4">
-						<input asp-for="Ingredient" class="form-control fs-3 text-center mb-2" />
-						<span asp-validation-for="Ingredient" class="text-danger"></span>
-					</div>
-					<div class="form-group m-0">
-						<input type="submit" value="Editar" class="btn btn-light m-2" />
-						<a asp-action="Index" class="btn btn-info m-2">Voltar à lista!</a>
-					</div>
-				</form>
-			</div>
+	<div class="justify-content-center">
+		<div class="col">
+			<form asp-action="Edit">
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<input type="hidden" asp-for="Id" />
+				<div class="form-group m-4">
+					<input asp-for="Ingredient" class="form-control fs-3 text-center mb-2" />
+					<span asp-validation-for="Ingredient" class="text-danger"></span>
+				</div>
+				<div class="form-group m-0">
+					<input type="submit" value="Editar" class="btn btn-light m-2" />
+					<a asp-action="Index" class="btn btn-info m-2">Voltar à lista!</a>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>

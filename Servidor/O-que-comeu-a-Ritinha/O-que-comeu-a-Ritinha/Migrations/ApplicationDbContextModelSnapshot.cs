@@ -327,6 +327,29 @@ namespace O_que_comeu_a_Ritinha.Migrations
                     b.ToTable("RecipesTags");
                 });
 
+            modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.RecipesUtilizadores", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("RecipeFK")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UtilizadorFK")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RecipeFK");
+
+                    b.HasIndex("UtilizadorFK");
+
+                    b.ToTable("RecipesUtilizadores");
+                });
+
             modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.Tags", b =>
                 {
                     b.Property<int>("Id")
@@ -462,6 +485,25 @@ namespace O_que_comeu_a_Ritinha.Migrations
                     b.Navigation("Tag");
                 });
 
+            modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.RecipesUtilizadores", b =>
+                {
+                    b.HasOne("O_que_comeu_a_Ritinha.Models.Recipes", "Recipe")
+                        .WithMany("ListUtilizadores")
+                        .HasForeignKey("RecipeFK")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("O_que_comeu_a_Ritinha.Models.Utilizadores", "Utilizador")
+                        .WithMany("ListRecipesU")
+                        .HasForeignKey("UtilizadorFK")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Recipe");
+
+                    b.Navigation("Utilizador");
+                });
+
             modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.Ingredients", b =>
                 {
                     b.Navigation("ListRecipesI");
@@ -472,11 +514,18 @@ namespace O_que_comeu_a_Ritinha.Migrations
                     b.Navigation("ListIngredients");
 
                     b.Navigation("ListTags");
+
+                    b.Navigation("ListUtilizadores");
                 });
 
             modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.Tags", b =>
                 {
                     b.Navigation("ListRecipesT");
+                });
+
+            modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.Utilizadores", b =>
+                {
+                    b.Navigation("ListRecipesU");
                 });
 #pragma warning restore 612, 618
         }

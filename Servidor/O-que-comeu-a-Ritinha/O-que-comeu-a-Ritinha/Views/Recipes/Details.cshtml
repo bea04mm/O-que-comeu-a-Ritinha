@@ -1,12 +1,14 @@
 ﻿@model O_que_comeu_a_Ritinha.Models.Recipes
+@using System.Security.Claims
 
 @{
 	ViewData["Title"] = "Detalhes Receita";
 }
 
-<div id="backcolor" class="mt-4 mb-4 pt-4 pb-4">
+<div id="backcolor">
 
 	<div class="justify-content-center bg-white m-4 rounded">
+
 		<h1 class="text-black m-0">@Html.DisplayFor(model => model.Title)</h1>
 
 		<img src="~/images/@Model.Image" alt="Receita @Model.Title" title="@Model.Title" class="w-25 rounded" />
@@ -18,7 +20,7 @@
 		<p>@Html.DisplayNameFor(model => model.Suggestions): @Html.DisplayFor(model => model.Suggestions)</p>
 
 		<iframe width="320" height="440" src="@Html.DisplayFor(model => model.Instagram)" frameborder="0"></iframe>
-		
+
 		<p>@Html.DisplayNameFor(model => model.Steps)</p>
 		<div>@Html.Raw(Model.Steps)</div>
 
@@ -39,6 +41,27 @@
 		</ul>
 
 	</div>
-	<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-light m-2">Editar</a>
+
+	@if (User.Identity.IsAuthenticated)
+	{
+		<form method="post" asp-action="AddToFavorites">
+			<input type="hidden" name="recipeId" value="@Model.Id" />
+			<button type="submit" class="btn btn-primary m-2">
+				@if ((bool)ViewBag.IsFavorite)
+				{
+					<span>Remover dos Favoritos</span>
+				}
+				else
+				{
+					<span>Adicionar aos Favoritos</span>
+				}
+			</button>
+		</form>
+	}
+
+	@if (User.IsInRole("Admin"))
+	{
+		<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-light m-2">Editar</a>
+	}
 	<a asp-action="Index" class="btn btn-info m-2">Voltar à lista!</a>
 </div>

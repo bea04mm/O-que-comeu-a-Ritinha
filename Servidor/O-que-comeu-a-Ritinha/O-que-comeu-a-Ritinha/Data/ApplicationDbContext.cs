@@ -20,6 +20,7 @@ namespace O_que_comeu_a_Ritinha.Data
 		//public DbSet<Posts> Posts { get; set; }
 		public DbSet<Recipes> Recipes { get; set; }
 		public DbSet<RecipesTags> RecipesTags { get; set; }
+		public DbSet<RecipesUtilizadores> RecipesUtilizadores { get; set; }
 		//public DbSet<Reviews> Reviews { get; set; }
 		public DbSet<Tags> Tags { get; set; }
         public DbSet<Utilizadores> Utilizadores { get; set; }
