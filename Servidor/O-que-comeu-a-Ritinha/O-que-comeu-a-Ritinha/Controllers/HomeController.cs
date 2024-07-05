@@ -1,5 +1,8 @@
 using System.Diagnostics;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using O_que_comeu_a_Ritinha.Data;
 using O_que_comeu_a_Ritinha.Models;
 
 namespace O_que_comeu_a_Ritinha.Controllers
@@ -8,14 +11,18 @@ namespace O_que_comeu_a_Ritinha.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ApplicationDbContext _context;
+
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var applicationDbContext = _context.AboutusRecipes.Include(r => r.Recipe);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         public IActionResult Privacy()

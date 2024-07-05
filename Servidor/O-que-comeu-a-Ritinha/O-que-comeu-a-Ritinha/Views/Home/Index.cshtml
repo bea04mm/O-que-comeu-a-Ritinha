@@ -1,8 +1,24 @@
-﻿@{
+﻿@model IEnumerable<O_que_comeu_a_Ritinha.Models.AboutusRecipes>
+
+@{
     ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div id="backcolor">
+
+    <h1 class="text-white m-0 pb-4">Destaques</h1>
+
+    <div class="row justify-content-center">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 mb-4">
+                <div class="text-center bg-white rounded p-3 h-100 w-auto d-inline-block">
+                    <a asp-controller="Recipes" asp-action="Details" asp-route-id="@item.Recipe.Id" class="text-black text-decoration-none">
+                        <img src="~/images/@item.Recipe.Image" alt="Receita @item.Recipe.Title" title="@item.Recipe.Title" class="rounded img-fluid" />
+                        <p class="mt-2 mb-0">@item.Recipe.Title</p>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
 </div>

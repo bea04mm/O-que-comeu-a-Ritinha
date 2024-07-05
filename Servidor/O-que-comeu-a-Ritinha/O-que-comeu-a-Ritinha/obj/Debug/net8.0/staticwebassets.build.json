@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "R/zuIcBvhlvG3/ILkS+B+SRj+0HOBQsdeLXeNwJ4tRs=",
+  "Hash": "/RxJml4EimeZ8YRgmVh4iCZoBuYX8rKShyUu75sqgJ8=",
   "Source": "O-que-comeu-a-Ritinha",
   "BasePath": "_content/O-que-comeu-a-Ritinha",
   "Mode": "Default",
@@ -1252,6 +1252,25 @@
       "OriginalItemSpec": "wwwroot\\images\\1351c759-876b-4798-acc7-2db7c850ef2a.jpg"
     },
     {
+      "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\32cb02ce-4d9d-419c-9c62-759f79022057.png",
+      "SourceId": "O-que-comeu-a-Ritinha",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\",
+      "BasePath": "_content/O-que-comeu-a-Ritinha",
+      "RelativePath": "images/32cb02ce-4d9d-419c-9c62-759f79022057.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\32cb02ce-4d9d-419c-9c62-759f79022057.png"
+    },
+    {
       "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\3a89e4f7-5670-4e35-808f-21a964246bc2.jpg",
       "SourceId": "O-que-comeu-a-Ritinha",
       "SourceType": "Discovered",
@@ -1383,6 +1402,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\e4a621f5-9164-45e1-8d8b-d07ba3e228f8.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\imageLogo.png",
+      "SourceId": "O-que-comeu-a-Ritinha",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\",
+      "BasePath": "_content/O-que-comeu-a-Ritinha",
+      "RelativePath": "images/imageLogo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\imageLogo.png"
     },
     {
       "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\imageRecipe.png",

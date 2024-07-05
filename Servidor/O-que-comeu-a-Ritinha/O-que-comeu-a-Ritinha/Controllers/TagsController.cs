@@ -60,12 +60,25 @@ namespace O_que_comeu_a_Ritinha.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(tags);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(tags);
-        }
+				// Normaliza a tag para letras minúsculas para comparação
+				var normalizedTag = tags.Tag.Trim().ToLower();
+
+				// Verifica se já existe uma tag com o mesmo nome (case-insensitive)
+				var existingTag = await _context.Tags
+					.FirstOrDefaultAsync(t => t.Tag.Trim().ToLower() == normalizedTag);
+
+				if (existingTag != null)
+				{
+					ModelState.AddModelError("Tag", "Esta tag já existe.");
+					return View(tags);
+				}
+
+				_context.Add(tags);
+				await _context.SaveChangesAsync();
+				return RedirectToAction(nameof(Index));
+			}
+			return View(tags);
+		}
 
         // GET: Tags/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -99,10 +112,24 @@ namespace O_que_comeu_a_Ritinha.Controllers
             {
                 try
                 {
-                    _context.Update(tags);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
+					// Normaliza a tag para letras minúsculas para comparação
+					var normalizedTag = tags.Tag.Trim().ToLower();
+
+					// Verifica se já existe uma tag com o mesmo nome (case-insensitive)
+					var existingTag = await _context.Tags
+						.FirstOrDefaultAsync(t => t.Id != tags.Id && t.Tag.Trim().ToLower() == normalizedTag);
+
+					if (existingTag != null)
+					{
+						ModelState.AddModelError("Tag", "Esta tag já existe.");
+						return View(tags);
+					}
+
+					// Altera a tag e guarda a mudança
+					_context.Update(tags);
+					await _context.SaveChangesAsync();
+				}
+				catch (DbUpdateConcurrencyException)
                 {
                     if (!TagsExists(tags.Id))
                     {

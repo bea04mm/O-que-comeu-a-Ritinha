@@ -10,6 +10,7 @@ namespace O_que_comeu_a_Ritinha.Models
             ListIngredients = new HashSet<IngredientsRecipes>();
             ListTags = new HashSet<RecipesTags>();
 			ListUtilizadores = new HashSet<RecipesUtilizadores>();
+			ListAboutus = new HashSet<AboutusRecipes>();
 		}
 
         [Key]
@@ -46,5 +47,7 @@ namespace O_que_comeu_a_Ritinha.Models
         public ICollection<RecipesTags> ListTags { get; set; }
 
 		public ICollection<RecipesUtilizadores> ListUtilizadores { get; set; }
+
+		public ICollection<AboutusRecipes> ListAboutus { get; set; }
 	}
 }

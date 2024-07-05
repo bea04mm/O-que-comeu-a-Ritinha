@@ -42,7 +42,8 @@ namespace O_que_comeu_a_Ritinha.Models
         // 00351913456789
         [RegularExpression("9[1236][0-9]{7}",
              ErrorMessage = "O {0} só aceita 9 digitos")]
-        public string Phone { get; set; }
+		[Required(ErrorMessage = "O {0} é de preenchimento obrigatório")]
+		public string Phone { get; set; }
 
         /// <summary>
         /// Atributo para funcionar como FK no relacionamento entre a base de dados do 'negócio' e a base de dados da 'autenticação'

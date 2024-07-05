@@ -17,9 +17,12 @@
 
 		<p>@Html.DisplayNameFor(model => model.Portions): @Html.DisplayFor(model => model.Portions)</p>
 
-		<p>@Html.DisplayNameFor(model => model.Suggestions): @Html.DisplayFor(model => model.Suggestions)</p>
+		<p>@Html.DisplayNameFor(model => model.Suggestions): <div>@Html.Raw(Model.Suggestions)</div></p>
 
-		<iframe width="320" height="440" src="@Html.DisplayFor(model => model.Instagram)" frameborder="0"></iframe>
+		@if (@Model.Instagram != null)
+		{
+			<iframe width="320" height="440" src="@Html.DisplayFor(model => model.Instagram)" frameborder="0"></iframe>
+		}
 
 		<p>@Html.DisplayNameFor(model => model.Steps)</p>
 		<div>@Html.Raw(Model.Steps)</div>
@@ -46,14 +49,14 @@
 	{
 		<form method="post" asp-action="AddToFavorites">
 			<input type="hidden" name="recipeId" value="@Model.Id" />
-			<button type="submit" class="btn btn-primary m-2">
+			<button type="submit" class="btn btn-link text-white p-2 m-0">
 				@if ((bool)ViewBag.IsFavorite)
 				{
-					<span>Remover dos Favoritos</span>
+					<span class="fa-solid fa-star h1"></span>
 				}
 				else
 				{
-					<span>Adicionar aos Favoritos</span>
+					<span class="fa-regular fa-star h1"></span>
 				}
 			</button>
 		</form>

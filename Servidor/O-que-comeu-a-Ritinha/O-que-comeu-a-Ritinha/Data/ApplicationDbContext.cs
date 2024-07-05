@@ -24,5 +24,8 @@ namespace O_que_comeu_a_Ritinha.Data
 		//public DbSet<Reviews> Reviews { get; set; }
 		public DbSet<Tags> Tags { get; set; }
         public DbSet<Utilizadores> Utilizadores { get; set; }
-    }
+        public DbSet<Aboutus> Aboutus { get; set; }
+
+		public DbSet<AboutusRecipes> AboutusRecipes { get; set; }
+	}
 }

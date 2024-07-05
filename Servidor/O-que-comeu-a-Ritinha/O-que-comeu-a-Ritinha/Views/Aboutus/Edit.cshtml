@@ -1,0 +1,110 @@
+﻿@model O_que_comeu_a_Ritinha.Models.Aboutus
+
+@{
+	ViewData["Title"] = "Editar Acerca de Nós";
+}
+
+<div id="backcolor">
+	<h1 class="text-center text-white m-0">Acerca de Nós</h1>
+	<div class="justify-content-center">
+		<div class="row">
+			<div class="col">
+				<form asp-action="Edit" enctype="multipart/form-data">
+					<input type="hidden" asp-for="Id" />
+					<div class="form-group m-3">
+						<label asp-for="Description" class="control-label text-white"></label>
+						<textarea asp-for="Description" class="form-control mb-2" id="descriptionEditor"></textarea>
+						<span asp-validation-for="Description" class="text-danger"></span>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group m-3">
+								<label asp-for="ImageDescription" class="control-label text-white"></label>
+								<div id="ImageDescriptionCurrent">
+									<img id="currentImageDescription" src="~/images/@Model.ImageDescription" alt="Imagem para Acerca de Nós Atual" class="rounded" />
+									<input type="hidden" name="CurrentImageDescription" value="@Model.ImageDescription" class="mb-2" />
+									</br>
+									<button id="removeImageDescriptionButton" type="button" class="btn btn-sm btn-danger mt-2" onclick="removeImage('ImageDescription')">Remover Imagem</button>
+								</div>
+								<input type="file" name="ImageDescription" accept=".png, .jpg, .jpeg" class="form-control mb-2" style="display: none;" />
+								<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="form-group m-3">
+								<label asp-for="ImageLogo" class="control-label text-white"></label>
+								<div id="ImageLogoCurrent">
+									<img id="currentImageLogo" src="~/images/@Model.ImageLogo" alt="Imagem para Logo" class="rounded" />
+									<input type="hidden" name="CurrentImageLogo" value="@Model.ImageLogo" class="mb-2" />
+									</br>
+									<button id="removeImageLogoButton" type="button" class="btn btn-sm btn-danger mt-2" onclick="removeImage('ImageLogo')">Remover Imagem</button>
+								</div>
+								<input type="file" name="ImageLogo" accept=".png, .jpg, .jpeg" class="form-control mb-2" style="display: none;" />
+								<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+							</div>
+						</div>
+					</div>
+					<div class="row m-3">
+						<div class="col-md-3">
+							<label for="recipeSelect" class="text-white">Receitas</label>
+							<select class="form-select" id="recipeSelect">
+								<option disabled selected>Escolha três receitas</option>
+								@foreach (var recipe in ViewBag.ListRecipesA)
+								{
+									<option value="@recipe.Value">@recipe.Text</option>
+								}
+							</select>
+						</div>
+						<div class="col-md-9">
+							<label class="text-white">Receitas Selecionados</label>
+							<div id="ListRecipesSelect">
+								@foreach (var item in Model.ListRecipesA)
+								{
+									<div id="recipe_@item.Id" class="row mb-2">
+										<div class="col-9">
+											<input type="hidden" name="Recipes" value="@item.Recipe.Id" />
+											<input class="form-control text-center" type="text" value="@item.Recipe.Title" readonly />
+										</div>
+										<div class="col-3">
+											<button class="form-control" type="button" onclick="removeFromList('@item.Id')">❌</button>
+										</div>
+									</div>
+								}
+							</div>
+						</div>
+					</div>
+					<div class="form-group m-2">
+						<input type="submit" value="Guardar" class="btn btn-light m-2" />
+						<a asp-action="Index" class="btn btn-info m-2">Voltar à Lista!</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+	<script src="~/js/site.js"></script>
+
+	<script>
+		// Inicializa o CKEditor para o campo 'descriptionEditor'
+		ClassicEditor
+			.create(document.querySelector('#descriptionEditor'))
+			.catch(error => {
+				console.error(error);
+			});
+
+		function removeImage(imageType) {
+			// Oculta div da imagem atual
+			$('#' + imageType + 'Current').hide();
+
+			// Mostra o input do upload da imagem
+			$('input[name=' + imageType + ']').show();
+		}
+	</script>
+}

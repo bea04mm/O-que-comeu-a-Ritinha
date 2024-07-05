@@ -60,27 +60,29 @@ namespace O_que_comeu_a_Ritinha.Areas.Identity.Pages.Account
         /// </summary>
         public class InputModel
         {
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
-            [Required]
-            [EmailAddress]
-            public string Email { get; set; }
+			/// <summary>
+			///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+			///     directly from your code. This API may change or be removed in future releases.
+			/// </summary>
+			[Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
+			[Display(Name = "Email")]
+			[EmailAddress]
+			public string Email { get; set; }
+
+			/// <summary>
+			///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+			///     directly from your code. This API may change or be removed in future releases.
+			/// </summary>
+			[Required(ErrorMessage = "A {0} é de preenchimento obrigatório.")]
+			[DataType(DataType.Password)]
+			[Display(Name = "Password")]
+			public string Password { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
-            [DataType(DataType.Password)]
-            public string Password { get; set; }
-
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Manter a sessão iniciada?")]
             public bool RememberMe { get; set; }
         }
 
@@ -128,7 +130,7 @@ namespace O_que_comeu_a_Ritinha.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Tentativa inválida de login.");
                     return Page();
                 }
             }

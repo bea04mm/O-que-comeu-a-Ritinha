@@ -6,37 +6,43 @@
     <title>@ViewData["Title"] - O que comeu a Ritinha</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <script src="https://kit.fontawesome.com/c8ef1272a7.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow">
             <div class="container-fluid">
-                <a class="navbar-brand text-black" asp-area="" asp-controller="Home" asp-action="Index">O que comeu a Ritinha</a>
-                <button class="navbar-toggler text-black" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="/images/imageLogo.png" alt="Logo" class="img-fluid rounded-circle" style="max-height: 100px;" />
+                </a>
+                <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-black" asp-area="" asp-controller="Recipes" asp-action="Index">Receitas</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Recipes" asp-action="Index">Receitas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Aboutus" asp-action="Index">Acerca de Nós</a>
                         </li>
                          @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-black" asp-area="" asp-controller="RecipesUtilizadores" asp-action="Index">Favoritos</a>
+                                <a class="nav-link text-white" asp-area="" asp-controller="RecipesUtilizadores" asp-action="Index">Favoritos</a>
                             </li>
                         }
                         @if (User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-black" asp-area="" asp-controller="Ingredients" asp-action="Index">Ingredientes</a>
+                                <a class="nav-link text-white" asp-area="" asp-controller="Ingredients" asp-action="Index">Ingredientes</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-black" asp-area="" asp-controller="Tags" asp-action="Index">Tags</a>
+                                <a class="nav-link text-white" asp-area="" asp-controller="Tags" asp-action="Index">Tags</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-black" asp-area="" asp-controller="api" asp-action="api">API</a>
+                                <a class="nav-link text-white" asp-area="" asp-controller="api" asp-action="api">API</a>
                             </li>
                         }
                     </ul>
@@ -51,7 +57,10 @@
         </main>
     </div>
 
-    <footer class="footer text-black">
+    <footer class="footer text-white p-2">
+        <a href="https://www.facebook.com/oquecomeuaritinha" class="fa-brands fa-facebook text-white text-decoration-none h1 p-2 m-0"></a>
+        <a href="https://www.instagram.com/o_que_comeu_a_ritinha" class="fa-brands fa-instagram text-white text-decoration-none h1 p-2 m-0"></a>
+        <a href="https://www.youtube.com/channel/UCt3W1lx8yJ14EolFXwAWKKQ" class="fa-brands fa-youtube text-white text-decoration-none h1 p-2 m-0"></a>
         <div class="container text-center">
             &copy; 2024 - O que comeu a Ritinha - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidade</a>
         </div>
