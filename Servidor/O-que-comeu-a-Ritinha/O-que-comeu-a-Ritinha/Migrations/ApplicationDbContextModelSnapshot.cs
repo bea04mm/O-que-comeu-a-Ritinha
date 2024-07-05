@@ -224,6 +224,52 @@ namespace O_que_comeu_a_Ritinha.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.Aboutus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageLogo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Aboutus");
+                });
+
+            modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.AboutusRecipes", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AboutusFK")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RecipeFK")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AboutusFK");
+
+                    b.HasIndex("RecipeFK");
+
+                    b.ToTable("AboutusRecipes");
+                });
+
             modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.Ingredients", b =>
                 {
                     b.Property<int>("Id")
@@ -384,6 +430,7 @@ namespace O_que_comeu_a_Ritinha.Migrations
                         .HasColumnType("nvarchar(60)");
 
                     b.Property<string>("Phone")
+                        .IsRequired()
                         .HasMaxLength(9)
                         .HasColumnType("nvarchar(9)");
 
@@ -447,6 +494,25 @@ namespace O_que_comeu_a_Ritinha.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.AboutusRecipes", b =>
+                {
+                    b.HasOne("O_que_comeu_a_Ritinha.Models.Aboutus", "About")
+                        .WithMany("ListRecipesA")
+                        .HasForeignKey("AboutusFK")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("O_que_comeu_a_Ritinha.Models.Recipes", "Recipe")
+                        .WithMany("ListAboutus")
+                        .HasForeignKey("RecipeFK")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("About");
+
+                    b.Navigation("Recipe");
+                });
+
             modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.IngredientsRecipes", b =>
                 {
                     b.HasOne("O_que_comeu_a_Ritinha.Models.Ingredients", "Ingredient")
@@ -504,6 +570,11 @@ namespace O_que_comeu_a_Ritinha.Migrations
                     b.Navigation("Utilizador");
                 });
 
+            modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.Aboutus", b =>
+                {
+                    b.Navigation("ListRecipesA");
+                });
+
             modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.Ingredients", b =>
                 {
                     b.Navigation("ListRecipesI");
@@ -511,6 +582,8 @@ namespace O_que_comeu_a_Ritinha.Migrations
 
             modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.Recipes", b =>
                 {
+                    b.Navigation("ListAboutus");
+
                     b.Navigation("ListIngredients");
 
                     b.Navigation("ListTags");

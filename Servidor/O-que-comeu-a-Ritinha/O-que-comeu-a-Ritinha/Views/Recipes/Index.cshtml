@@ -6,9 +6,11 @@
 }
 
 <div id="backcolor">
+    <h1 class="text-white m-0 pb-4">Receitas</h1>
+
     @if (User.IsInRole("Admin"))
     {
-        <p class="text-center m-4">
+        <p class="text-center mb-4">
             <a asp-action="Create" class="btn btn-light bg-white">Criar nova Receita!</a>
         </p>
     }

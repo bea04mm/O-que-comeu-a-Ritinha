@@ -1,0 +1,22 @@
+﻿@model IEnumerable<O_que_comeu_a_Ritinha.Models.Aboutus>
+
+@{
+	ViewData["Title"] = "Acerca de Nós";
+}
+
+<div id="backcolor">
+	<div class="justify-content-center bg-white m-4 rounded">
+		<h1 class="text-black m-0 p-4">Acerca de Nós</h1>
+
+		@foreach (var item in Model)
+		{
+			<img src="~/images/@item.ImageDescription" alt="Ingride" title="Ingride" class="w-25 rounded" />
+			<div class="m-4 p-2 w-75">@Html.Raw(@item.Description)</div>
+
+			@if (User.IsInRole("Admin"))
+			{
+				<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info mb-4">Editar</a>
+			}
+		}
+	</div>
+</div>

@@ -34,6 +34,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Utilizador/Documents/GitHub/O-que-comeu-a-Ritinha/Servidor/O-que-comeu-a-Ritinha/O-que-comeu-a-Ritinha/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Utilizador/Documents/GitHub/O-que-comeu-a-Ritinha/Servidor/O-que-comeu-a-Ritinha/O-que-comeu-a-Ritinha/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -44,6 +48,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Utilizador/Documents/GitHub/O-que-comeu-a-Ritinha/Servidor/O-que-comeu-a-Ritinha/O-que-comeu-a-Ritinha/Areas/Identity/Pages/Account/Manage/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Utilizador/Documents/GitHub/O-que-comeu-a-Ritinha/Servidor/O-que-comeu-a-Ritinha/O-que-comeu-a-Ritinha/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Utilizador/Documents/GitHub/O-que-comeu-a-Ritinha/Servidor/O-que-comeu-a-Ritinha/O-que-comeu-a-Ritinha/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
@@ -60,6 +68,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Utilizador/Documents/GitHub/O-que-comeu-a-Ritinha/Servidor/O-que-comeu-a-Ritinha/O-que-comeu-a-Ritinha/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Utilizador/Documents/GitHub/O-que-comeu-a-Ritinha/Servidor/O-que-comeu-a-Ritinha/O-que-comeu-a-Ritinha/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNlbmRFbWFpbENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Utilizador/Documents/GitHub/O-que-comeu-a-Ritinha/Servidor/O-que-comeu-a-Ritinha/O-que-comeu-a-Ritinha/Areas/Identity/Pages/Account/ResetPassword.cshtml]
@@ -80,6 +92,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Utilizador/Documents/GitHub/O-que-comeu-a-Ritinha/Servidor/O-que-comeu-a-Ritinha/O-que-comeu-a-Ritinha/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Utilizador/Documents/GitHub/O-que-comeu-a-Ritinha/Servidor/O-que-comeu-a-Ritinha/O-que-comeu-a-Ritinha/Views/Aboutus/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXR1c1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Utilizador/Documents/GitHub/O-que-comeu-a-Ritinha/Servidor/O-que-comeu-a-Ritinha/O-que-comeu-a-Ritinha/Views/Aboutus/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXR1c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Utilizador/Documents/GitHub/O-que-comeu-a-Ritinha/Servidor/O-que-comeu-a-Ritinha/O-que-comeu-a-Ritinha/Views/Home/Index.cshtml]

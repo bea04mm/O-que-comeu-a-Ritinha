@@ -58,19 +58,32 @@ namespace O_que_comeu_a_Ritinha.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Ingredient")] Ingredients ingredients)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(ingredients);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(ingredients);
-        }
+		public async Task<IActionResult> Create([Bind("Id,Ingredient")] Ingredients ingredients)
+		{
+			if (ModelState.IsValid)
+			{
+				// Normaliza o ingrediente para letras minúsculas para comparação
+				var normalizedIngredient = ingredients.Ingredient.Trim().ToLower();
 
-        // GET: Ingredients/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+				// Verifica se já existe um ingrediente com o mesmo nome (case-insensitive)
+				var existingIngredient = await _context.Ingredients
+					.FirstOrDefaultAsync(i => i.Ingredient.Trim().ToLower() == normalizedIngredient);
+
+				if (existingIngredient != null)
+				{
+					ModelState.AddModelError("Ingredient", "Este ingrediente já existe.");
+					return View(ingredients);
+				}
+
+				_context.Add(ingredients);
+				await _context.SaveChangesAsync();
+				return RedirectToAction(nameof(Index));
+			}
+			return View(ingredients);
+		}
+
+		// GET: Ingredients/Edit/5
+		public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -90,38 +103,52 @@ namespace O_que_comeu_a_Ritinha.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Ingredient")] Ingredients ingredients)
-        {
-            if (id != ingredients.Id)
-            {
-                return NotFound();
-            }
+		public async Task<IActionResult> Edit(int id, [Bind("Id,Ingredient")] Ingredients ingredients)
+		{
+			if (id != ingredients.Id)
+			{
+				return NotFound();
+			}
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(ingredients);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!IngredientsExists(ingredients.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(ingredients);
-        }
+			if (ModelState.IsValid)
+			{
+				try
+				{
+					// Normalize the ingredient to lower case for comparison
+					var normalizedIngredient = ingredients.Ingredient.Trim().ToLower();
 
-        // GET: Ingredients/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+					// Fetch the current ingredient from the database
+					var existingIngredient = await _context.Ingredients
+						.FirstOrDefaultAsync(i => i.Id != ingredients.Id && i.Ingredient.Trim().ToLower() == normalizedIngredient);
+
+					if (existingIngredient != null)
+					{
+						ModelState.AddModelError("Ingredient", "Este ingrediente já existe.");
+						return View(ingredients);
+					}
+
+					// Altera o ingrediente e guarda a mudança
+					_context.Update(ingredients);
+					await _context.SaveChangesAsync();
+				}
+				catch (DbUpdateConcurrencyException)
+				{
+					if (!IngredientsExists(ingredients.Id))
+					{
+						return NotFound();
+					}
+					else
+					{
+						throw;
+					}
+				}
+				return RedirectToAction(nameof(Index));
+			}
+			return View(ingredients);
+		}
+
+		// GET: Ingredients/Delete/5
+		public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {

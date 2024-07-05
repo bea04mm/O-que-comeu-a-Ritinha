@@ -10,6 +10,9 @@ $(document).ready(function () {
     $('#tagSelect').change(function () {
         addTagToList();
     });
+    $('#recipeSelect').change(function () {
+        addRecipeToList();
+    });
 });
 
 function addIngredientToList() {
@@ -37,8 +40,6 @@ function addIngredientToList() {
         '</div>' +
         '</div>'
     );
-
-    $('#ingredientSelect').selectpicker('deselectAll');
 }
 
 function addTagToList() {
@@ -63,8 +64,38 @@ function addTagToList() {
         '</div>' +
         '</div>'
     );
+}
 
-    $('#ingredientSelect').selectpicker('deselectAll');
+function addRecipeToList() {
+    let listEnd = $('#ListRecipesSelect');
+    let recipeFromSelect = $("#recipeSelect option:selected");
+
+    // Contar quantos inputs com o nome 'Tags' já existem
+    let currentRecipeCount = $('#ListRecipesSelect input[name="Recipes"]').length;
+
+    // Verificar se o limite de 3 receitas já foi atingido
+    if (currentRecipeCount >= 3) {
+        alert('Você só pode selecionar até 3 receitas.');
+        return;
+    }
+
+    if ($('#ListRecipesSelect input[type="hidden"][value="' + recipeFromSelect.val() + '"]').length > 0) {
+        alert(recipeFromSelect.text() + ' já está na lista de receitas.');
+        return;
+    }
+
+    let idSelect = new Date().getTime();
+
+    listEnd.append('<div id="' + idSelect + '" class="row mb-2">' +
+        '<div class="col-9">' +
+        '<input type="hidden" name="Recipes" value="' + recipeFromSelect.val() + '"/>' +
+        '<input class="form-control text-center" type="text" value="' + recipeFromSelect.text() + '" readonly/>' +
+        '</div>' +
+        '<div class="col-3">' +
+        '<button class="form-control" type="button" onclick="removeFromList(' + idSelect + ')">❌</button>' +
+        '</div>' +
+        '</div>'
+    );
 }
 
 function removeFromList(id) {
@@ -77,10 +108,16 @@ ClassicEditor
         console.error(error);
     });
 
-function removeImage() {
-    // Oculta div da imagem atual
-    $('#imageCurrent').hide();
+ClassicEditor
+    .create(document.querySelector('#suggestionsEditor'))
+    .catch(error => {
+        console.error(error);
+    });
 
-    // Mostra o input do upload da imagem
-    $('input[type=file]').show();
-}
+//function removeImage() {
+//    // Oculta div da imagem atual
+//    $('#imageCurrent').hide();
+
+//    // Mostra o input do upload da imagem
+//    $('input[type=file]').show();
+//}
