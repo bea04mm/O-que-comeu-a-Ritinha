@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using O_que_comeu_a_Ritinha;
 using O_que_comeu_a_Ritinha.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,9 +11,15 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+// refer�ncia ao servi�o do Microsoft Identity que faz a AUTENTICA��O
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+// a refer�ncia ao IdentityRole inicia o uso deste tipo de Autoriza��o
+
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddTransient<IEmailSender, EmailSender>();
 
 var app = builder.Build();
 

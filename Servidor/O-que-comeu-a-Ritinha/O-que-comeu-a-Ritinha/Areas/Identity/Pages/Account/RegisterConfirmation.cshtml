@@ -1,0 +1,12 @@
+﻿@page
+@model O_que_comeu_a_Ritinha.Areas.Identity.Pages.Account.RegisterConfirmationModel
+@{
+	ViewData["Title"] = "Confirmação de Registo";
+	var email = Model.Email;
+}
+
+<div id="backcolor">
+	<h1 class="mb-3 text-white">@ViewData["Title"]</h1>
+	<p class="text-white">Um email foi enviado para o teu email. Por favor vê a tua caixa de entrada para teres o teu token de confirmação.</p>
+	<p class="text-white">Assim que receberes o teu token, por favor <a asp-page="ConfirmEmail" asp-route-userId="@Model.UserId">clica aqui</a> para confirmares a tua conta.</p>
+</div>

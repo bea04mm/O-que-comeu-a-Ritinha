@@ -1,0 +1,32 @@
+﻿@model O_que_comeu_a_Ritinha.Models.Ingredients
+
+@{
+	ViewData["Title"] = "Criar Ingrediente";
+}
+
+<div id="backcolor">
+
+	<h1 class="text-center text-white m-0">Criar Ingrediente</h1>
+
+	<div class="justify-content-center">
+		<div class="col">
+			<form asp-action="Create">
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<div class="form-group m-4">
+					<input asp-for="Ingredient" class="form-control fs-3 text-center mb-2" />
+					<span asp-validation-for="Ingredient" class="text-danger"></span>
+				</div>
+				<div class="form-group m-0">
+					<input type="submit" value="Criar" class="btn btn-light m-2" />
+					<a asp-action="Index" class="btn btn-info m-2">Voltar à lista!</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

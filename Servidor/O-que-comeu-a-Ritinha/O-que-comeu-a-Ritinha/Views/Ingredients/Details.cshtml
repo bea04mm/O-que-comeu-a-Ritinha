@@ -1,0 +1,17 @@
+﻿@model O_que_comeu_a_Ritinha.Models.Ingredients
+
+@{
+	ViewData["Title"] = "Detalhes Ingrediente";
+}
+
+<div id="backcolor">
+
+	<h1 class="text-white">Detalhes</h1>
+
+	<h3 class="text-black bg-white m-3 p-2 rounded">@Html.DisplayFor(model => model.Ingredient)</h3>
+
+	<div class="form-group m-0">
+		<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-light m-2">Editar</a>
+		<a asp-action="Index" class="btn btn-info m-2">Voltar à lista!</a>
+	</div>
+</div>

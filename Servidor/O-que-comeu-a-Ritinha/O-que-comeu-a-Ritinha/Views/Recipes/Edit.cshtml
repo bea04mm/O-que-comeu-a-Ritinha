@@ -1,0 +1,149 @@
+﻿@model O_que_comeu_a_Ritinha.Models.Recipes
+
+@{
+    ViewData["Title"] = "Editar Receita";
+}
+
+<div id="backcolor">
+
+    <h1 class="text-center text-white m-0">Editar Receita</h1>
+
+    <div class="justify-content-center">
+        <div class="row">
+            <div class="col">
+                <form asp-action="Edit" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group m-3">
+                        <label asp-for="Title" class="control-label text-white"></label>
+                        <input asp-for="Title" class="form-control text-center mb-2" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group m-3">
+                        <label asp-for="Image" class="control-label text-white"></label>
+                        <div id="imageCurrent">
+                            <img id="currentImage" src="~/images/@Model.Image" alt="Imagem Atual" class="rounded" />
+                            <input type="hidden" name="CurrentImageName" value="@Model.Image" class="mb-2" />
+                            </br>
+                            <button id="removeImageButton" type="button" class="btn btn-sm btn-danger mt-2" onclick="removeImage()">Remover Imagem</button>
+                        </div>
+                        <input type="file" name="ImageRecipe" accept=".png, .jpg, .jpeg" class="form-control mb-2" style="display: none;" />
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group m-3">
+                                <label asp-for="Time" class="control-label text-white"></label>
+                                <input asp-for="Time" class="form-control text-center mb-2" />
+                                <span asp-validation-for="Time" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group m-3">
+                                <label asp-for="Portions" class="control-label text-white"></label>
+                                <input asp-for="Portions" class="form-control text-center mb-2" />
+                                <span asp-validation-for="Portions" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group m-3">
+                        <label asp-for="Suggestions" class="control-label text-white"></label>
+                        <textarea asp-for="Suggestions" class="form-control mb-2" id="suggestionsEditor"></textarea>
+                        <span asp-validation-for="Suggestions" class="text-danger"></span>
+                    </div>
+                    <div class="form-group m-3">
+                        <label asp-for="Instagram" class="control-label text-white"></label>
+                        <input asp-for="Instagram" class="form-control text-center mb-2" />
+                        <span asp-validation-for="Instagram" class="text-danger"></span>
+                    </div>
+                    <div class="form-group m-3">
+                        <label asp-for="Steps" class="control-label text-white"></label>
+                        <textarea asp-for="Steps" class="form-control mb-2" id="stepsEditor"></textarea>
+                        <span asp-validation-for="Steps" class="text-danger"></span>
+                    </div>
+                    <div class="row m-3">
+                        <div class="col-md-3">
+                            <label for="ingredientSelect" class="text-white">Ingredientes</label>
+                            <select class="form-select" id="ingredientSelect">
+                                <option disabled selected>Escolha um ingrediente</option>
+                                @foreach (var ingredient in ViewBag.ListIngredients)
+                                {
+                                    <option value="@ingredient.Value">@ingredient.Text</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-md-9">
+                            <label class="text-white">Ingredientes Selecionados</label>
+                            <div id="ListIngredientsSelect">
+                                @foreach (var item in Model.ListIngredients)
+                                {
+                                    <div id="ingredient_@item.Id" class="row mb-2">
+                                        <div class="col-4">
+                                            <input class="form-control text-center" name="Quantities" type="text" value="@item.Quantity" />
+                                        </div>
+                                        <div class="col-5">
+                                            <input type="hidden" name="Ingredients" value="@item.Ingredient.Id" />
+                                            <input class="form-control text-center" type="text" value="@item.Ingredient.Ingredient" readonly />
+                                        </div>
+                                        <div class="col-3">
+                                            <button class="form-control" type="button" onclick="removeFromList('ingredient', '@item.Id')">❌</button>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-3">
+                        <div class="col-md-3">
+                            <label for="tagSelect" class="text-white">Tags</label>
+                            <select class="form-select" id="tagSelect">
+                                <option disabled selected>Escolha uma tag</option>
+                                @foreach (var tag in ViewBag.ListTags)
+                                {
+                                    <option value="@tag.Value">@tag.Text</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-md-9">
+                            <label class="text-white">Tags Selecionados</label>
+                            <div id="ListTagsSelect">
+                                @foreach (var item in Model.ListTags)
+                                {
+                                    <div id="tag_@item.Id" class="row mb-2">
+                                        <div class="col-9">
+                                            <input type="hidden" name="Tags" value="@item.Tag.Id" />
+                                            <input class="form-control text-center" type="text" value="@item.Tag.Tag" readonly />
+                                        </div>
+                                        <div class="col-3">
+                                            <button class="form-control" type="button" onclick="removeFromList('tag', '@item.Id')">❌</button>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group m-2">
+                        <input type="submit" value="Guardar" class="btn btn-light m-2" />
+                        <a asp-action="Index" class="btn btn-info m-2">Voltar à Lista!</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="~/js/site.js"></script>
+
+    <script>
+        function removeImage() {
+            // Oculta div da imagem atual
+            $('#imageCurrent').hide();
+
+            // Mostra o input do upload da imagem
+            $('input[type=file]').show();
+        }
+    </script>
+}

@@ -1,0 +1,103 @@
+﻿@model O_que_comeu_a_Ritinha.Models.Recipes
+
+@{
+	ViewData["Title"] = "Criar Receita";
+}
+
+<div id="backcolor">
+
+	<h1 class="text-center text-white m-0">Criar Receita</h1>
+
+	<div class="justify-content-center">
+		<div class="row">
+			<div class="col">
+				<form id="recipeForm" asp-action="Create" enctype="multipart/form-data">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<div class="form-group m-3">
+						<label asp-for="Title" class="control-label text-white"></label>
+						<input asp-for="Title" class="form-control text-center mb-2" />
+						<span asp-validation-for="Title" class="text-danger"></span>
+					</div>
+					<div class="form-group m-3">
+						<label asp-for="Image" class="control-label text-white"></label>
+						<input type="file" name="ImageRecipe" accept=".png, .jpg, .jpeg" class="form-control mb-2" />
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group m-3">
+								<label asp-for="Time" class="control-label text-white"></label>
+								<input asp-for="Time" class="form-control text-center mb-2" />
+								<span asp-validation-for="Time" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group m-3">
+								<label asp-for="Portions" class="control-label text-white"></label>
+								<input asp-for="Portions" class="form-control text-center mb-2" />
+								<span asp-validation-for="Portions" class="text-danger"></span>
+							</div>
+						</div>
+					</div>
+					<div class="form-group m-3">
+						<label asp-for="Suggestions" class="control-label text-white"></label>
+						<textarea asp-for="Suggestions" class="form-control mb-2" id="suggestionsEditor"></textarea>
+						<span asp-validation-for="Suggestions" class="text-danger"></span>
+					</div>
+					<div class="form-group m-3">
+						<label asp-for="Instagram" class="control-label text-white"></label>
+						<input asp-for="Instagram" class="form-control text-center mb-2" />
+						<span asp-validation-for="Instagram" class="text-danger"></span>
+					</div>
+					<div class="form-group m-3">
+						<label asp-for="Steps" class="control-label text-white"></label>
+						<textarea asp-for="Steps" class="form-control mb-2" id="stepsEditor"></textarea>
+						<span asp-validation-for="Steps" class="text-danger"></span>
+					</div>
+					<div class="row m-3">
+						<div class="col-md-3">
+							<label class="text-white" for="ingredientSelect">Ingredientes</label>
+							<select class="form-select" id="ingredientSelect">
+								<option disabled selected>Escolha um ingrediente</option>
+								@foreach (var ingredient in ViewBag.ListIngredients)
+								{
+									<option value="@ingredient.Value">@ingredient.Text</option>
+								}
+							</select>
+						</div>
+						<div class="col-md-9">
+							<label class="text-white">Ingredientes Selecionados</label>
+							<div id="ListIngredientsSelect"></div>
+						</div>
+					</div>
+					<div class="row m-3">
+						<div class="col-md-3">
+							<label class="text-white" for="tagSelect">Tags</label>
+							<select class="form-select" id="tagSelect">
+								<option disabled selected>Escolha uma tag</option>
+								@foreach (var tag in ViewBag.ListTags)
+								{
+									<option value="@tag.Value">@tag.Text</option>
+								}
+							</select>
+						</div>
+						<div class="col-md-9">
+							<label class="text-white">Tags Selecionadas</label>
+							<div id="ListTagsSelect"></div>
+						</div>
+					</div>
+					<div class="form-group m-0">
+						<input type="submit" value="Criar" class="btn btn-light m-2" />
+						<a asp-action="Index" class="btn btn-info m-2">Voltar à lista!</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+	<script src="~/js/site.js"></script>
+}
