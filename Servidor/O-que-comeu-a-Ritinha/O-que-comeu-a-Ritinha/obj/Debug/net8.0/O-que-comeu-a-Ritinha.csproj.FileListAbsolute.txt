@@ -9,6 +9,7 @@ C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\Azure.Identity.dll
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\Humanizer.dll
+C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
@@ -72,10 +73,12 @@ C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\NuGet.ProjectModel.dll
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\NuGet.Protocol.dll
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\NuGet.Versioning.dll
+C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\SendGrid.dll
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\SixLabors.ImageSharp.dll
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\SQLitePCLRaw.batteries_v2.dll
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\SQLitePCLRaw.core.dll
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\SQLitePCLRaw.provider.e_sqlite3.dll
+C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\StarkbankEcdsa.dll
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\System.CodeDom.dll
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\System.Composition.AttributedModel.dll
 C:\Users\Utilizador\Documents\GitHub\O-que-comeu-a-Ritinha\Servidor\O-que-comeu-a-Ritinha\O-que-comeu-a-Ritinha\bin\Debug\net8.0\System.Composition.Convention.dll

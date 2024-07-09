@@ -9,7 +9,7 @@ namespace O_que_comeu_a_Ritinha.Models
     {
 		public Utilizadores()
 		{
-			ListRecipesU = new HashSet<RecipesUtilizadores>();
+			ListRecipesU = new HashSet<Favorites>();
 		}
 
 		[Key] // PK
@@ -51,6 +51,6 @@ namespace O_que_comeu_a_Ritinha.Models
         [StringLength(40)]
         public string UserId { get; set; }
 
-		public ICollection<RecipesUtilizadores> ListRecipesU { get; set; }
+		public ICollection<Favorites> ListRecipesU { get; set; }
 	}
 }

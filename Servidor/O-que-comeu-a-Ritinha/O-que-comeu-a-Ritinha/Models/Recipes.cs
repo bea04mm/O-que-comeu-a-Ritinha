@@ -9,7 +9,7 @@ namespace O_que_comeu_a_Ritinha.Models
         {
             ListIngredients = new HashSet<IngredientsRecipes>();
             ListTags = new HashSet<RecipesTags>();
-			ListUtilizadores = new HashSet<RecipesUtilizadores>();
+			ListUtilizadores = new HashSet<Favorites>();
 			ListAboutus = new HashSet<AboutusRecipes>();
 		}
 
@@ -36,7 +36,8 @@ namespace O_que_comeu_a_Ritinha.Models
 		[Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
 		public string Suggestions { get; set; }
 
-		public string Instagram { get; set; }
+        [RegularExpression(@"^(http|https):\/\/[^\s$.?#].[^\s]*$", ErrorMessage = "Por favor, insira um link válido.")]
+        public string Instagram { get; set; }
 
 		[Display(Name = "Passos")]
 		[Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
@@ -46,7 +47,7 @@ namespace O_que_comeu_a_Ritinha.Models
 
         public ICollection<RecipesTags> ListTags { get; set; }
 
-		public ICollection<RecipesUtilizadores> ListUtilizadores { get; set; }
+		public ICollection<Favorites> ListUtilizadores { get; set; }
 
 		public ICollection<AboutusRecipes> ListAboutus { get; set; }
 	}

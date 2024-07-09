@@ -27,7 +27,7 @@ function addIngredientToList() {
 
     let idSelect = new Date().getTime();
 
-    listEnd.append('<div id="' + idSelect + '" class="row mb-2">' +
+    listEnd.append('<div id="ingredient_' + idSelect + '" class="row mb-2">' +
         '<div class="col-4">' +
         '<input class="form-control text-center" name="Quantities" type="text"/>' +
         '</div>' +
@@ -36,10 +36,11 @@ function addIngredientToList() {
         '<input class="form-control text-center" type="text" value="' + ingredientFromSelect.text() + '" readonly/>' +
         '</div>' +
         '<div class="col-3">' +
-        '<button class="form-control" type="button" onclick="removeFromList(' + idSelect + ')">❌</button>' +
+        '<button class="form-control" type="button" onclick="removeFromList(\'ingredient\',' + idSelect + ')">❌</button>' +
         '</div>' +
         '</div>'
     );
+    $('#ingredientSelect').selectpicker('deselectAll');
 }
 
 function addTagToList() {
@@ -48,22 +49,23 @@ function addTagToList() {
 
     if ($('#ListTagsSelect input[type="hidden"][value="' + tagFromSelect.val() + '"]').length > 0) {
         alert(tagFromSelect.text() + ' já está na lista de tags.');
-        $('#ingredientSelect').selectpicker('deselectAll');
+        $('#tagSelect').selectpicker('deselectAll');
         return;
     }
 
     let idSelect = new Date().getTime();
 
-    listEnd.append('<div id="' + idSelect + '" class="row mb-2">' +
+    listEnd.append('<div id="tag_' + idSelect + '" class="row mb-2">' +
         '<div class="col-9">' +
         '<input type="hidden" name="Tags" value="' + tagFromSelect.val() + '"/>' +
         '<input class="form-control text-center" type="text" value="' + tagFromSelect.text() + '" readonly/>' +
         '</div>' +
         '<div class="col-3">' +
-        '<button class="form-control" type="button" onclick="removeFromList(' + idSelect + ')">❌</button>' +
+        '<button class="form-control" type="button" onclick="removeFromList(\'tag\',' + idSelect + ')">❌</button>' +
         '</div>' +
         '</div>'
     );
+    $('#tagSelect').selectpicker('deselectAll');
 }
 
 function addRecipeToList() {
@@ -81,25 +83,29 @@ function addRecipeToList() {
 
     if ($('#ListRecipesSelect input[type="hidden"][value="' + recipeFromSelect.val() + '"]').length > 0) {
         alert(recipeFromSelect.text() + ' já está na lista de receitas.');
+        $('#recipeSelect').selectpicker('deselectAll');
         return;
     }
 
     let idSelect = new Date().getTime();
 
-    listEnd.append('<div id="' + idSelect + '" class="row mb-2">' +
+    listEnd.append('<div id="recipe_' + idSelect + '" class="row mb-2">' +
         '<div class="col-9">' +
         '<input type="hidden" name="Recipes" value="' + recipeFromSelect.val() + '"/>' +
         '<input class="form-control text-center" type="text" value="' + recipeFromSelect.text() + '" readonly/>' +
         '</div>' +
         '<div class="col-3">' +
-        '<button class="form-control" type="button" onclick="removeFromList(' + idSelect + ')">❌</button>' +
+        '<button class="form-control" type="button" onclick="removeFromList(\'recipe\',' + idSelect + ')">❌</button>' +
         '</div>' +
         '</div>'
     );
+    $('#recipeSelect').selectpicker('deselectAll');
+
 }
 
-function removeFromList(id) {
-    $("#" + id).remove();
+function removeFromList(type, id) {
+    // Remove o elemento especifico da lista
+    $('#' + type + '_' + id).remove();
 }
 
 ClassicEditor
@@ -113,11 +119,3 @@ ClassicEditor
     .catch(error => {
         console.error(error);
     });
-
-//function removeImage() {
-//    // Oculta div da imagem atual
-//    $('#imageCurrent').hide();
-
-//    // Mostra o input do upload da imagem
-//    $('input[type=file]').show();
-//}

@@ -13,7 +13,7 @@ namespace O_que_comeu_a_Ritinha.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20240701154324_inicialusers")]
-    partial class inicialusers
+    partial class inicialUsers
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

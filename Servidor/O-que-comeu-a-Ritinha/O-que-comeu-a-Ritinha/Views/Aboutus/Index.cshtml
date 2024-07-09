@@ -5,12 +5,12 @@
 }
 
 <div id="backcolor">
-	<div class="justify-content-center bg-white m-4 rounded">
+	<div class="justify-content-center bg-white m-2 rounded">
 		<h1 class="text-black m-0 p-4">Acerca de Nós</h1>
 
 		@foreach (var item in Model)
 		{
-			<img src="~/images/@item.ImageDescription" alt="Ingride" title="Ingride" class="w-25 rounded" />
+			<img src="~/images/@item.ImageDescription" alt="Ingride" title="Ingride" class="img-fluid rounded" />
 			<div class="m-4 p-2 w-75">@Html.Raw(@item.Description)</div>
 
 			@if (User.IsInRole("Admin"))

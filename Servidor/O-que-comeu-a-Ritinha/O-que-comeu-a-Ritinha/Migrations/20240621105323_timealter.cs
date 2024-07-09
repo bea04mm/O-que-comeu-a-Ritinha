@@ -5,7 +5,7 @@
 namespace O_que_comeu_a_Ritinha.Migrations
 {
     /// <inheritdoc />
-    public partial class timealter : Migration
+    public partial class timeAlter : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

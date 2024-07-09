@@ -26,8 +26,11 @@ namespace O_que_comeu_a_Ritinha.Controllers
         // GET: Ingredients
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Ingredients.ToListAsync());
-        }
+			var ingredients = await _context.Ingredients
+			    .OrderBy(i => i.Ingredient)
+				.ToListAsync();
+			return View(ingredients);
+		}
 
         // GET: Ingredients/Details/5
         public async Task<IActionResult> Details(int? id)

@@ -13,7 +13,7 @@ namespace O_que_comeu_a_Ritinha.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20240621105323_timealter")]
-    partial class timealter
+    partial class timeAlter
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

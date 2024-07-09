@@ -26,16 +26,35 @@ namespace O_que_comeu_a_Ritinha.Controllers
 		}
 
 		// GET: Recipes
-		public async Task<IActionResult> Index(int? page)
+		public async Task<IActionResult> Index(int? page, string searchString)
 		{
 			int pageNumber = page ?? 1; // Se nenhum número de página for fornecido, padrão para a página 1
 			int pageSize = 8; // Número de receitas por página
 
-			var recipe = await _context.Recipes
-				.OrderBy(r => r.Id)
+            if (string.IsNullOrEmpty(searchString))
+            {
+                ViewBag.CurrentFilter = null;
+            }
+            else
+            {
+                ViewBag.CurrentFilter = searchString;
+            }
+
+            // Obter todas as receitas
+            var recipes = _context.Recipes
+				.Include(r => r.ListTags)
+				.AsQueryable();
+
+			// Filtrar por título se o searchString não estiver vazio
+			if (!String.IsNullOrEmpty(searchString))
+			{
+				recipes = recipes.Where(r => r.Title.Contains(searchString) || r.ListTags.Any(rt => rt.Tag.Tag.Contains(searchString)));
+			}
+
+			var pagedRecipes = await recipes.OrderBy(r => r.Title)
 				.ToPagedListAsync(pageNumber, pageSize); // Uso do ToPagedListAsync para obter a página especificada
 
-			return View(recipe);
+            return View(pagedRecipes);
 		}
 
 		// GET: Recipes/Details/5
@@ -108,7 +127,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
 				var utilizador = await _context.Utilizadores.FirstOrDefaultAsync(u => u.UserId == userId);
 
 				// Cria uma nova entrada na tabela de associação
-				var newAssociation = new RecipesUtilizadores
+				var newAssociation = new Favorites
 				{
 					RecipeFK = recipeId,
 					UtilizadorFK = utilizador.Id // Utiliza o Id do Utilizador encontrado
@@ -148,16 +167,14 @@ namespace O_que_comeu_a_Ritinha.Controllers
 				string imageName = "";
 				bool haImagem = false;
 
-				// há ficheiro?
-				if (ImageRecipe == null)
+				if (Ingredients.Count == 0 || Tags.Count == 0 || ImageRecipe == null || Quantities.Any(q => string.IsNullOrWhiteSpace(q)))
 				{
-					// não há
-					// crio mensagem de erro
-					ModelState.AddModelError("", "Deve fornecer uma imagem");
-					// devolve controlo à View
+					ModelState.AddModelError("", "Por favor, adicione pelo menos um ingrediente e a sua quantidade, uma tag e uma imagem.");
 					return View(recipe);
 				}
-				else
+
+				// há ficheiro?
+				if (ImageRecipe != null)
 				{
 					// há ficheiro, mas é uma imagem?
 					if (!(ImageRecipe.ContentType == "image/png" || ImageRecipe.ContentType == "image/jpeg"))
@@ -271,6 +288,9 @@ namespace O_que_comeu_a_Ritinha.Controllers
 				return NotFound();
 			}
 
+			ViewBag.ListIngredients = recipe.ListIngredients.Select(ir => new { ir.Ingredient.Id, ir.Ingredient.Ingredient, ir.Quantity }).ToList();
+			ViewBag.ListTags = recipe.ListTags.Select(rt => new { rt.Tag.Id, rt.Tag.Tag }).ToList();
+
 			ViewData["ListIngredients"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
 			ViewData["ListTags"] = new SelectList(_context.Tags, "Id", "Tag");
 
@@ -289,6 +309,15 @@ namespace O_que_comeu_a_Ritinha.Controllers
 				return NotFound();
 			}
 
+			ViewData["ListIngredients"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
+			ViewData["ListTags"] = new SelectList(_context.Tags, "Id", "Tag");
+
+			if (Ingredients.Count == 0 || Tags.Count == 0 || Quantities.Any(q => string.IsNullOrWhiteSpace(q)) || (CurrentImageName == null && ImageRecipe == null))
+			{
+				ModelState.AddModelError("", "Por favor, adicione pelo menos um ingrediente e a sua quantidade, uma tag e uma imagem. Para reverter o que foi apagado volta à lista e volta a editar esta receita.");
+				return View(recipe);
+			}
+
 			if (ModelState.IsValid)
 			{
 				try
@@ -296,6 +325,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
 					string imageName = CurrentImageName;
 					bool haImagem = false;
 
+					// há ficheiro?
 					if (ImageRecipe != null)
 					{
 						// Nova imagem dada
@@ -433,18 +463,18 @@ namespace O_que_comeu_a_Ritinha.Controllers
 
 			if (recipe != null)
 			{
-                // Caminho da imagem a ser apagada
-                string imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", recipe.Image);
+				// Caminho da imagem a ser apagada
+				string imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", recipe.Image);
 
-                // Remove a receita
-                _context.Recipes.Remove(recipe);
+				// Remove a receita
+				_context.Recipes.Remove(recipe);
 
-                // Apaga a imagem física do servidor, se não for a imagem padrão
-                if (recipe.Image != "imageRecipe.png" && System.IO.File.Exists(imagePath))
-                {
-                    System.IO.File.Delete(imagePath);
-                }
-            }
+				// Apaga a imagem física do servidor, se não for a imagem padrão
+				if (recipe.Image != "imageRecipe.png" && System.IO.File.Exists(imagePath))
+				{
+					System.IO.File.Delete(imagePath);
+				}
+			}
 
 			await _context.SaveChangesAsync();
 			return RedirectToAction(nameof(Index));

@@ -5,7 +5,7 @@
 namespace O_que_comeu_a_Ritinha.Migrations
 {
     /// <inheritdoc />
-    public partial class quantityupdate : Migration
+    public partial class quantityUpdate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using O_que_comeu_a_Ritinha.Data;
+using O_que_comeu_a_Ritinha.Models;
 
 namespace O_que_comeu_a_Ritinha.Areas.Identity.Pages.Account.Manage
 {
@@ -17,12 +19,16 @@ namespace O_que_comeu_a_Ritinha.Areas.Identity.Pages.Account.Manage
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
 
+        private readonly ApplicationDbContext _context;
+
         public IndexModel(
             UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            SignInManager<IdentityUser> signInManager,
+            ApplicationDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _context = context;
         }
 
         /// <summary>
@@ -51,26 +57,47 @@ namespace O_que_comeu_a_Ritinha.Areas.Identity.Pages.Account.Manage
         /// </summary>
         public class InputModel
         {
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
-            [Phone]
-            [Display(Name = "Phone number")]
-            public string PhoneNumber { get; set; }
+			/// <summary>
+			///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+			///     directly from your code. This API may change or be removed in future releases.
+			/// </summary>
+			[Display(Name = "Nome")]
+			[Required(ErrorMessage = "O {0} é de preenchimento obrigatório")]
+			[StringLength(60)]
+			public string Name { get; set; }
+
+			[Display(Name = "Data de Nascimento")]
+			[DataType(DataType.Date)] // informa a View de como deve tratar este atributo
+			[Required(ErrorMessage = "A {0} é de preenchimento obrigatório")]
+			public DateOnly Birthday { get; set; }
+
+			[Display(Name = "Telemóvel")]
+			[StringLength(9)]
+			// 913456789
+			// +351913456789
+			// 00351913456789
+			[RegularExpression("9[1236][0-9]{7}",
+			 ErrorMessage = "O {0} só aceita 9 digitos")]
+			[Required(ErrorMessage = "O {0} é de preenchimento obrigatório")]
+			public string Phone { get; set; }
         }
 
-        private async Task LoadAsync(IdentityUser user)
+            private async Task LoadAsync(IdentityUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
 
             Username = userName;
 
-            Input = new InputModel
+            var utilizador = _context.Utilizadores.FirstOrDefault(u => u.UserId == user.Id);
+            if (utilizador != null)
             {
-                PhoneNumber = phoneNumber
-            };
+                Input = new InputModel
+                {
+                    Name = utilizador.Name,
+                    Birthday = utilizador.Birthday,
+                    Phone = utilizador.Phone
+                };
+            }
         }
 
         public async Task<IActionResult> OnGetAsync()
@@ -99,19 +126,21 @@ namespace O_que_comeu_a_Ritinha.Areas.Identity.Pages.Account.Manage
                 return Page();
             }
 
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-            if (Input.PhoneNumber != phoneNumber)
+            // Atualizar dados do utilizador na base de dados
+            var utilizador = _context.Utilizadores.FirstOrDefault(u => u.UserId == user.Id);
+            if (utilizador != null)
             {
-                var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
-                if (!setPhoneResult.Succeeded)
-                {
-                    StatusMessage = "Unexpected error when trying to set phone number.";
-                    return RedirectToPage();
-                }
+                utilizador.Name = Input.Name;
+                utilizador.Birthday = Input.Birthday;
+                utilizador.Phone = Input.Phone;
+
+                _context.Update(utilizador);
+                await _context.SaveChangesAsync();
             }
 
+
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Your profile has been updated";
+            StatusMessage = "O teu perfil foi alterado.";
             return RedirectToPage();
         }
     }
