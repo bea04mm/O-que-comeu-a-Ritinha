@@ -7,60 +7,70 @@
 
 <div id="backcolor">
 
-	<div class="justify-content-center bg-white m-4 rounded">
+	<div class="justify-content-center bg-white m-2 rounded">
 
-		<h1 class="text-black m-0">@Html.DisplayFor(model => model.Title)</h1>
+		<h1 class="text-black m-0 p-4">@Html.DisplayFor(model => model.Title)</h1>
 
-		<img src="~/images/@Model.Image" alt="Receita @Model.Title" title="@Model.Title" class="w-25 rounded" />
-
-		<p>@Html.DisplayNameFor(model => model.Time): @Html.DisplayFor(model => model.Time)</p>
-
-		<p>@Html.DisplayNameFor(model => model.Portions): @Html.DisplayFor(model => model.Portions)</p>
-
-		<p>@Html.DisplayNameFor(model => model.Suggestions): <div>@Html.Raw(Model.Suggestions)</div></p>
-
-		@if (@Model.Instagram != null)
+		@if (User.Identity.IsAuthenticated)
 		{
-			<iframe width="320" height="440" src="@Html.DisplayFor(model => model.Instagram)" frameborder="0"></iframe>
+			<form method="post" asp-action="AddToFavorites">
+				<input type="hidden" name="recipeId" value="@Model.Id" />
+				<button type="submit" class="btn btn-link p-0 m-0" style="color: #f0aec0;">
+					@if ((bool)ViewBag.IsFavorite)
+					{
+						<span class="fa-solid fa-star h1"></span>
+					}
+					else
+					{
+						<span class="fa-regular fa-star h1"></span>
+					}
+				</button>
+			</form>
 		}
 
-		<p>@Html.DisplayNameFor(model => model.Steps)</p>
-		<div>@Html.Raw(Model.Steps)</div>
-
-		<p>Ingredientes</p>
-		<ul>
-			@foreach (var ingredient in Model.ListIngredients)
-			{
-				<li>@ingredient.Quantity de @ingredient.Ingredient.Ingredient</li>
-			}
-		</ul>
-
-		<p>Tags</p>
-		<ul>
+		<div class="d-flex justify-content-center">
 			@foreach (var tag in Model.ListTags)
 			{
-				<li>@tag.Tag.Tag</li>
+				<p class="border border-dark rounded-pill m-1 p-2"><strong>@tag.Tag.Tag</strong></p>
 			}
-		</ul>
+		</div>
 
+		<div class="d-flex justify-content-center m-0">
+			<h3 class="m-2"><i class="fa-solid fa-clock"></i> @Model.Time.ToString("hh\\:mm")</h3>
+			<h3 class="m-2"><i class="fa-solid fa-person"></i> @Html.DisplayFor(model => model.Portions)</h3>
+		</div>
+
+		<div class="d-flex justify-content-center flex-column flex-lg-row m-2">
+			<img src="~/images/@Model.Image" alt="Receita @Model.Title" title="@Model.Title" class="img-fluid rounded m-4" />
+
+			@if (@Model.Instagram != null)
+			{
+				<iframe class="w-20 h-auto m-4" src="@Html.DisplayFor(model => model.Instagram)" frameborder="0"></iframe>
+			}
+		</div>
+
+		<div class="h3">@Html.Raw(Model.Suggestions)</div>
+
+
+		<div class="d-flex justify-content-center flex-column flex-lg-row">
+			<aside class="m-4">
+				<h2 class="p-2">Ingredientes</h2>
+				@foreach (var ingredient in Model.ListIngredients)
+				{
+					<div class="d-flex text-start justify-content-between gap-4 m-1">
+						<div>@ingredient.Ingredient.Ingredient</div>
+						<div class="text-end">@ingredient.Quantity </div>
+					</div>
+					<hr />
+				}
+			</aside>
+
+			<div class="m-4">
+				<h2 class="p-2">@Html.DisplayNameFor(model => model.Steps)</h2>
+				<div class="text-start">@Html.Raw(Model.Steps)</div>
+			</div>
+		</div>
 	</div>
-
-	@if (User.Identity.IsAuthenticated)
-	{
-		<form method="post" asp-action="AddToFavorites">
-			<input type="hidden" name="recipeId" value="@Model.Id" />
-			<button type="submit" class="btn btn-link text-white p-2 m-0">
-				@if ((bool)ViewBag.IsFavorite)
-				{
-					<span class="fa-solid fa-star h1"></span>
-				}
-				else
-				{
-					<span class="fa-regular fa-star h1"></span>
-				}
-			</button>
-		</form>
-	}
 
 	@if (User.IsInRole("Admin"))
 	{

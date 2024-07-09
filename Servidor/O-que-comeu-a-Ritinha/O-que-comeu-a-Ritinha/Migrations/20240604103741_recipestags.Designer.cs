@@ -13,7 +13,7 @@ namespace O_que_comeu_a_Ritinha.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20240604103741_recipestags")]
-    partial class recipestags
+    partial class recipesTags
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

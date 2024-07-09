@@ -6,39 +6,52 @@
 }
 
 <div id="backcolor">
-    <h1 class="text-white m-0 pb-4">Receitas</h1>
+	<h1 class="text-white m-0 pb-4">Receitas</h1>
 
-    @if (User.IsInRole("Admin"))
-    {
-        <p class="text-center mb-4">
-            <a asp-action="Create" class="btn btn-light bg-white">Criar nova Receita!</a>
-        </p>
-    }
+	@if (User.IsInRole("Admin"))
+	{
+		<p class="text-center mb-4">
+			<a asp-action="Create" class="btn btn-light bg-white">Criar nova Receita!</a>
+		</p>
+	}
 
-    <div class="row justify-content-center">
-        @foreach (var item in Model)
-        {
-            <div class="col-md-3 mb-4">
-                <div class="text-center bg-white rounded p-3 h-100 w-auto d-inline-block">
-                    <a asp-action="Details" asp-route-id="@item.Id" class="text-black text-decoration-none">
-                        <img src="~/images/@item.Image" alt="Receita @item.Title" title="@item.Title" class="rounded img-fluid" />
-                        <p class="mt-2 mb-0">@Html.DisplayFor(modelItem => item.Title)</p>
-                    </a>
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-info btn-sm btn-block m-1">Editar</a>
-                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm btn-block m-1">Apagar</a>
-                    }
-                </div>
-            </div>
-        }
-    </div>
+	<form asp-action="Index" method="get">
+		<input class="form-control text-center mb-4 w-50" type="text" id="searchInput" name="searchString" value="@ViewBag.CurrentFilter" placeholder="Pesquisar..." />
+		<button type="submit" style="display: none;">Search</button>
+	</form>
 
-    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions
-    {
-        Display = PagedListDisplayMode.IfNeeded,
-        LiElementClasses = new string[] { "page-item" }, // Classe para o elemento <li>
-        PageClasses = new string[] { "page-link" }, // Classe para os links das páginas
-        UlElementClasses = new string[] { "pagination justify-content-center m-0" } // Classe para o elemento <ul>
-    })
+	<div class="row justify-content-center">
+		@foreach (var item in Model)
+		{
+			<div class="col-md-3 mb-4">
+				<div class="text-center bg-white rounded p-3 h-100 w-auto d-inline-block">
+					<a asp-action="Details" asp-route-id="@item.Id" class="text-black text-decoration-none">
+						<img src="~/images/@item.Image" alt="Receita @item.Title" title="@item.Title" class="rounded img-fluid" />
+						<p class="mt-2 mb-0">@Html.DisplayFor(modelItem => item.Title)</p>
+					</a>
+					@if (User.IsInRole("Admin"))
+					{
+						<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-info btn-sm btn-block m-1">Editar</a>
+						<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm btn-block m-1">Apagar</a>
+					}
+				</div>
+			</div>
+		}
+	</div>
+
+	@Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions
+{
+	Display = PagedListDisplayMode.IfNeeded,
+	LiElementClasses = new string[] { "page-item" }, // Classe para o elemento <li>
+	PageClasses = new string[] { "page-link" }, // Classe para os links das páginas
+	UlElementClasses = new string[] { "pagination justify-content-center m-0" } // Classe para o elemento <ul>
+})
 </div>
+
+@section Scripts {
+	<script>
+		document.getElementById('searchInput').addEventListener('input', function () {
+			document.getElementById('searchForm').submit();
+		});
+	</script>
+}

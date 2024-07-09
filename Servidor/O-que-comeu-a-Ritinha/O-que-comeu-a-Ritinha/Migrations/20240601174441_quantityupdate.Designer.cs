@@ -13,7 +13,7 @@ namespace O_que_comeu_a_Ritinha.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20240601174441_quantityupdate")]
-    partial class quantityupdate
+    partial class quantityUpdate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

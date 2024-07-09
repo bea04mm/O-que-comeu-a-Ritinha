@@ -30,7 +30,7 @@
                          @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="RecipesUtilizadores" asp-action="Index">Favoritos</a>
+                                <a class="nav-link text-white" asp-area="" asp-controller="Favorites" asp-action="Index">Favoritos</a>
                             </li>
                         }
                         @if (User.IsInRole("Admin"))
@@ -40,9 +40,6 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-white" asp-area="" asp-controller="Tags" asp-action="Index">Tags</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="api" asp-action="api">API</a>
                             </li>
                         }
                     </ul>

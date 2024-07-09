@@ -10,6 +10,7 @@
 		<div class="row">
 			<div class="col">
 				<form asp-action="Edit" enctype="multipart/form-data">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 					<input type="hidden" asp-for="Id" />
 					<div class="form-group m-3">
 						<label asp-for="Description" class="control-label text-white"></label>
@@ -28,7 +29,6 @@
 									<button id="removeImageDescriptionButton" type="button" class="btn btn-sm btn-danger mt-2" onclick="removeImage('ImageDescription')">Remover Imagem</button>
 								</div>
 								<input type="file" name="ImageDescription" accept=".png, .jpg, .jpeg" class="form-control mb-2" style="display: none;" />
-								<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 							</div>
 						</div>
 
@@ -42,7 +42,6 @@
 									<button id="removeImageLogoButton" type="button" class="btn btn-sm btn-danger mt-2" onclick="removeImage('ImageLogo')">Remover Imagem</button>
 								</div>
 								<input type="file" name="ImageLogo" accept=".png, .jpg, .jpeg" class="form-control mb-2" style="display: none;" />
-								<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 							</div>
 						</div>
 					</div>
@@ -68,7 +67,7 @@
 											<input class="form-control text-center" type="text" value="@item.Recipe.Title" readonly />
 										</div>
 										<div class="col-3">
-											<button class="form-control" type="button" onclick="removeFromList('@item.Id')">❌</button>
+											<button class="form-control" type="button" onclick="removeFromList('recipe', '@item.Id')">❌</button>
 										</div>
 									</div>
 								}

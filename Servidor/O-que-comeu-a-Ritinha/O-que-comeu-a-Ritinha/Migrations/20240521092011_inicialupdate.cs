@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace O_que_comeu_a_Ritinha.Migrations
 {
     /// <inheritdoc />
-    public partial class inicialupdate : Migration
+    public partial class inicialUpdate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

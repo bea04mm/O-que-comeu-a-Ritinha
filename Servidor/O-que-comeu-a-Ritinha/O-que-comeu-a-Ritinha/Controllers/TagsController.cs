@@ -24,8 +24,11 @@ namespace O_que_comeu_a_Ritinha.Controllers
         // GET: Tags
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Tags.ToListAsync());
-        }
+			var tags = await _context.Tags
+			    .OrderBy(i => i.Tag)
+				.ToListAsync();
+			return View(tags);
+		}
 
         // GET: Tags/Details/5
         public async Task<IActionResult> Details(int? id)

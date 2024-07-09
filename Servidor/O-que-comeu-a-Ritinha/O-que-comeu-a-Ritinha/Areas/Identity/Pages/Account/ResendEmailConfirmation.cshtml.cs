@@ -79,8 +79,8 @@ namespace O_que_comeu_a_Ritinha.Areas.Identity.Pages.Account
                 protocol: Request.Scheme);
             await _emailSender.SendEmailAsync(
                 Input.Email,
-                "Confirm your email",
-                $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                "Confirma o teu email",
+                $"Por favor confirma a tua conta em {HtmlEncoder.Default.Encode(callbackUrl)}.");
 
             ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");
             return Page();
