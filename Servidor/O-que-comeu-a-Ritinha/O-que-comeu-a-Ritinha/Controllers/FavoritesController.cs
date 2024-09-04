@@ -20,8 +20,8 @@ namespace O_que_comeu_a_Ritinha.Controllers
         public async Task<IActionResult> Index()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var applicationDbContext = _context.RecipesUtilizadores
-                .Include(r => r.Recipe)
+            var applicationDbContext = _context.Favorites
+				.Include(r => r.Recipe)
                 .Include(r => r.Utilizador)
                 .Where(r => r.Utilizador.UserId == userId); // Filter by authenticated user
             return View(await applicationDbContext.ToListAsync());
@@ -35,8 +35,8 @@ namespace O_que_comeu_a_Ritinha.Controllers
                 return NotFound();
             }
 
-            var recipesUtilizadores = await _context.RecipesUtilizadores
-                .Include(r => r.Recipe)
+            var recipesUtilizadores = await _context.Favorites
+				.Include(r => r.Recipe)
                 .Include(r => r.Utilizador)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
@@ -59,7 +59,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var recipesUtilizadores = await _context.RecipesUtilizadores.FindAsync(id);
+            var recipesUtilizadores = await _context.Favorites.FindAsync(id);
 
             if (recipesUtilizadores == null)
             {
@@ -72,14 +72,14 @@ namespace O_que_comeu_a_Ritinha.Controllers
                 return Forbid();
             }
 
-            _context.RecipesUtilizadores.Remove(recipesUtilizadores);
+            _context.Favorites.Remove(recipesUtilizadores);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool RecipesUtilizadoresExists(int id)
         {
-            return _context.RecipesUtilizadores.Any(e => e.Id == id);
+            return _context.Favorites.Any(e => e.Id == id);
         }
     }
 }

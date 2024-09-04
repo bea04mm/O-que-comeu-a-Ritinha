@@ -113,12 +113,12 @@ namespace O_que_comeu_a_Ritinha.Controllers
 			var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // Obtém o ID do utilizador atual
 
 			// Verifica se já existe essa associação na tabela de associação
-			var existingAssociation = await _context.RecipesUtilizadores.FirstOrDefaultAsync(ru => ru.RecipeFK == recipeId && ru.Utilizador.UserId == userId);
+			var existingAssociation = await _context.Favorites.FirstOrDefaultAsync(ru => ru.RecipeFK == recipeId && ru.Utilizador.UserId == userId);
 
 			if (existingAssociation != null)
 			{
 				// Já está nos favoritos, então remove
-				_context.RecipesUtilizadores.Remove(existingAssociation);
+				_context.Favorites.Remove(existingAssociation);
 			}
 			else
 			{
@@ -133,7 +133,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
 					UtilizadorFK = utilizador.Id // Utiliza o Id do Utilizador encontrado
 				};
 
-				_context.RecipesUtilizadores.Add(newAssociation);
+				_context.Favorites.Add(newAssociation);
 			}
 
 			await _context.SaveChangesAsync();

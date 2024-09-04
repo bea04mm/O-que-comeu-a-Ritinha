@@ -42,6 +42,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
 
             var ingredients = await _context.Ingredients
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (ingredients == null)
             {
                 return NotFound();
@@ -117,10 +118,10 @@ namespace O_que_comeu_a_Ritinha.Controllers
 			{
 				try
 				{
-					// Normalize the ingredient to lower case for comparison
+					// Normaliza o ingrediente para letras minúsculas para comparação
 					var normalizedIngredient = ingredients.Ingredient.Trim().ToLower();
 
-					// Fetch the current ingredient from the database
+					// Verifica se já existe um ingrediente com o mesmo nome (case-insensitive)
 					var existingIngredient = await _context.Ingredients
 						.FirstOrDefaultAsync(i => i.Id != ingredients.Id && i.Ingredient.Trim().ToLower() == normalizedIngredient);
 

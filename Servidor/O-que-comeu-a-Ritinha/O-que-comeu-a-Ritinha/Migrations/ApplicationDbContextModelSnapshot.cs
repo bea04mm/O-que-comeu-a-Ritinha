@@ -270,6 +270,29 @@ namespace O_que_comeu_a_Ritinha.Migrations
                     b.ToTable("AboutusRecipes");
                 });
 
+            modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.Favorites", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("RecipeFK")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UtilizadorFK")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RecipeFK");
+
+                    b.HasIndex("UtilizadorFK");
+
+                    b.ToTable("Favorites");
+                });
+
             modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.Ingredients", b =>
                 {
                     b.Property<int>("Id")
@@ -371,29 +394,6 @@ namespace O_que_comeu_a_Ritinha.Migrations
                     b.HasIndex("TagFK");
 
                     b.ToTable("RecipesTags");
-                });
-
-            modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.RecipesUtilizadores", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("RecipeFK")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UtilizadorFK")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RecipeFK");
-
-                    b.HasIndex("UtilizadorFK");
-
-                    b.ToTable("RecipesUtilizadores");
                 });
 
             modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.Tags", b =>
@@ -513,6 +513,25 @@ namespace O_que_comeu_a_Ritinha.Migrations
                     b.Navigation("Recipe");
                 });
 
+            modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.Favorites", b =>
+                {
+                    b.HasOne("O_que_comeu_a_Ritinha.Models.Recipes", "Recipe")
+                        .WithMany("ListUtilizadores")
+                        .HasForeignKey("RecipeFK")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("O_que_comeu_a_Ritinha.Models.Utilizadores", "Utilizador")
+                        .WithMany("ListRecipesU")
+                        .HasForeignKey("UtilizadorFK")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Recipe");
+
+                    b.Navigation("Utilizador");
+                });
+
             modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.IngredientsRecipes", b =>
                 {
                     b.HasOne("O_que_comeu_a_Ritinha.Models.Ingredients", "Ingredient")
@@ -549,25 +568,6 @@ namespace O_que_comeu_a_Ritinha.Migrations
                     b.Navigation("Recipe");
 
                     b.Navigation("Tag");
-                });
-
-            modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.RecipesUtilizadores", b =>
-                {
-                    b.HasOne("O_que_comeu_a_Ritinha.Models.Recipes", "Recipe")
-                        .WithMany("ListUtilizadores")
-                        .HasForeignKey("RecipeFK")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("O_que_comeu_a_Ritinha.Models.Utilizadores", "Utilizador")
-                        .WithMany("ListRecipesU")
-                        .HasForeignKey("UtilizadorFK")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Recipe");
-
-                    b.Navigation("Utilizador");
                 });
 
             modelBuilder.Entity("O_que_comeu_a_Ritinha.Models.Aboutus", b =>

@@ -32,12 +32,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\07bfe7f4-a043-41f5-9b4c-f928ca66b90a.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\025f5989-70c8-4fc4-bfb3-4f23a8413ef8.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>O-que-comeu-a-Ritinha</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/O-que-comeu-a-Ritinha</BasePath>
-      <RelativePath>images/07bfe7f4-a043-41f5-9b4c-f928ca66b90a.jpg</RelativePath>
+      <RelativePath>images/025f5989-70c8-4fc4-bfb3-4f23a8413ef8.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -46,14 +46,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\07bfe7f4-a043-41f5-9b4c-f928ca66b90a.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\025f5989-70c8-4fc4-bfb3-4f23a8413ef8.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\1351c759-876b-4798-acc7-2db7c850ef2a.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\1469c15e-7660-4dc7-a74b-9a619a2deb75.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>O-que-comeu-a-Ritinha</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/O-que-comeu-a-Ritinha</BasePath>
-      <RelativePath>images/1351c759-876b-4798-acc7-2db7c850ef2a.jpg</RelativePath>
+      <RelativePath>images/1469c15e-7660-4dc7-a74b-9a619a2deb75.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -62,7 +62,23 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\1351c759-876b-4798-acc7-2db7c850ef2a.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\1469c15e-7660-4dc7-a74b-9a619a2deb75.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\160d4bf2-bf72-48cd-9b4d-e245f2d13a63.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>O-que-comeu-a-Ritinha</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/O-que-comeu-a-Ritinha</BasePath>
+      <RelativePath>images/160d4bf2-bf72-48cd-9b4d-e245f2d13a63.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\160d4bf2-bf72-48cd-9b4d-e245f2d13a63.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\32f8c727-e9de-45c3-91a9-4bc6ef585606.png))">
       <SourceType>Package</SourceType>
@@ -80,12 +96,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\32f8c727-e9de-45c3-91a9-4bc6ef585606.png))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\3a89e4f7-5670-4e35-808f-21a964246bc2.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\37e5eda3-1ea5-47af-bc67-f999b213a292.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>O-que-comeu-a-Ritinha</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/O-que-comeu-a-Ritinha</BasePath>
-      <RelativePath>images/3a89e4f7-5670-4e35-808f-21a964246bc2.jpg</RelativePath>
+      <RelativePath>images/37e5eda3-1ea5-47af-bc67-f999b213a292.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -94,7 +110,23 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\3a89e4f7-5670-4e35-808f-21a964246bc2.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\37e5eda3-1ea5-47af-bc67-f999b213a292.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\3c060d7c-175a-4d6e-a8f9-e3c0a30c3028.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>O-que-comeu-a-Ritinha</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/O-que-comeu-a-Ritinha</BasePath>
+      <RelativePath>images/3c060d7c-175a-4d6e-a8f9-e3c0a30c3028.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\3c060d7c-175a-4d6e-a8f9-e3c0a30c3028.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\3d5d4106-87a2-41b5-bcb3-b55bd28ddd89.jpg))">
       <SourceType>Package</SourceType>
@@ -112,12 +144,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\3d5d4106-87a2-41b5-bcb3-b55bd28ddd89.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\92814f3f-356e-42cd-9d1f-0c4327f3e1c7.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\5834d60e-7c39-4ecb-96de-84fe239e9707.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>O-que-comeu-a-Ritinha</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/O-que-comeu-a-Ritinha</BasePath>
-      <RelativePath>images/92814f3f-356e-42cd-9d1f-0c4327f3e1c7.jpg</RelativePath>
+      <RelativePath>images/5834d60e-7c39-4ecb-96de-84fe239e9707.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -126,14 +158,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\92814f3f-356e-42cd-9d1f-0c4327f3e1c7.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\5834d60e-7c39-4ecb-96de-84fe239e9707.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\9f9f0bc6-4833-43db-bfd8-adc6f6081498.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\6c80f978-0245-4a52-906b-02a9c3a9975a.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>O-que-comeu-a-Ritinha</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/O-que-comeu-a-Ritinha</BasePath>
-      <RelativePath>images/9f9f0bc6-4833-43db-bfd8-adc6f6081498.jpg</RelativePath>
+      <RelativePath>images/6c80f978-0245-4a52-906b-02a9c3a9975a.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -142,14 +174,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\9f9f0bc6-4833-43db-bfd8-adc6f6081498.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\6c80f978-0245-4a52-906b-02a9c3a9975a.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ab5f1fc2-6ee9-4883-b91b-145fad1f5a9d.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\844a2d16-496f-419a-a8e2-e82b13b75554.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>O-que-comeu-a-Ritinha</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/O-que-comeu-a-Ritinha</BasePath>
-      <RelativePath>images/ab5f1fc2-6ee9-4883-b91b-145fad1f5a9d.jpg</RelativePath>
+      <RelativePath>images/844a2d16-496f-419a-a8e2-e82b13b75554.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -158,14 +190,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\ab5f1fc2-6ee9-4883-b91b-145fad1f5a9d.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\844a2d16-496f-419a-a8e2-e82b13b75554.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\b5f3a0a0-c950-4ccd-bb75-aac7834bd507.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\99903737-1586-4c56-8a83-1dfec6bf884d.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>O-que-comeu-a-Ritinha</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/O-que-comeu-a-Ritinha</BasePath>
-      <RelativePath>images/b5f3a0a0-c950-4ccd-bb75-aac7834bd507.jpg</RelativePath>
+      <RelativePath>images/99903737-1586-4c56-8a83-1dfec6bf884d.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -174,7 +206,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\b5f3a0a0-c950-4ccd-bb75-aac7834bd507.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\99903737-1586-4c56-8a83-1dfec6bf884d.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\imageLogo.png))">
       <SourceType>Package</SourceType>

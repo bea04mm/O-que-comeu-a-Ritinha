@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/3c84b542-58f8-41d7-8205-5998c2608b8c/resourceGroups/DWeb/providers/Microsoft.Web/sites/O-que-comeu-a-Ritinha-Client",
+    "appService.deploySubpath": "."
+}

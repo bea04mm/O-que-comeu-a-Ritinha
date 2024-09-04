@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "O1yXUWXj4fcIxIXFWhBMX0qBfP9m+H/xn7/aTfjPPn4=",
+  "Hash": "MaVTmFnjh3CxaSZI6MVk7CFj7y5/2eACt8r4brms6MY=",
   "Source": "O-que-comeu-a-Ritinha",
   "BasePath": "_content/O-que-comeu-a-Ritinha",
   "Mode": "Default",
@@ -1233,12 +1233,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\07bfe7f4-a043-41f5-9b4c-f928ca66b90a.jpg",
+      "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\025f5989-70c8-4fc4-bfb3-4f23a8413ef8.jpg",
       "SourceId": "O-que-comeu-a-Ritinha",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\",
       "BasePath": "_content/O-que-comeu-a-Ritinha",
-      "RelativePath": "images/07bfe7f4-a043-41f5-9b4c-f928ca66b90a.jpg",
+      "RelativePath": "images/025f5989-70c8-4fc4-bfb3-4f23a8413ef8.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1249,15 +1249,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\07bfe7f4-a043-41f5-9b4c-f928ca66b90a.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\025f5989-70c8-4fc4-bfb3-4f23a8413ef8.jpg"
     },
     {
-      "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\1351c759-876b-4798-acc7-2db7c850ef2a.jpg",
+      "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\1469c15e-7660-4dc7-a74b-9a619a2deb75.jpg",
       "SourceId": "O-que-comeu-a-Ritinha",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\",
       "BasePath": "_content/O-que-comeu-a-Ritinha",
-      "RelativePath": "images/1351c759-876b-4798-acc7-2db7c850ef2a.jpg",
+      "RelativePath": "images/1469c15e-7660-4dc7-a74b-9a619a2deb75.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1268,7 +1268,26 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\1351c759-876b-4798-acc7-2db7c850ef2a.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\1469c15e-7660-4dc7-a74b-9a619a2deb75.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\160d4bf2-bf72-48cd-9b4d-e245f2d13a63.jpg",
+      "SourceId": "O-que-comeu-a-Ritinha",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\",
+      "BasePath": "_content/O-que-comeu-a-Ritinha",
+      "RelativePath": "images/160d4bf2-bf72-48cd-9b4d-e245f2d13a63.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\160d4bf2-bf72-48cd-9b4d-e245f2d13a63.jpg"
     },
     {
       "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\32f8c727-e9de-45c3-91a9-4bc6ef585606.png",
@@ -1290,12 +1309,12 @@
       "OriginalItemSpec": "wwwroot\\images\\32f8c727-e9de-45c3-91a9-4bc6ef585606.png"
     },
     {
-      "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\3a89e4f7-5670-4e35-808f-21a964246bc2.jpg",
+      "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\37e5eda3-1ea5-47af-bc67-f999b213a292.jpg",
       "SourceId": "O-que-comeu-a-Ritinha",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\",
       "BasePath": "_content/O-que-comeu-a-Ritinha",
-      "RelativePath": "images/3a89e4f7-5670-4e35-808f-21a964246bc2.jpg",
+      "RelativePath": "images/37e5eda3-1ea5-47af-bc67-f999b213a292.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1306,7 +1325,26 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\3a89e4f7-5670-4e35-808f-21a964246bc2.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\37e5eda3-1ea5-47af-bc67-f999b213a292.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\3c060d7c-175a-4d6e-a8f9-e3c0a30c3028.jpg",
+      "SourceId": "O-que-comeu-a-Ritinha",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\",
+      "BasePath": "_content/O-que-comeu-a-Ritinha",
+      "RelativePath": "images/3c060d7c-175a-4d6e-a8f9-e3c0a30c3028.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\3c060d7c-175a-4d6e-a8f9-e3c0a30c3028.jpg"
     },
     {
       "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\3d5d4106-87a2-41b5-bcb3-b55bd28ddd89.jpg",
@@ -1328,12 +1366,12 @@
       "OriginalItemSpec": "wwwroot\\images\\3d5d4106-87a2-41b5-bcb3-b55bd28ddd89.jpg"
     },
     {
-      "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\92814f3f-356e-42cd-9d1f-0c4327f3e1c7.jpg",
+      "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\5834d60e-7c39-4ecb-96de-84fe239e9707.jpg",
       "SourceId": "O-que-comeu-a-Ritinha",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\",
       "BasePath": "_content/O-que-comeu-a-Ritinha",
-      "RelativePath": "images/92814f3f-356e-42cd-9d1f-0c4327f3e1c7.jpg",
+      "RelativePath": "images/5834d60e-7c39-4ecb-96de-84fe239e9707.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1344,15 +1382,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\92814f3f-356e-42cd-9d1f-0c4327f3e1c7.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\5834d60e-7c39-4ecb-96de-84fe239e9707.jpg"
     },
     {
-      "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\9f9f0bc6-4833-43db-bfd8-adc6f6081498.jpg",
+      "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\6c80f978-0245-4a52-906b-02a9c3a9975a.jpg",
       "SourceId": "O-que-comeu-a-Ritinha",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\",
       "BasePath": "_content/O-que-comeu-a-Ritinha",
-      "RelativePath": "images/9f9f0bc6-4833-43db-bfd8-adc6f6081498.jpg",
+      "RelativePath": "images/6c80f978-0245-4a52-906b-02a9c3a9975a.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1363,15 +1401,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\9f9f0bc6-4833-43db-bfd8-adc6f6081498.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\6c80f978-0245-4a52-906b-02a9c3a9975a.jpg"
     },
     {
-      "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\ab5f1fc2-6ee9-4883-b91b-145fad1f5a9d.jpg",
+      "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\844a2d16-496f-419a-a8e2-e82b13b75554.jpg",
       "SourceId": "O-que-comeu-a-Ritinha",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\",
       "BasePath": "_content/O-que-comeu-a-Ritinha",
-      "RelativePath": "images/ab5f1fc2-6ee9-4883-b91b-145fad1f5a9d.jpg",
+      "RelativePath": "images/844a2d16-496f-419a-a8e2-e82b13b75554.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1382,15 +1420,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\ab5f1fc2-6ee9-4883-b91b-145fad1f5a9d.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\844a2d16-496f-419a-a8e2-e82b13b75554.jpg"
     },
     {
-      "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\b5f3a0a0-c950-4ccd-bb75-aac7834bd507.jpg",
+      "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\99903737-1586-4c56-8a83-1dfec6bf884d.jpg",
       "SourceId": "O-que-comeu-a-Ritinha",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\",
       "BasePath": "_content/O-que-comeu-a-Ritinha",
-      "RelativePath": "images/b5f3a0a0-c950-4ccd-bb75-aac7834bd507.jpg",
+      "RelativePath": "images/99903737-1586-4c56-8a83-1dfec6bf884d.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1401,7 +1439,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\b5f3a0a0-c950-4ccd-bb75-aac7834bd507.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\99903737-1586-4c56-8a83-1dfec6bf884d.jpg"
     },
     {
       "Identity": "C:\\Users\\Utilizador\\Documents\\GitHub\\O-que-comeu-a-Ritinha\\Servidor\\O-que-comeu-a-Ritinha\\O-que-comeu-a-Ritinha\\wwwroot\\images\\imageLogo.png",
