@@ -25,14 +25,14 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Favorites>>> GetRecipesUtilizadores()
         {
-            return await _context.RecipesUtilizadores.ToListAsync();
+            return await _context.Favorites.ToListAsync();
         }
 
         // GET: api/Favorites/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Favorites>> GetFavorites(int id)
         {
-            var favorites = await _context.RecipesUtilizadores.FindAsync(id);
+            var favorites = await _context.Favorites.FindAsync(id);
 
             if (favorites == null)
             {
@@ -78,7 +78,7 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
         [HttpPost]
         public async Task<ActionResult<Favorites>> PostFavorites(Favorites favorites)
         {
-            _context.RecipesUtilizadores.Add(favorites);
+            _context.Favorites.Add(favorites);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetFavorites", new { id = favorites.Id }, favorites);
@@ -88,13 +88,13 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteFavorites(int id)
         {
-            var favorites = await _context.RecipesUtilizadores.FindAsync(id);
+            var favorites = await _context.Favorites.FindAsync(id);
             if (favorites == null)
             {
                 return NotFound();
             }
 
-            _context.RecipesUtilizadores.Remove(favorites);
+            _context.Favorites.Remove(favorites);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -102,7 +102,7 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
 
         private bool FavoritesExists(int id)
         {
-            return _context.RecipesUtilizadores.Any(e => e.Id == id);
+            return _context.Favorites.Any(e => e.Id == id);
         }
     }
 }
