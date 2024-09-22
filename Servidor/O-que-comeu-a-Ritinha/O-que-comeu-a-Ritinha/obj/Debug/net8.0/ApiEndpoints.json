@@ -1,0 +1,1301 @@
+[
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.AboutusController",
+    "Method": "GetAboutus",
+    "RelativePath": "api/Aboutus",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[O_que_comeu_a_Ritinha.Models.Aboutus, O-que-comeu-a-Ritinha, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.AboutusController",
+    "Method": "GetAboutus",
+    "RelativePath": "api/Aboutus/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "O_que_comeu_a_Ritinha.Models.Aboutus",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.AboutusController",
+    "Method": "PutAboutus",
+    "RelativePath": "api/Aboutus/PutAboutus/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageDescription",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageLogo",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ListRecipesA",
+        "Type": "System.Collections.Generic.ICollection\u00601[[O_que_comeu_a_Ritinha.Models.AboutusRecipes, O-que-comeu-a-Ritinha, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Recipes",
+        "Type": "System.Collections.Generic.List\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageDescription",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageLogo",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "CurrentImageDescription",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CurrentImageLogo",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.AboutusRecipesController",
+    "Method": "GetAboutusRecipes",
+    "RelativePath": "api/AboutusRecipes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[O_que_comeu_a_Ritinha.Models.AboutusRecipes, O-que-comeu-a-Ritinha, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.AboutusRecipesController",
+    "Method": "PostAboutusRecipes",
+    "RelativePath": "api/AboutusRecipes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "aboutusRecipes",
+        "Type": "O_que_comeu_a_Ritinha.Models.AboutusRecipes",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "O_que_comeu_a_Ritinha.Models.AboutusRecipes",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.AboutusRecipesController",
+    "Method": "GetAboutusRecipes",
+    "RelativePath": "api/AboutusRecipes/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "O_que_comeu_a_Ritinha.Models.AboutusRecipes",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.AboutusRecipesController",
+    "Method": "PutAboutusRecipes",
+    "RelativePath": "api/AboutusRecipes/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "aboutusRecipes",
+        "Type": "O_que_comeu_a_Ritinha.Models.AboutusRecipes",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.AboutusRecipesController",
+    "Method": "DeleteAboutusRecipes",
+    "RelativePath": "api/AboutusRecipes/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.AutenticationController",
+    "Method": "ConfirmEmail",
+    "RelativePath": "api/Autentication/ConfirmEmail",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Token",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.AutenticationController",
+    "Method": "Login",
+    "RelativePath": "api/Autentication/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "RememberMe",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.AutenticationController",
+    "Method": "Register",
+    "RelativePath": "api/Autentication/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Birthday",
+        "Type": "System.DateOnly",
+        "IsRequired": false
+      },
+      {
+        "Name": "Phone",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ListRecipesU",
+        "Type": "System.Collections.Generic.ICollection\u00601[[O_que_comeu_a_Ritinha.Models.Favorites, O-que-comeu-a-Ritinha, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.FavoritesController",
+    "Method": "GetRecipesUtilizadores",
+    "RelativePath": "api/Favorites",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[O_que_comeu_a_Ritinha.Models.Favorites, O-que-comeu-a-Ritinha, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.FavoritesController",
+    "Method": "PostFavorites",
+    "RelativePath": "api/Favorites",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "favorites",
+        "Type": "O_que_comeu_a_Ritinha.Models.Favorites",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "O_que_comeu_a_Ritinha.Models.Favorites",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.FavoritesController",
+    "Method": "GetFavorites",
+    "RelativePath": "api/Favorites/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "O_que_comeu_a_Ritinha.Models.Favorites",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.FavoritesController",
+    "Method": "PutFavorites",
+    "RelativePath": "api/Favorites/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "favorites",
+        "Type": "O_que_comeu_a_Ritinha.Models.Favorites",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.FavoritesController",
+    "Method": "DeleteFavorites",
+    "RelativePath": "api/Favorites/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.IngredientsController",
+    "Method": "GetIngredients",
+    "RelativePath": "api/Ingredients",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[O_que_comeu_a_Ritinha.Models.Ingredients, O-que-comeu-a-Ritinha, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.IngredientsController",
+    "Method": "GetIngredients",
+    "RelativePath": "api/Ingredients/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "O_que_comeu_a_Ritinha.Models.Ingredients",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.IngredientsController",
+    "Method": "DeleteIngredients",
+    "RelativePath": "api/Ingredients/DeleteIngredients/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.IngredientsController",
+    "Method": "PostIngredients",
+    "RelativePath": "api/Ingredients/PostIngredients",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ingredients",
+        "Type": "O_que_comeu_a_Ritinha.Models.Ingredients",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "O_que_comeu_a_Ritinha.Models.Ingredients",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.IngredientsController",
+    "Method": "PutIngredients",
+    "RelativePath": "api/Ingredients/PutIngredients/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "ingredients",
+        "Type": "O_que_comeu_a_Ritinha.Models.Ingredients",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.IngredientsRecipesController",
+    "Method": "GetIngredientsRecipes",
+    "RelativePath": "api/IngredientsRecipes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[O_que_comeu_a_Ritinha.Models.IngredientsRecipes, O-que-comeu-a-Ritinha, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.IngredientsRecipesController",
+    "Method": "PostIngredientsRecipes",
+    "RelativePath": "api/IngredientsRecipes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ingredientsRecipes",
+        "Type": "O_que_comeu_a_Ritinha.Models.IngredientsRecipes",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "O_que_comeu_a_Ritinha.Models.IngredientsRecipes",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.IngredientsRecipesController",
+    "Method": "GetIngredientsRecipes",
+    "RelativePath": "api/IngredientsRecipes/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "O_que_comeu_a_Ritinha.Models.IngredientsRecipes",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.IngredientsRecipesController",
+    "Method": "PutIngredientsRecipes",
+    "RelativePath": "api/IngredientsRecipes/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "ingredientsRecipes",
+        "Type": "O_que_comeu_a_Ritinha.Models.IngredientsRecipes",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.IngredientsRecipesController",
+    "Method": "DeleteIngredientsRecipes",
+    "RelativePath": "api/IngredientsRecipes/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.RecipesController",
+    "Method": "GetRecipes",
+    "RelativePath": "api/Recipes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[O_que_comeu_a_Ritinha.Models.Recipes, O-que-comeu-a-Ritinha, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.RecipesController",
+    "Method": "GetRecipes",
+    "RelativePath": "api/Recipes/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "O_que_comeu_a_Ritinha.Models.Recipes",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.RecipesController",
+    "Method": "AddToFavoritesReact",
+    "RelativePath": "api/Recipes/AddToFavoritesReact",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "recipeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.RecipesController",
+    "Method": "DeleteRecipes",
+    "RelativePath": "api/Recipes/DeleteRecipes/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.RecipesController",
+    "Method": "GetPagedRecipes",
+    "RelativePath": "api/Recipes/GetPagedRecipes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "searchString",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.RecipesController",
+    "Method": "PostRecipes",
+    "RelativePath": "api/Recipes/PostRecipes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Image",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Time",
+        "Type": "System.TimeSpan",
+        "IsRequired": false
+      },
+      {
+        "Name": "Portions",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Suggestions",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Instagram",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Steps",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ListIngredients",
+        "Type": "System.Collections.Generic.ICollection\u00601[[O_que_comeu_a_Ritinha.Models.IngredientsRecipes, O-que-comeu-a-Ritinha, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ListTags",
+        "Type": "System.Collections.Generic.ICollection\u00601[[O_que_comeu_a_Ritinha.Models.RecipesTags, O-que-comeu-a-Ritinha, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ListUtilizadores",
+        "Type": "System.Collections.Generic.ICollection\u00601[[O_que_comeu_a_Ritinha.Models.Favorites, O-que-comeu-a-Ritinha, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ListAboutus",
+        "Type": "System.Collections.Generic.ICollection\u00601[[O_que_comeu_a_Ritinha.Models.AboutusRecipes, O-que-comeu-a-Ritinha, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Ingredients",
+        "Type": "System.Collections.Generic.List\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Quantities",
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tags",
+        "Type": "System.Collections.Generic.List\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageRecipe",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "O_que_comeu_a_Ritinha.Models.Recipes",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.RecipesController",
+    "Method": "PutRecipes",
+    "RelativePath": "api/Recipes/PutRecipes/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Image",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Time",
+        "Type": "System.TimeSpan",
+        "IsRequired": false
+      },
+      {
+        "Name": "Portions",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Suggestions",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Instagram",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Steps",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ListIngredients",
+        "Type": "System.Collections.Generic.ICollection\u00601[[O_que_comeu_a_Ritinha.Models.IngredientsRecipes, O-que-comeu-a-Ritinha, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ListTags",
+        "Type": "System.Collections.Generic.ICollection\u00601[[O_que_comeu_a_Ritinha.Models.RecipesTags, O-que-comeu-a-Ritinha, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ListUtilizadores",
+        "Type": "System.Collections.Generic.ICollection\u00601[[O_que_comeu_a_Ritinha.Models.Favorites, O-que-comeu-a-Ritinha, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ListAboutus",
+        "Type": "System.Collections.Generic.ICollection\u00601[[O_que_comeu_a_Ritinha.Models.AboutusRecipes, O-que-comeu-a-Ritinha, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Ingredients",
+        "Type": "System.Collections.Generic.List\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Quantities",
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tags",
+        "Type": "System.Collections.Generic.List\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ContentType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ContentDisposition",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Headers",
+        "Type": "Microsoft.AspNetCore.Http.IHeaderDictionary",
+        "IsRequired": false
+      },
+      {
+        "Name": "Length",
+        "Type": "System.Int64",
+        "IsRequired": false
+      },
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "FileName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CurrentImageName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.RecipesTagsController",
+    "Method": "GetRecipesTags",
+    "RelativePath": "api/RecipesTags",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[O_que_comeu_a_Ritinha.Models.RecipesTags, O-que-comeu-a-Ritinha, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.RecipesTagsController",
+    "Method": "PostRecipesTags",
+    "RelativePath": "api/RecipesTags",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "recipesTags",
+        "Type": "O_que_comeu_a_Ritinha.Models.RecipesTags",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "O_que_comeu_a_Ritinha.Models.RecipesTags",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.RecipesTagsController",
+    "Method": "GetRecipesTags",
+    "RelativePath": "api/RecipesTags/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "O_que_comeu_a_Ritinha.Models.RecipesTags",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.RecipesTagsController",
+    "Method": "PutRecipesTags",
+    "RelativePath": "api/RecipesTags/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "recipesTags",
+        "Type": "O_que_comeu_a_Ritinha.Models.RecipesTags",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.RecipesTagsController",
+    "Method": "DeleteRecipesTags",
+    "RelativePath": "api/RecipesTags/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.TagsController",
+    "Method": "GetTags",
+    "RelativePath": "api/Tags",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[O_que_comeu_a_Ritinha.Models.Tags, O-que-comeu-a-Ritinha, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.TagsController",
+    "Method": "GetTags",
+    "RelativePath": "api/Tags/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "O_que_comeu_a_Ritinha.Models.Tags",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.TagsController",
+    "Method": "DeleteTags",
+    "RelativePath": "api/Tags/DeleteTags/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.TagsController",
+    "Method": "PostTags",
+    "RelativePath": "api/Tags/PostTags",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tags",
+        "Type": "O_que_comeu_a_Ritinha.Models.Tags",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "O_que_comeu_a_Ritinha.Models.Tags",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.TagsController",
+    "Method": "PutTags",
+    "RelativePath": "api/Tags/PutTags/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "tags",
+        "Type": "O_que_comeu_a_Ritinha.Models.Tags",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.UtilizadoresController",
+    "Method": "GetUtilizadores",
+    "RelativePath": "api/Utilizadores",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[O_que_comeu_a_Ritinha.Models.Utilizadores, O-que-comeu-a-Ritinha, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.UtilizadoresController",
+    "Method": "PostUtilizadores",
+    "RelativePath": "api/Utilizadores",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "utilizadores",
+        "Type": "O_que_comeu_a_Ritinha.Models.Utilizadores",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "O_que_comeu_a_Ritinha.Models.Utilizadores",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.UtilizadoresController",
+    "Method": "GetUtilizadores",
+    "RelativePath": "api/Utilizadores/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "O_que_comeu_a_Ritinha.Models.Utilizadores",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.UtilizadoresController",
+    "Method": "PutUtilizadores",
+    "RelativePath": "api/Utilizadores/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "utilizadores",
+        "Type": "O_que_comeu_a_Ritinha.Models.Utilizadores",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "O_que_comeu_a_Ritinha.Controllers.API.UtilizadoresController",
+    "Method": "DeleteUtilizadores",
+    "RelativePath": "api/Utilizadores/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

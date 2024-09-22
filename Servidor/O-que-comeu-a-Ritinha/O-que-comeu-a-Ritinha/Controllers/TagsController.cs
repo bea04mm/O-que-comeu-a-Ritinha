@@ -63,10 +63,10 @@ namespace O_que_comeu_a_Ritinha.Controllers
         {
             if (ModelState.IsValid)
             {
-				// Normaliza a tag para letras minúsculas para comparação
+				// Normaliza a tag para letras minusculas para comparacao
 				var normalizedTag = tags.Tag.Trim().ToLower();
 
-				// Verifica se já existe uma tag com o mesmo nome (case-insensitive)
+				// Verifica se ja existe uma tag com o mesmo nome (case-insensitive)
 				var existingTag = await _context.Tags
 					.FirstOrDefaultAsync(t => t.Tag.Trim().ToLower() == normalizedTag);
 
@@ -115,10 +115,10 @@ namespace O_que_comeu_a_Ritinha.Controllers
             {
                 try
                 {
-					// Normaliza a tag para letras minúsculas para comparação
+					// Normaliza a tag para letras minusculas para comparacao
 					var normalizedTag = tags.Tag.Trim().ToLower();
 
-					// Verifica se já existe uma tag com o mesmo nome (case-insensitive)
+					// Verifica se ja existe uma tag com o mesmo nome (case-insensitive)
 					var existingTag = await _context.Tags
 						.FirstOrDefaultAsync(t => t.Id != tags.Id && t.Tag.Trim().ToLower() == normalizedTag);
 
@@ -128,7 +128,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
 						return View(tags);
 					}
 
-					// Altera a tag e guarda a mudança
+					// Altera a tag e guarda a mudanca
 					_context.Update(tags);
 					await _context.SaveChangesAsync();
 				}

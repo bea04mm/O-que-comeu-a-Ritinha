@@ -30,3 +30,22 @@ footer {
 .table-custom tr:last-child td {
   border-bottom: hidden;
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Garante que ocupa toda a altura da tela */
+}
+
+.flex-fill {
+  flex: 1; /* Isso permite que o conteúdo ocupe o espaço restante */
+}
+
+footer {
+  margin-top: auto; /* Garante que o footer fique no final */
+}

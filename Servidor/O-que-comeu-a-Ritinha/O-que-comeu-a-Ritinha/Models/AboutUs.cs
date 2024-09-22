@@ -2,7 +2,10 @@
 
 namespace O_que_comeu_a_Ritinha.Models
 {
-    public class Aboutus
+	/// <summary>
+	/// Classe generica do Aboutus da aplicacao
+	/// </summary>
+	public class Aboutus
     {
 		public Aboutus()
 		{
@@ -11,16 +14,28 @@ namespace O_que_comeu_a_Ritinha.Models
 
 		public int Id { get; set; }
 
-        [Display(Name = "Descrição para Acerca de Nós")]
+		/// <summary>
+		/// Descricao para Acerca de Nos
+		/// </summary>
+		[Display(Name = "Descrição para Acerca de Nós")]
         [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         public string Description { get; set; }
 
-        [Display(Name = "Imagem para Acerca de Nós")]
+		/// <summary>
+		/// Imagem para Acerca de Nos
+		/// </summary>
+		[Display(Name = "Imagem para Acerca de Nós")]
         public string ImageDescription { get; set; }
 
-        [Display(Name = "Imagem para Logo")]
+		/// <summary>
+		/// Imagem para Logo
+		/// </summary>
+		[Display(Name = "Imagem para Logo")]
         public string ImageLogo { get; set; }
 
+		/// <summary>
+		/// Lista de receitas de destaque
+		/// </summary>
 		public ICollection<AboutusRecipes> ListRecipesA { get; set; }
 	}
 }

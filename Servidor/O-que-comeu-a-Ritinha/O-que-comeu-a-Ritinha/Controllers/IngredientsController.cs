@@ -66,10 +66,10 @@ namespace O_que_comeu_a_Ritinha.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				// Normaliza o ingrediente para letras minúsculas para comparação
+				// Normaliza o ingrediente para letras minusculas para comparação
 				var normalizedIngredient = ingredients.Ingredient.Trim().ToLower();
 
-				// Verifica se já existe um ingrediente com o mesmo nome (case-insensitive)
+				// Verifica se ja existe um ingrediente com o mesmo nome (case-insensitive)
 				var existingIngredient = await _context.Ingredients
 					.FirstOrDefaultAsync(i => i.Ingredient.Trim().ToLower() == normalizedIngredient);
 
@@ -118,10 +118,10 @@ namespace O_que_comeu_a_Ritinha.Controllers
 			{
 				try
 				{
-					// Normaliza o ingrediente para letras minúsculas para comparação
+					// Normaliza o ingrediente para letras minusculas para comparação
 					var normalizedIngredient = ingredients.Ingredient.Trim().ToLower();
 
-					// Verifica se já existe um ingrediente com o mesmo nome (case-insensitive)
+					// Verifica se ja existe um ingrediente com o mesmo nome (case-insensitive)
 					var existingIngredient = await _context.Ingredients
 						.FirstOrDefaultAsync(i => i.Id != ingredients.Id && i.Ingredient.Trim().ToLower() == normalizedIngredient);
 
@@ -131,7 +131,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
 						return View(ingredients);
 					}
 
-					// Altera o ingrediente e guarda a mudança
+					// Altera o ingrediente e guarda a mudanca
 					_context.Update(ingredients);
 					await _context.SaveChangesAsync();
 				}

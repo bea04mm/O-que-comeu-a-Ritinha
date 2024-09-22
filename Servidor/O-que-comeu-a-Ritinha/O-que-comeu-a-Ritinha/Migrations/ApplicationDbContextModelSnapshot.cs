@@ -17,7 +17,7 @@ namespace O_que_comeu_a_Ritinha.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.4")
+                .HasAnnotation("ProductVersion", "8.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -47,6 +47,20 @@ namespace O_que_comeu_a_Ritinha.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "use",
+                            Name = "Utilizador",
+                            NormalizedName = "UTILIZADOR"
+                        },
+                        new
+                        {
+                            Id = "adm",
+                            Name = "Administrativo",
+                            NormalizedName = "ADMINISTRATIVO"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

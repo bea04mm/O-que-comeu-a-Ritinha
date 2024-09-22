@@ -60,10 +60,10 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
 				return BadRequest();
 			}
 
-			// Normaliza o ingrediente para letras minúsculas para comparação
+			// Normaliza o ingrediente para letras minusculas para comparacao
 			var normalizedIngredient = ingredients.Ingredient.Trim().ToLower();
 
-			// Verifica se já existe um ingrediente com o mesmo nome (case-insensitive)
+			// Verifica se ja existe um ingrediente com o mesmo nome (case-insensitive)
 			var existingIngredient = await _context.Ingredients
 				.FirstOrDefaultAsync(i => i.Id != ingredients.Id && i.Ingredient.Trim().ToLower() == normalizedIngredient);
 
@@ -98,10 +98,10 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
 		[HttpPost("PostIngredients")]
         public async Task<ActionResult<Ingredients>> PostIngredients(Ingredients ingredients)
         {
-			// Normaliza o ingrediente para letras minúsculas para comparação
+			// Normaliza o ingrediente para letras minusculas para comparacao
 			var normalizedIngredient = ingredients.Ingredient.Trim().ToLower();
 
-			// Verifica se já existe um ingrediente com o mesmo nome (case-insensitive)
+			// Verifica se ja existe um ingrediente com o mesmo nome (case-insensitive)
 			var existingIngredient = await _context.Ingredients
 				.FirstOrDefaultAsync(i => i.Ingredient.Trim().ToLower() == normalizedIngredient);
 

@@ -1,0 +1,1435 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "O-que-comeu-a-Ritinha, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Aboutus": {
+      "get": {
+        "tags": [
+          "Aboutus"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Aboutus"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Aboutus/{id}": {
+      "get": {
+        "tags": [
+          "Aboutus"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Aboutus"
+            }
+          }
+        }
+      }
+    },
+    "/api/Aboutus/PutAboutus/{id}": {
+      "put": {
+        "tags": [
+          "Aboutus"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "CurrentImageDescription",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "CurrentImageLogo",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/AboutusRecipes": {
+      "get": {
+        "tags": [
+          "AboutusRecipes"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AboutusRecipes"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "AboutusRecipes"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AboutusRecipes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AboutusRecipes"
+            }
+          }
+        }
+      }
+    },
+    "/api/AboutusRecipes/{id}": {
+      "get": {
+        "tags": [
+          "AboutusRecipes"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AboutusRecipes"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "AboutusRecipes"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AboutusRecipes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "AboutusRecipes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Favorites": {
+      "get": {
+        "tags": [
+          "Favorites"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Favorites"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Favorites"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Favorites"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Favorites"
+            }
+          }
+        }
+      }
+    },
+    "/api/Favorites/{id}": {
+      "get": {
+        "tags": [
+          "Favorites"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Favorites"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Favorites"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Favorites"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Favorites"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Ingredients": {
+      "get": {
+        "tags": [
+          "Ingredients"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Ingredients"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Ingredients/{id}": {
+      "get": {
+        "tags": [
+          "Ingredients"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Ingredients"
+            }
+          }
+        }
+      }
+    },
+    "/api/Ingredients/PutIngredients/{id}": {
+      "put": {
+        "tags": [
+          "Ingredients"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Ingredients"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Ingredients/PostIngredients": {
+      "post": {
+        "tags": [
+          "Ingredients"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Ingredients"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Ingredients"
+            }
+          }
+        }
+      }
+    },
+    "/api/Ingredients/DeleteIngredients/{id}": {
+      "delete": {
+        "tags": [
+          "Ingredients"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/IngredientsRecipes": {
+      "get": {
+        "tags": [
+          "IngredientsRecipes"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/IngredientsRecipes"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "IngredientsRecipes"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/IngredientsRecipes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/IngredientsRecipes"
+            }
+          }
+        }
+      }
+    },
+    "/api/IngredientsRecipes/{id}": {
+      "get": {
+        "tags": [
+          "IngredientsRecipes"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/IngredientsRecipes"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "IngredientsRecipes"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/IngredientsRecipes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "IngredientsRecipes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Recipes": {
+      "get": {
+        "tags": [
+          "Recipes"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Recipes"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Recipes/{id}": {
+      "get": {
+        "tags": [
+          "Recipes"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Recipes"
+            }
+          }
+        }
+      }
+    },
+    "/api/Recipes/AddToFavorites": {
+      "post": {
+        "tags": [
+          "Recipes"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Recipes/PutRecipes/{id}": {
+      "put": {
+        "tags": [
+          "Recipes"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Recipes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Recipes/PostRecipes": {
+      "post": {
+        "tags": [
+          "Recipes"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "Id",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "formData",
+            "name": "Title",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "Image",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "Time",
+            "required": true,
+            "type": "string",
+            "format": "time"
+          },
+          {
+            "in": "formData",
+            "name": "Portions",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "formData",
+            "name": "Suggestions",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "Instagram",
+            "type": "string",
+            "pattern": "^(https?:\\/\\/(www\\.)?instagram\\.com\\/[a-zA-Z0-9_]+\\/?)$"
+          },
+          {
+            "in": "formData",
+            "name": "Steps",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "ListIngredients",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/IngredientsRecipes"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "ListTags",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/RecipesTags"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "ListUtilizadores",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Favorites"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "ListAboutus",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/AboutusRecipes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Recipes"
+            }
+          }
+        }
+      }
+    },
+    "/api/Recipes/DeleteRecipes/{id}": {
+      "delete": {
+        "tags": [
+          "Recipes"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/RecipesTags": {
+      "get": {
+        "tags": [
+          "RecipesTags"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RecipesTags"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "RecipesTags"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RecipesTags"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RecipesTags"
+            }
+          }
+        }
+      }
+    },
+    "/api/RecipesTags/{id}": {
+      "get": {
+        "tags": [
+          "RecipesTags"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RecipesTags"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "RecipesTags"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RecipesTags"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "RecipesTags"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Tags": {
+      "get": {
+        "tags": [
+          "Tags"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Tags"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Tags/{id}": {
+      "get": {
+        "tags": [
+          "Tags"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Tags"
+            }
+          }
+        }
+      }
+    },
+    "/api/Tags/PutTags/{id}": {
+      "put": {
+        "tags": [
+          "Tags"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Tags"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Tags/PostTags": {
+      "post": {
+        "tags": [
+          "Tags"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Tags"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Tags"
+            }
+          }
+        }
+      }
+    },
+    "/api/Tags/DeleteTags/{id}": {
+      "delete": {
+        "tags": [
+          "Tags"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Aboutus": {
+      "required": [
+        "description"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "description": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "imageDescription": {
+          "type": "string"
+        },
+        "imageLogo": {
+          "type": "string"
+        },
+        "listRecipesA": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AboutusRecipes"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "AboutusRecipes": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "recipeFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "recipe": {
+          "$ref": "#/definitions/Recipes"
+        },
+        "aboutusFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "about": {
+          "$ref": "#/definitions/Aboutus"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Favorites": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "recipeFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "recipe": {
+          "$ref": "#/definitions/Recipes"
+        },
+        "utilizadorFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "utilizador": {
+          "$ref": "#/definitions/Utilizadores"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Ingredients": {
+      "required": [
+        "ingredient"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ingredient": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "listRecipesI": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IngredientsRecipes"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "IngredientsRecipes": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "recipeFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "recipe": {
+          "$ref": "#/definitions/Recipes"
+        },
+        "ingredientFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ingredient": {
+          "$ref": "#/definitions/Ingredients"
+        },
+        "quantity": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Recipes": {
+      "required": [
+        "portions",
+        "steps",
+        "suggestions",
+        "time",
+        "title"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "title": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "time": {
+          "format": "time",
+          "type": "string"
+        },
+        "portions": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "suggestions": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "instagram": {
+          "pattern": "^(https?:\\/\\/(www\\.)?instagram\\.com\\/[a-zA-Z0-9_]+\\/?)$",
+          "type": "string"
+        },
+        "steps": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "listIngredients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IngredientsRecipes"
+          }
+        },
+        "listTags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RecipesTags"
+          }
+        },
+        "listUtilizadores": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Favorites"
+          }
+        },
+        "listAboutus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AboutusRecipes"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "RecipesTags": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "recipeFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "recipe": {
+          "$ref": "#/definitions/Recipes"
+        },
+        "tagFK": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "tag": {
+          "$ref": "#/definitions/Tags"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Tags": {
+      "required": [
+        "tag"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "tag": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "listRecipesT": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RecipesTags"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Utilizadores": {
+      "required": [
+        "birthday",
+        "name",
+        "phone"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "maxLength": 60,
+          "minLength": 0,
+          "type": "string"
+        },
+        "birthday": {
+          "format": "date",
+          "type": "string"
+        },
+        "phone": {
+          "maxLength": 9,
+          "minLength": 0,
+          "pattern": "9[1236][0-9]{7}",
+          "type": "string"
+        },
+        "userId": {
+          "maxLength": 40,
+          "minLength": 0,
+          "type": "string"
+        },
+        "listRecipesU": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Favorites"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

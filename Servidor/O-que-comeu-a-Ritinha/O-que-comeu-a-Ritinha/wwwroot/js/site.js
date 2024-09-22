@@ -29,7 +29,7 @@ function addIngredientToList() {
 
     listEnd.append('<div id="ingredient_' + idSelect + '" class="row mb-2">' +
         '<div class="col-4">' +
-        '<input class="form-control text-center" name="Quantities" type="text"/>' +
+        '<input class="form-control text-center" name="Quantities" type="text" placeholder="Quantidade" />' +
         '</div>' +
         '<div class="col-5">' +
         '<input type="hidden" name="Ingredients" value="' + ingredientFromSelect.val() + '"/>' +
@@ -40,7 +40,6 @@ function addIngredientToList() {
         '</div>' +
         '</div>'
     );
-    $('#ingredientSelect').selectpicker('deselectAll');
 }
 
 function addTagToList() {
@@ -65,7 +64,6 @@ function addTagToList() {
         '</div>' +
         '</div>'
     );
-    $('#tagSelect').selectpicker('deselectAll');
 }
 
 function addRecipeToList() {
@@ -116,6 +114,7 @@ ClassicEditor
 
 ClassicEditor
     .create(document.querySelector('#suggestionsEditor'))
+    .create(document.querySelector('#stepsEditor'))
     .catch(error => {
         console.error(error);
     });

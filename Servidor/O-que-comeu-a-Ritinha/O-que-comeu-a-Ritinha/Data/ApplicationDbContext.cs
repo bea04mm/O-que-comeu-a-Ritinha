@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using O_que_comeu_a_Ritinha.Migrations;
 using O_que_comeu_a_Ritinha.Models;
@@ -11,7 +12,24 @@ namespace O_que_comeu_a_Ritinha.Data
             : base(options)
         {
         }
-        public DbSet<Ingredients> Ingredients { get; set; }
+
+		protected override void OnModelCreating(ModelBuilder builder)
+		{
+			/* Esta instrução importa tudo o que está pre-definido
+			 * na super classe
+			 */
+			base.OnModelCreating(builder);
+			/* Adição de dados à Base de Dados
+		
+			 * Atribuir valores às ROLES
+			 */
+			builder.Entity<IdentityRole>().HasData(
+				new IdentityRole { Id = "use", Name = "Utilizador", NormalizedName = "UTILIZADOR" },
+				new IdentityRole { Id = "adm", Name = "Administrativo", NormalizedName = "ADMINISTRATIVO" }
+				);
+		}
+
+		public DbSet<Ingredients> Ingredients { get; set; }
         public DbSet<IngredientsRecipes> IngredientsRecipes { get; set; }
         public DbSet<Recipes> Recipes { get; set; }
         public DbSet<RecipesTags> RecipesTags { get; set; }

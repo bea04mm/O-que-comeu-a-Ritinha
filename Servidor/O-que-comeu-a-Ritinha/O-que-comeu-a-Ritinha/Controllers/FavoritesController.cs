@@ -23,7 +23,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
             var applicationDbContext = _context.Favorites
 				.Include(r => r.Recipe)
                 .Include(r => r.Utilizador)
-                .Where(r => r.Utilizador.UserId == userId); // Filter by authenticated user
+                .Where(r => r.Utilizador.UserId == userId); // Filtar por utilizador autenticado
             return View(await applicationDbContext.ToListAsync());
         }
 

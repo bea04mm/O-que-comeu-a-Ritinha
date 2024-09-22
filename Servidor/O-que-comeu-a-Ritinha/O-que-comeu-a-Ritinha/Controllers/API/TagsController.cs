@@ -60,10 +60,10 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
                 return BadRequest();
             }
 
-			// Normaliza a tag para letras minúsculas para comparação
+			// Normaliza a tag para letras minusculas para comparacao
 			var normalizedTag = tags.Tag.Trim().ToLower();
 
-			// Verifica se já existe uma tag com o mesmo nome (case-insensitive)
+			// Verifica se ja existe uma tag com o mesmo nome (case-insensitive)
 			var existingTag = await _context.Tags
 				.FirstOrDefaultAsync(t => t.Id != tags.Id && t.Tag.Trim().ToLower() == normalizedTag);
 
@@ -98,10 +98,10 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
 		[HttpPost("PostTags")]
         public async Task<ActionResult<Tags>> PostTags(Tags tags)
         {
-			// Normaliza a tag para letras minúsculas para comparação
+			// Normaliza a tag para letras minusculas para comparação
 			var normalizedTag = tags.Tag.Trim().ToLower();
 
-			// Verifica se já existe uma tag com o mesmo nome (case-insensitive)
+			// Verifica se ja existe uma tag com o mesmo nome (case-insensitive)
 			var existingTag = await _context.Tags
 				.FirstOrDefaultAsync(t => t.Id != tags.Id && t.Tag.Trim().ToLower() == normalizedTag);
 

@@ -3,7 +3,7 @@
 namespace O_que_comeu_a_Ritinha.Models
 {
     /// <summary>
-    /// Classe genérica dos Utilizadores da aplicação
+    /// Classe generica dos Utilizadores da aplicacao
     /// </summary>
     public class Utilizadores
     {
@@ -33,7 +33,7 @@ namespace O_que_comeu_a_Ritinha.Models
         public DateOnly Birthday { get; set; }
 
         /// <summary>
-        /// Número de telemóvel do Utilizador
+        /// Número de telemovel do Utilizador
         /// </summary>
         [Display(Name = "Telemóvel")]
         [StringLength(9)]
@@ -46,7 +46,7 @@ namespace O_que_comeu_a_Ritinha.Models
 		public string Phone { get; set; }
 
         /// <summary>
-        /// Atributo para funcionar como FK no relacionamento entre a base de dados do 'negócio' e a base de dados da 'autenticação'
+        /// Atributo para funcionar como FK no relacionamento entre a base de dados do 'site' e a base de dados da 'autenticacao'
         /// </summary>
         [StringLength(40)]
         public string UserId { get; set; }

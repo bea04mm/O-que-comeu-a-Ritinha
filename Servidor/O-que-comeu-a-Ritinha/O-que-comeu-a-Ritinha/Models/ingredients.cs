@@ -2,20 +2,29 @@
 
 namespace O_que_comeu_a_Ritinha.Models
 {
-    public class Ingredients
+	/// <summary>
+	/// Classe generica dos Ingredientes da aplicacao
+	/// </summary>
+	public class Ingredients
     {
         public Ingredients()
         {
             ListRecipesI = new HashSet<IngredientsRecipes>();
         }
 
-        [Key]
-        public int Id { get; set; }
+        [Key] // PK
+		public int Id { get; set; }
 
+		/// <summary>
+		/// Nome do Ingrediente
+		/// </summary>
 		[Display(Name = "Ingrediente")]
 		[Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
 		public string Ingredient { get; set; }
 
-        public ICollection<IngredientsRecipes> ListRecipesI { get; set; }
+		/// <summary>
+		/// Ligacao para tabela de IngredientsRecipes
+		/// </summary>
+		public ICollection<IngredientsRecipes> ListRecipesI { get; set; }
     }
 }
