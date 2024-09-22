@@ -40,34 +40,38 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
 		}
 
 		[HttpGet("GetPagedRecipes")]
-		public async Task<ActionResult> GetPagedRecipes([FromQuery] int page = 1, [FromQuery] string searchString = "")
+		public async Task<IActionResult> GetPagedRecipes(int page = 1, string searchString = "")
 		{
-			int pageSize = 8;
-			var recipesQuery = _context.Recipes
-				.Include(r => r.ListTags)
-				.AsQueryable();
-
-			if (!string.IsNullOrEmpty(searchString))
+			try
 			{
-				recipesQuery = recipesQuery.Where(r => r.Title.Contains(searchString) || r.ListTags.Any(rt => rt.Tag.Tag.Contains(searchString)));
+				int pageSize = 8;
+
+				var query = _context.Recipes.AsQueryable();
+
+				if (!string.IsNullOrEmpty(searchString))
+				{
+					query = query.Where(r => r.Title.Contains(searchString));
+				}
+
+				var totalCount = await query.CountAsync();
+				var recipes = await query
+					.OrderBy(r => r.Title)
+					.Skip((page - 1) * pageSize)
+					.Take(pageSize)
+					.ToListAsync();
+
+				return Ok(new
+				{
+					TotalCount = totalCount,
+					Recipes = recipes
+				});
 			}
-
-			var totalRecipes = await recipesQuery.CountAsync(); // Get the total number of recipes matching the query
-			var totalPages = (int)Math.Ceiling(totalRecipes / (double)pageSize); // Calculate total pages
-
-			var pagedRecipes = await recipesQuery
-				.OrderBy(r => r.Title)
-				.Skip((page - 1) * pageSize)
-				.Take(pageSize)
-				.ToListAsync();
-
-			var response = new
+			catch (Exception ex)
 			{
-				Recipes = pagedRecipes,
-				TotalPages = totalPages
-			};
-
-			return Ok(response); // Return both the recipes and total pages
+				// Log the exception (use a logging framework or write to console)
+				Console.WriteLine($"Error: {ex.Message}");
+				return StatusCode(500, "Internal server error. Please try again later.");
+			}
 		}
 
 		// GET: api/Recipes/5
