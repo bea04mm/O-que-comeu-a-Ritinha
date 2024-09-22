@@ -7,8 +7,8 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Formats.Jpeg;
 using Microsoft.AspNetCore.Authorization;
-using X.PagedList;
 using System.Security.Claims;
+using X.PagedList.Extensions;
 
 namespace O_que_comeu_a_Ritinha.Controllers
 {
@@ -51,8 +51,8 @@ namespace O_que_comeu_a_Ritinha.Controllers
 				recipes = recipes.Where(r => r.Title.Contains(searchString) || r.ListTags.Any(rt => rt.Tag.Tag.Contains(searchString)));
 			}
 
-			var pagedRecipes = await recipes.OrderBy(r => r.Title)
-				.ToPagedListAsync(pageNumber, pageSize); // Uso do ToPagedListAsync para obter a página especificada
+			var pagedRecipes = recipes.OrderBy(r => r.Title)
+				.ToPagedList(pageNumber, pageSize); // Uso do ToPagedListAsync para obter a página especificada
 
             return View(pagedRecipes);
 		}
@@ -146,8 +146,8 @@ namespace O_que_comeu_a_Ritinha.Controllers
 		// GET: Recipes/Create
 		public IActionResult Create()
 		{
-			ViewData["ListIngredients"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
-			ViewData["ListTags"] = new SelectList(_context.Tags, "Id", "Tag");
+			ViewData["ListIngredients"] = new SelectList(_context.Ingredients.OrderBy(i => i.Ingredient), "Id", "Ingredient");
+			ViewData["ListTags"] = new SelectList(_context.Tags.OrderBy(t => t.Tag), "Id", "Tag");
 
 			return View();
 		}
@@ -291,8 +291,8 @@ namespace O_que_comeu_a_Ritinha.Controllers
 			ViewBag.ListIngredients = recipe.ListIngredients.Select(ir => new { ir.Ingredient.Id, ir.Ingredient.Ingredient, ir.Quantity }).ToList();
 			ViewBag.ListTags = recipe.ListTags.Select(rt => new { rt.Tag.Id, rt.Tag.Tag }).ToList();
 
-			ViewData["ListIngredients"] = new SelectList(_context.Ingredients, "Id", "Ingredient");
-			ViewData["ListTags"] = new SelectList(_context.Tags, "Id", "Tag");
+			ViewData["ListIngredients"] = new SelectList(_context.Ingredients.OrderBy(i => i.Ingredient), "Id", "Ingredient");
+			ViewData["ListTags"] = new SelectList(_context.Tags.OrderBy(t => t.Tag), "Id", "Tag");
 
 			return View(recipe);
 		}

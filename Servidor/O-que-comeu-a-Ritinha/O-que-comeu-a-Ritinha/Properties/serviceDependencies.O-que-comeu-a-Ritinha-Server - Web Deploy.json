@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "apis1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ApiManagement/service/O-que-comeu-a-Ritinha-api/apis/O-que-comeu-a-Ritinha",
+      "type": "apis.azure"
+    }
+  }
+}

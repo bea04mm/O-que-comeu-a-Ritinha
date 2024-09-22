@@ -46,7 +46,8 @@ namespace O_que_comeu_a_Ritinha.Controllers
 				return NotFound();
 			}
 
-			ViewData["ListRecipesA"] = new SelectList(_context.Recipes, "Id", "Title");
+			ViewData["ListRecipesA"] = new SelectList(_context.Recipes.OrderBy(r => r.Title), "Id", "Title");
+
 
 			return View(aboutus);
 		}

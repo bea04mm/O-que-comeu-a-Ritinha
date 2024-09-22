@@ -25,7 +25,6 @@ builder.Services.AddTransient<IEmailSender, EmailSender>();
 
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
@@ -41,11 +40,6 @@ else
     app.UseHsts();
 }
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-};
 
 app.UseCors(x => x
 				.AllowAnyMethod()

@@ -169,23 +169,6 @@ namespace O_que_comeu_a_Ritinha.Areas.Identity.Pages.Account
 					}
 					catch (Exception ex)
 					{
-						// há que registar os dados do que
-						// aconteceu mal, para se reparar
-						// o problema
-
-						// se cheguei aqui é pq não se conseguiu
-						// escrever os dados do Utilizador na BD
-						// há que tomar uma decisão sobre o que fazer...
-
-						// Sugestão:
-						// - guardar os dados da exceção num ficheiro de 'log'
-						//      no disco rígido do servidor
-						// - guardar os dados da exceção numa tabela da BD
-						// - apagar o 'utilizador' criado na linha 154
-						// - notificar a pessoa que está a interagir com a 
-						//      aplicação do sucedido
-						// - redirecionar a pessoa para uma página de erro
-
 						_logger.LogInformation(ex.ToString());
 
 						throw;
