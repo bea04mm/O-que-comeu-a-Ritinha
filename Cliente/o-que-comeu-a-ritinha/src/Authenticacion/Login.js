@@ -32,7 +32,7 @@ const Login = () => {
                 throw new Error(text);
             }
         
-            console.log('API Response:', data); // Verifique a resposta aqui
+            console.log('API Response:', data);
         
             if (response.ok) {
                 const userInfo = {
@@ -42,7 +42,6 @@ const Login = () => {
             
                 login(userInfo, data.roles);
             
-                // Forçar recarregamento da página ao redirecionar
                 window.location.href = '/'; // Redireciona para a página inicial e faz o reload            
             } else {
                 setErrorMessage(data.message || 'Login failed. Please try again.');

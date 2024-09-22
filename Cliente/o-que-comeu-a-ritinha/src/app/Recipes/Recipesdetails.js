@@ -89,9 +89,7 @@ function Recipesdetails() {
         };
 
         fetchTags(); // Chama a função de procura ao montar o componente
-    }, [id]);
-
-    useEffect(() => {
+   
         getRecipeAPI(id)
             .then(response => response.json())
             .then(data => {

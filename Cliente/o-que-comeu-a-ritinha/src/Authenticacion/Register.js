@@ -36,10 +36,10 @@ const Register = () => {
         try {
             const result = await registerUserAPI(data);
             
-            console.log('Resultado do registro:', result); // Confirma que a resposta está correta
+            console.log('Resultado do registro:', result);
     
-            if (result && result.userId) { // Corrigido para userId (minúsculo)
-                const newUserId = result.userId; // Corrigido para userId (minúsculo)
+            if (result && result.userId) {
+                const newUserId = result.userId;
                 // Redirecionar para a página de confirmação
                 navigate(`/RegisterConfirmation?userId=${newUserId}`);
             } else {

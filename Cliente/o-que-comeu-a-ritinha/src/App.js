@@ -47,6 +47,7 @@ function App() {
               aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
+
             <div className="navbar-collapse collapse d-sm-inline-flex justify-content-between">
               <ul className="navbar-nav flex-grow-1">
                 <li className="nav-item">
@@ -55,11 +56,13 @@ function App() {
                 <li className="nav-item">
                   <Link className="nav-link text-white" to="/Aboutus">Acerca de Nós</Link>
                 </li>
-                {/* Autenticação */}
+                
                 {isAuthenticated && (
                   <li className="nav-item">
                     <Link className="nav-link text-white" to="/Favorites">Favoritos</Link>
                   </li>)}
+
+                  {/* Admin */}
                 {roles.includes('Admin') && (
                   <>
                     <li className="nav-item">
@@ -71,7 +74,7 @@ function App() {
                   </>
                 )}
               </ul>
-              {/* login aqui */}
+              {/* Authentication */}
               <ul className="navbar-nav">
                 {isAuthenticated ? (
                   <>
@@ -97,32 +100,45 @@ function App() {
           </div>
         </nav>
       </header>
+
       <div className="p-5 m-0 flex-fill">
         <AuthProvider>
           <Routes>
             <Route path="/" element={<Home />} />
+
+            {/* Authentication */}
             <Route path="/Register" element={<Register />} />
             <Route path="/RegisterConfirmation" element={<RegisterConfirmation />} />
             <Route path="/ConfirmEmail/:userId" element={<ConfirmEmail />} />
             <Route path="/Login" element={<Login />} />
+
+            {/* Receitas */}
             <Route path="/Recipes" element={<Recipesindex />} />
             <Route path="/Recipes/Details/:id" element={<Recipesdetails />} />
             <Route path="/Recipes/Create" element={<ProtectedRoute allowedRoles={['Admin']}><Recipescreate /></ProtectedRoute>} />
             <Route path="/Recipes/Edit/:id" element={<ProtectedRoute allowedRoles={['Admin']}><Recipesedit /></ProtectedRoute>} />
             <Route path="/Recipes/Delete/:id" element={<ProtectedRoute allowedRoles={['Admin']}><Recipesdelete /></ProtectedRoute>} />
+
+            {/* Acerca de Nos */}
             <Route path="/Aboutus" element={<Aboutusindex />} />
             <Route path="/Aboutus/Edit/:id" element={<ProtectedRoute allowedRoles={['Admin']}><Aboutusedit /></ProtectedRoute>} />
+
             <Route path="/Favorites" element={<RequireAuth><Favorites /></RequireAuth>} />
+
+            {/* Ingredientes */}
             <Route path="/Ingredients" element={<ProtectedRoute allowedRoles={['Admin']}><Ingredientsindex /></ProtectedRoute>} />
             <Route path="/Ingredients/Details/:id" element={<ProtectedRoute allowedRoles={['Admin']}><Ingredientsdetails /></ProtectedRoute>} />
             <Route path="/Ingredients/Create" element={<ProtectedRoute allowedRoles={['Admin']}><Ingredientscreate /></ProtectedRoute>} />
             <Route path="/Ingredients/Edit/:id" element={<ProtectedRoute allowedRoles={['Admin']}><Ingredientsedit /></ProtectedRoute>} />
             <Route path="/Ingredients/Delete/:id" element={<ProtectedRoute allowedRoles={['Admin']}><Ingredientsdelete /></ProtectedRoute>} />
+
+            {/* Tags */}
             <Route path="/Tags" element={<ProtectedRoute allowedRoles={['Admin']}><Tagsindex /></ProtectedRoute>} />
             <Route path="/Tags/Details/:id" element={<ProtectedRoute allowedRoles={['Admin']}><Tagsdetails /></ProtectedRoute>} />
             <Route path="/Tags/Create" element={<ProtectedRoute allowedRoles={['Admin']}><Tagscreate /></ProtectedRoute>} />
             <Route path="/Tags/Edit/:id" element={<ProtectedRoute allowedRoles={['Admin']}><Tagsedit /></ProtectedRoute>} />
             <Route path="/Tags/Delete/:id" element={<ProtectedRoute allowedRoles={['Admin']}><Tagsdelete /></ProtectedRoute>} />
+
             <Route path="/Privacy" element={<Privacy />} />
           </Routes>
         </AuthProvider>

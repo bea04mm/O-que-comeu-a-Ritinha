@@ -107,8 +107,7 @@ export default function CustomCKEditor({ data, onChange }) {
         table: {
             contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells']
         },
-        // Add this configuration to enable inline editing
-        isInline: true, // Enable inline editing
+        isInline: true,
     };    
 
     return (

@@ -37,7 +37,7 @@ const ConfirmEmail = () => {
             <div>
                 <p className="text-white">
                     {statusMessage.includes("Podes realizar")
-                        ? statusMessage.slice(0, -6) // Remove last 6 characters
+                        ? statusMessage.slice(0, -6)
                         : statusMessage}
                     {statusMessage.includes("Podes realizar") && (
                         <a href="/Login"> login.</a>

@@ -29,7 +29,6 @@ function Recipesedit() {
     const [message, setMessage] = useState('');
     const navigate = useNavigate();
 
-    // Fetch recipe data when component mounts
     useEffect(() => {
         // Função para ir procurar os ingredientes
         const fetchIngredients = async () => {
@@ -52,13 +51,13 @@ function Recipesedit() {
                         return {
                             ...ingredient,
                             ingredientName: ingredientDetails.ingredient,
-                            quantity: ingredient.quantity // Assuming `quantities` is returned from the API
+                            quantity: ingredient.quantity
                         };
                     })
                 );
 
                 setSelectedIngredients(ingredientsWithNames);
-                setQuantities(ingredientsWithNames.map(ingredient => ingredient.quantity || '')); // Set the actual quantities from the API
+                setQuantities(ingredientsWithNames.map(ingredient => ingredient.quantity || ''));
             } catch (error) {
                 console.error('Erro ao buscar os ingredientes:', error);
             }
@@ -138,10 +137,17 @@ function Recipesedit() {
         setRecipe({ ...recipe, [name]: value });
     };
 
-    const handleEditorChange = (data) => {
+    const handleEditorStepsChange = (data) => {
         setRecipe((prev) => ({
             ...prev,
             steps: data // Atualiza steps
+        }));
+    };
+
+    const handleEditorSuggestionsChange = (data) => {
+        setRecipe((prev) => ({
+            ...prev,
+            suggestions: data // Atualiza suggestions
         }));
     };
 
@@ -318,7 +324,7 @@ function Recipesedit() {
 
                             <div className="form-group m-3">
                                 <label className="control-label text-white">Sugestões</label>
-                                <CustomCKEditor name="suggestions" data={recipe.suggestions} onChange={handleEditorChange} />
+                                <CustomCKEditor name="suggestions" data={recipe.suggestions} onChange={handleEditorSuggestionsChange} />
                             </div>
 
                             <div className="form-group m-3">
@@ -333,7 +339,7 @@ function Recipesedit() {
 
                             <div className="form-group m-3">
                                 <label className="control-label text-white">Passos</label>
-                                <CustomCKEditor name="steps" data={recipe.steps} onChange={handleEditorChange} />
+                                <CustomCKEditor name="steps" data={recipe.steps} onChange={handleEditorStepsChange} />
                             </div>
 
                             {/* Ingredients Selection */}
