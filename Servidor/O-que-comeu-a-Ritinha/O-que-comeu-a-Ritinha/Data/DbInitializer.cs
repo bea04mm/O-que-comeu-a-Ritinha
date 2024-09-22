@@ -37,7 +37,6 @@ namespace O_que_comeu_a_Ritinha.Data
 				haAdicao = true;
 			}
 
-
 			// Se não houver Utilizadores, cria-os
 			var utilizador = Array.Empty<Utilizadores>();
 			if (!dbContext.Utilizadores.Any())
