@@ -11,7 +11,6 @@ function Recipesdetails() {
     const [recipe, setRecipe] = useState([]);
     const [ingredients, setIngredients] = useState([]);
     const [tags, setTags] = useState([]);
-    const [isFav, setIsFav] = useState(false); // Initialize with false or fetch the actual favorite status
 
     const { roles } = useContext(AuthContext) || {};
 
@@ -94,64 +93,13 @@ function Recipesdetails() {
             .then(response => response.json())
             .then(data => {
                 setRecipe(data);
-                // Check if this recipe is a favorite (implement your logic to check)
-                checkIfFavorite(data.id); // Call a function to check if the recipe is in favorites
             })
             .catch(error => {
                 console.error('Erro ao buscar a receita:', error);
             });
     }, [id]);
 
-    const checkIfFavorite = async (recipeId) => {
-        const userId = localStorage.getItem('userId');
-        if (!userId) return;
-
-        try {
-            const response = await fetch(`https://o-que-comeu-a-ritinha-server.azurewebsites.net/api/Favorites/CheckIfFavorite?recipeId=${recipeId}`, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${userId}`,
-                },
-            });
-            if (response.ok) {
-                const data = await response.json();
-                setIsFav(data.isFavorite); // Assuming the response returns an object with isFavorite
-            }
-        } catch (error) {
-            console.error('Error checking favorite status:', error);
-        }
-    };
-
-    const addToFavorites = async () => {
-        const userId = localStorage.getItem('userId');
-        if (!userId) {
-            console.error('User is not logged in');
-            return;
-        }
-
-        try {
-            const response = await fetch('https://o-que-comeu-a-ritinha-server.azurewebsites.net/api/Favorites/AddToFavorites', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${userId}`,
-                },
-                body: JSON.stringify(id), // Pass the recipe ID
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to add/remove favorite');
-            }
-
-            // Toggle the favorite state
-            setIsFav(prev => !prev);
-            console.log('Favorite updated successfully!');
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    };
-
-    if (!recipe || !recipe.image) {
+     if (!recipe || !recipe.image) {
         return <div id="backcolor" className='text-center text-white'>A Carregar...</div>; // Handle loading state or error state here
     }
 
@@ -159,9 +107,9 @@ function Recipesdetails() {
         <div id="backcolor" className='text-center'>
             <div className="justify-content-center bg-white m-2 rounded">
                 <h1 className="text-black m-0 p-4">{recipe.title}</h1>
-                {/* Favoritos */}
-                <button onClick={addToFavorites} className="btn btn-link p-0 m-0" style={{ color: '#f0aec0' }}>
-                    {isFav ? (
+                {/* Favoritos só para posterior */}
+                <button className="btn btn-link p-0 m-0" style={{ color: '#f0aec0' }}>
+                    {recipe ? (
                         <span className="fa-solid fa-star h1"></span> // Filled star for favorite
                     ) : (
                         <span className="fa-regular fa-star h1"></span> // Outline star for non-favorite

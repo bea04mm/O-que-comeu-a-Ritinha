@@ -134,7 +134,7 @@ function Aboutusedit() {
         }
 
         if (recipeDetails && !selectedRecipes.some(recipe => recipe.recipeFK === recipeDetails.id)) {
-            setSelectedRecipes([...selectedRecipes, { recipeFK: recipeDetails.id, recipeTitle: recipeDetails.title}]);
+            setSelectedRecipes([...selectedRecipes, { recipeFK: recipeDetails.id, title: recipeDetails.title}]);
         }
     };
 
@@ -148,6 +148,7 @@ function Aboutusedit() {
         e.preventDefault();
 
         const formData = new FormData();
+        formData.append('Id', aboutUs.id);
         formData.append('Description', aboutUs.description);
         formData.append('CurrentImageDescription', currentImageDescription);
         formData.append('CurrentImageLogo', currentImageLogo);
@@ -167,13 +168,13 @@ function Aboutusedit() {
         putAboutusAPI(formData)
             .then(response => {
                 if (response.ok) {
+                    navigate('/AboutUs');
                     return response.json();
                 }
                 throw new Error('Update failed');
             })
             .then(result => {
                 console.log('Update successful:', result);
-                navigate('/AboutUs');
             })
             .catch(error => {
                 setMessage(error.message || 'Erro ao atualizar');
