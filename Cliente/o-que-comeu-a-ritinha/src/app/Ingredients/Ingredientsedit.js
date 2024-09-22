@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { getIngredientAPI, putIngredientAPI } from '../../api/Ingredientsapi';
 
 function Ingredientsedit() {
@@ -40,7 +40,7 @@ function Ingredientsedit() {
                 return response;
             })
             .then(() => {
-                navigate('/ingredientes');
+                navigate('/Ingredients');
             })
             .catch(error => {
                 console.error('Erro ao atualizar o ingrediente:', error);
@@ -67,7 +67,9 @@ function Ingredientsedit() {
                         </div>
                         <div className="form-group m-4">
                             <button type="submit" className="btn btn-light m-2">Guardar</button>
-                            <Link to={`/ingredientes`} className="btn btn-info m-2">Voltar à lista!</Link>
+                            <button type="button" className="btn btn-info m-2" onClick={() => window.history.back()}>
+                                Voltar à Lista!
+                            </button>
                         </div>
                     </form>
                 </div>

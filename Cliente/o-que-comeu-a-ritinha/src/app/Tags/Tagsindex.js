@@ -21,7 +21,7 @@ function Tagsindex() {
         <div id="backcolor">
             <h1 className="text-center text-white m-0">Tags</h1>
             <p className="text-center m-4">
-                <a href="tags/criar" className="btn btn-light">Criar nova Tag!</a>
+                <a href="Tags/Create" className="btn btn-light">Criar nova Tag!</a>
             </p>
             <div className="justify-content-center">
                 <table className="table table-custom text-center m-0">
@@ -36,9 +36,9 @@ function Tagsindex() {
                             <tr key={tag.id}>
                                 <td>{tag.tag}</td>
                                 <td>
-                                    <Link to={`/tags/editar/${tag.id}`} className="btn btn-outline-secondary btn-sm btn-block m-1">Editar</Link>
-                                    <Link to={`/tags/apagar/${tag.id}`} className="btn btn-outline-danger btn-sm btn-block m-1">Apagar</Link>
-                                    <Link to={`/tags/${tag.id}`} className="btn btn-outline-info btn-sm btn-block m-1">Detalhes</Link>
+                                    <Link to={`/Tags/Edit/${tag.id}`} className="btn btn-outline-secondary btn-sm btn-block m-1">Editar</Link>
+                                    <Link to={`/Tags/Delete/${tag.id}`} className="btn btn-outline-danger btn-sm btn-block m-1">Apagar</Link>
+                                    <Link to={`/Tags/Details/${tag.id}`} className="btn btn-outline-info btn-sm btn-block m-1">Detalhes</Link>
                                 </td>
                             </tr>
                         ))}

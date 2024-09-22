@@ -4,7 +4,7 @@ import { getTagAPI } from '../../api/Tagsapi';
 
 function Tagsdetails() {
     const { id } = useParams();
-    const [tag, setTag] = useState(null);
+    const [tag, setTag] = useState('');
 
     useEffect(() => {
         getTagAPI(id)
@@ -17,10 +17,6 @@ function Tagsdetails() {
             });
     }, [id]);
 
-    if (!tag) {
-        return <div>Carregando...</div>;
-    }
-
     return (
         <div id="backcolor" className='text-center'>
 
@@ -29,8 +25,10 @@ function Tagsdetails() {
             <h3 class="text-black bg-white m-3 p-2 rounded">{tag.tag}</h3>
 
             <div class="form-group m-0">
-                <Link to={`/tags/editar/${tag.id}`} className="btn btn-light m-2">Editar</Link>
-                <Link to={`/tags`} className="btn btn-info m-2">Voltar à lista!</Link>
+                <Link to={`/Tags/Edit/${tag.id}`} className="btn btn-light m-2">Editar</Link>
+                <button type="button" className="btn btn-info m-2" onClick={() => window.history.back()}>
+                    Voltar à Lista!
+                </button>
             </div>
         </div>
     );

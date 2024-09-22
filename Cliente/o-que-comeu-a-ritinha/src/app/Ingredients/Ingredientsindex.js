@@ -21,7 +21,7 @@ function Ingredientsindex() {
         <div id="backcolor">
             <h1 className="text-center text-white m-0">Ingredientes</h1>
             <p className="text-center m-4">
-                <a href="ingredientes/criar" className="btn btn-light">Criar novo Ingrediente!</a>
+                <a href="Ingredients/Create" className="btn btn-light">Criar novo Ingrediente!</a>
             </p>
             <div className="justify-content-center">
                 <table className="table table-custom text-center m-0">
@@ -36,9 +36,9 @@ function Ingredientsindex() {
                             <tr key={ingredient.id}>
                                 <td>{ingredient.ingredient}</td>
                                 <td>
-                                    <Link to={`/ingredientes/editar/${ingredient.id}`} className="btn btn-outline-secondary btn-sm btn-block m-1">Editar</Link>
-                                    <Link to={`/ingredientes/apagar/${ingredient.id}`} className="btn btn-outline-danger btn-sm btn-block m-1">Apagar</Link>
-                                    <Link to={`/ingredientes/${ingredient.id}`} className="btn btn-outline-info btn-sm btn-block m-1">Detalhes</Link>
+                                    <Link to={`/Ingredients/Edit/${ingredient.id}`} className="btn btn-outline-secondary btn-sm btn-block m-1">Editar</Link>
+                                    <Link to={`/Ingredients/Delete/${ingredient.id}`} className="btn btn-outline-danger btn-sm btn-block m-1">Apagar</Link>
+                                    <Link to={`/Ingredients/Details/${ingredient.id}`} className="btn btn-outline-info btn-sm btn-block m-1">Detalhes</Link>
                                 </td>
                             </tr>
                         ))}

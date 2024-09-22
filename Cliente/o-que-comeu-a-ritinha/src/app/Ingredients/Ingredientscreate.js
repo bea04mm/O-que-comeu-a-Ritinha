@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { postIngredientAPI } from '../../api/Ingredientsapi';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Ingredientscreate() {
     const [ingredient, setIngredient] = useState('');
@@ -10,18 +10,11 @@ function Ingredientscreate() {
     const handleSubmit = (e) => {
         e.preventDefault();
         postIngredientAPI(ingredient)
-            .then(response => {
-                if (response.status === 409) {
-                    return response.json().then(data => {
-                        throw new Error(data.message);
-                    });
-                }
-                return response.json();
-            })
+            .then(response => response.json())
             .then(data => {
                 if (data.id) {
                     setIngredient('');
-                    navigate('/ingredientes');
+                    navigate('/Ingredients');
                 } else {
                     setMessage('Erro ao criar o ingrediente.');
                 }
@@ -50,7 +43,9 @@ function Ingredientscreate() {
                         </div>
                         <div className="form-group m-4">
                             <button type="submit" className="btn btn-light m-2">Criar</button>
-                            <Link to={`/ingredientes`} className="btn btn-info m-2">Voltar à lista!</Link>
+                            <button type="button" className="btn btn-info m-2" onClick={() => window.history.back()}>
+                                Voltar à Lista!
+                            </button>
                         </div>
                     </form>
                 </div>

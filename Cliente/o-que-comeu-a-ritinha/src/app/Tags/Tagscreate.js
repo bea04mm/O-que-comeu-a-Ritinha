@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { postTagAPI } from '../../api/Tagsapi';
 
 function Tagscreate() {
@@ -10,18 +10,11 @@ function Tagscreate() {
     const handleSubmit = (e) => {
         e.preventDefault();
         postTagAPI(tag)
-            .then(response => {
-                if (response.status === 409) {
-                    return response.json().then(data => {
-                        throw new Error(data.message);
-                    });
-                }
-                return response.json();
-            })
+            .then(response => response.json())
             .then(data => {
                 if (data.id) {
                     setTag('');
-                    navigate('/tags');
+                    navigate('/Tags');
                 } else {
                     setMessage('Erro ao criar a tag.');
                 }
@@ -50,7 +43,9 @@ function Tagscreate() {
                         </div>
                         <div className="form-group m-4">
                             <button type="submit" className="btn btn-light m-2">Criar</button>
-                            <Link to={`/tags`} className="btn btn-info m-2">Voltar à lista!</Link>
+                            <button type="button" className="btn btn-info m-2" onClick={() => window.history.back()}>
+                                Voltar à Lista!
+                            </button>
                         </div>
                     </form>
                 </div>

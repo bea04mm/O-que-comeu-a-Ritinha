@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { getTagAPI, putTagAPI } from '../../api/Tagsapi';
 
 function Tagsedit() {
@@ -39,7 +39,7 @@ function Tagsedit() {
                 }
             })
             .then(() => {
-                navigate('/tags');
+                navigate('/Tags');
             })
             .catch(error => {
                 console.error('Erro ao atualizar a tag:', error);
@@ -66,7 +66,9 @@ function Tagsedit() {
                         </div>
                         <div className="form-group m-4">
                             <button type="submit" className="btn btn-light m-2">Guardar</button>
-                            <Link to={`/tags`} className="btn btn-info m-2">Voltar à lista!</Link>
+                            <button type="button" className="btn btn-info m-2" onClick={() => window.history.back()}>
+                                Voltar à Lista!
+                            </button>
                         </div>
                     </form>
                 </div>
