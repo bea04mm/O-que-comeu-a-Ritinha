@@ -63,7 +63,7 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
 				return BadRequest("Please provide at least 3 recipes and both images.");
 			}
 
-			// Process images
+			// Processa as images
 			aboutus.ImageDescription = await ProcessImage(ImageDescription, CurrentImageDescription, false);
 			aboutus.ImageLogo = await ProcessImage(ImageLogo, CurrentImageLogo, true);
 
@@ -74,7 +74,7 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
 			{
 				await _context.SaveChangesAsync();
 
-				// Update associated recipes
+				// Update receitas associadas
 				var existingRecipes = _context.AboutusRecipes.Where(r => r.AboutusFK == id).ToList();
 				_context.AboutusRecipes.RemoveRange(existingRecipes);
 				await _context.SaveChangesAsync();
@@ -113,23 +113,23 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
 					// há ficheiro, mas é uma imagem?
 					if (imageFile.ContentType == "image/png" || imageFile.ContentType == "image/jpeg")
 					{
-						// Determine the image name
+						// Determina o nome da imagem
 						string imageName;
 						if (isImageLogo)
 						{
-							// For ImageLogo, always save as "imageLogo.png"
+							// Para ImageLogo, guarda sempre como "imageLogo.png"
 							imageName = "imageLogo.png";
 						}
 						else
 						{
-							// Generate a unique filename based on GUID and original file extension
+							// Gera um nome unico baseado no GUID e na estensao do ficheiro original
 							string fileExtension = Path.GetExtension(imageFile.FileName).ToLowerInvariant();
 							imageName = $"{Guid.NewGuid()}{fileExtension}";
 						}
 
 						string imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", imageName);
 
-						// Save the new image
+						// Guarda a nova imagem
 						using (var image = Image.Load(imageFile.OpenReadStream()))
 						{
 							image.Mutate(x => x.Resize(200, 200));
@@ -139,7 +139,7 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
 							}
 						}
 
-						// Remove the old image if it exists and is not the default
+						// Retira a imagem antiga, se existe e nao e a default
 						if (!string.IsNullOrEmpty(currentImageName) && currentImageName != "imageLogo.png" && !isImageLogo)
 						{
 							var oldImagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", currentImageName);
@@ -158,7 +158,7 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
 					}
 				}
 
-				// Return the current image name if no new image is provided
+				// Devolve a imagem atual se nao for dada imagem nova
 				return currentImageName;
 			});
 		}

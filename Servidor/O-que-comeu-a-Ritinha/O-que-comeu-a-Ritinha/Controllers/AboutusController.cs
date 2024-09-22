@@ -74,7 +74,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
 			{
 				try
 				{
-					// Process images
+					// Processa images
 					aboutus.ImageDescription = await ProcessImage(ImageDescription, CurrentImageDescription, false);
 					aboutus.ImageLogo = await ProcessImage(ImageLogo, CurrentImageLogo, true);
 
@@ -124,29 +124,29 @@ namespace O_que_comeu_a_Ritinha.Controllers
 		{
 			return await Task.Run(() =>
 			{
-				// há ficheiro?
+				// ha ficheiro?
 				if (imageFile != null)
 				{
-					// há ficheiro, mas é uma imagem?
+					// ha ficheiro, mas e uma imagem?
 					if (imageFile.ContentType == "image/png" || imageFile.ContentType == "image/jpeg")
 					{
-						// Determine the image name
+						// Determina o nome da imagem
 						string imageName;
 						if (isImageLogo)
 						{
-							// For ImageLogo, always save as "imageLogo.png"
+							// Para ImageLogo, guarda sempre como "imageLogo.png"
 							imageName = "imageLogo.png";
 						}
 						else
 						{
-							// Generate a unique filename based on GUID and original file extension
+							// Gera um nome unico baseado no GUID e na estensao do ficheiro original
 							string fileExtension = Path.GetExtension(imageFile.FileName).ToLowerInvariant();
 							imageName = $"{Guid.NewGuid()}{fileExtension}";
 						}
 
 						string imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", imageName);
 
-						// Save the new image
+						// Guarda a nova imagem
 						using (var image = Image.Load(imageFile.OpenReadStream()))
 						{
 							image.Mutate(x => x.Resize(200, 200));
@@ -156,7 +156,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
 							}
 						}
 
-						// Remove the old image if it exists and is not the default
+						// Retira a imagem antiga, se existe e nao e a default
 						if (!string.IsNullOrEmpty(currentImageName) && currentImageName != "imageLogo.png" && !isImageLogo)
 						{
 							var oldImagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", currentImageName);
@@ -170,12 +170,12 @@ namespace O_que_comeu_a_Ritinha.Controllers
 					}
 					else
 					{
-						ModelState.AddModelError("", "Invalid image format. Please upload a PNG or JPEG file.");
+						ModelState.AddModelError("", "Formato Inválido da Imagem. Por Favor faz upload de um ficheiro PNG ou JPEG.");
 						return currentImageName;
 					}
 				}
 
-				// Return the current image name if no new image is provided
+				// Devolve a imagem atual se nao for dada imagem nova
 				return currentImageName;
 			});
 		}

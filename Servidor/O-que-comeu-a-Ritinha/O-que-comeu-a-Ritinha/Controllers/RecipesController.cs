@@ -28,8 +28,8 @@ namespace O_que_comeu_a_Ritinha.Controllers
 		// GET: Recipes
 		public async Task<IActionResult> Index(int? page, string searchString)
 		{
-			int pageNumber = page ?? 1; // Se nenhum número de página for fornecido, padrão para a página 1
-			int pageSize = 8; // Número de receitas por página
+			int pageNumber = page ?? 1; // Se nenhum numero de pagina for fornecido, padrao para a página 1
+			int pageSize = 8; // Numero de receitas por pagina
 
             if (string.IsNullOrEmpty(searchString))
             {
@@ -45,14 +45,14 @@ namespace O_que_comeu_a_Ritinha.Controllers
 				.Include(r => r.ListTags)
 				.AsQueryable();
 
-			// Filtrar por título se o searchString não estiver vazio
+			// Filtrar por titulo se o searchString nao estiver vazio
 			if (!String.IsNullOrEmpty(searchString))
 			{
 				recipes = recipes.Where(r => r.Title.Contains(searchString) || r.ListTags.Any(rt => rt.Tag.Tag.Contains(searchString)));
 			}
 
 			var pagedRecipes = recipes.OrderBy(r => r.Title)
-				.ToPagedList(pageNumber, pageSize); // Uso do ToPagedListAsync para obter a página especificada
+				.ToPagedList(pageNumber, pageSize); // Uso do ToPagedListAsync para obter a pagina especificada
 
             return View(pagedRecipes);
 		}
@@ -80,10 +80,10 @@ namespace O_que_comeu_a_Ritinha.Controllers
 				return NotFound();
 			}
 
-			// Verifica se o utilizador atual está autenticado
+			// Verifica se o utilizador atual esta autenticado
 			if (User.Identity.IsAuthenticated)
 			{
-				var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // Obtém o ID do utilizador atual
+				var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // Obtem o ID do utilizador atual
 
 				// Busca o ID do Utilizador baseado no userId
 				var utilizadorId = await _context.Utilizadores
@@ -112,21 +112,21 @@ namespace O_que_comeu_a_Ritinha.Controllers
 		{
 			var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // Obtém o ID do utilizador atual
 
-			// Verifica se já existe essa associação na tabela de associação
+			// Verifica se ja existe essa associacao na tabela de associacao
 			var existingAssociation = await _context.Favorites.FirstOrDefaultAsync(ru => ru.RecipeFK == recipeId && ru.Utilizador.UserId == userId);
 
 			if (existingAssociation != null)
 			{
-				// Já está nos favoritos, então remove
+				// Ja esta nos favoritos, entao remove
 				_context.Favorites.Remove(existingAssociation);
 			}
 			else
 			{
-				// Não está nos favoritos, adiciona
+				// Nao esta nos favoritos, adiciona
 				// Encontra o Utilizador pelo UserId
 				var utilizador = await _context.Utilizadores.FirstOrDefaultAsync(u => u.UserId == userId);
 
-				// Cria uma nova entrada na tabela de associação
+				// Cria uma nova entrada na tabela de associacao
 				var newAssociation = new Favorites
 				{
 					RecipeFK = recipeId,
@@ -173,19 +173,19 @@ namespace O_que_comeu_a_Ritinha.Controllers
 					return View(recipe);
 				}
 
-				// há ficheiro?
+				// ha ficheiro?
 				if (ImageRecipe != null)
 				{
-					// há ficheiro, mas é uma imagem?
+					// ha ficheiro, mas é uma imagem?
 					if (!(ImageRecipe.ContentType == "image/png" || ImageRecipe.ContentType == "image/jpeg"))
 					{
 						// não
-						// vamos usar uma imagem pré-definida
+						// vamos usar uma imagem pre-definida
 						recipe.Image = "imageRecipe.png";
 					}
 					else
 					{
-						// há imagem
+						// ha imagem
 						haImagem = true;
 						// gera nome imagem
 						Guid g = Guid.NewGuid();
@@ -201,7 +201,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
 				_context.Add(recipe);
 				await _context.SaveChangesAsync();
 
-				// adicionar os ingredientes
+				// adicionar os ingredientes e quantidades
 				List<IngredientsRecipes> listIngredients = new List<IngredientsRecipes>();
 				for (int i = 0; i < Ingredients.Count; i++)
 				{
@@ -245,7 +245,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
 						image.Mutate(x => x.Resize(200, 200));
 						// determinar o local de armazenamento da imagem
 						string imagePath = _webHostEnvironment.WebRootPath;
-						// adicionar à raiz da parte web, o nome da pasta onde queremos guardar a imagem
+						// adicionar a raiz da parte web, o nome da pasta onde queremos guardar a imagem
 						imagePath = Path.Combine(imagePath, "images");
 						// será que o local existe?
 						if (!Directory.Exists(imagePath))
@@ -263,7 +263,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
 					}
 				}
 
-				// redireciona o utilizador para a página de 'início' das Recipes
+				// redireciona o utilizador para a pagina de 'inicio' das Recipes
 				return RedirectToAction(nameof(Index));
 			}
 			return View(recipe);
@@ -325,7 +325,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
 					string imageName = CurrentImageName;
 					bool haImagem = false;
 
-					// há ficheiro?
+					// ha ficheiro?
 					if (ImageRecipe != null)
 					{
 						// Nova imagem dada
@@ -469,7 +469,7 @@ namespace O_que_comeu_a_Ritinha.Controllers
 				// Remove a receita
 				_context.Recipes.Remove(recipe);
 
-				// Apaga a imagem física do servidor, se não for a imagem padrão
+				// Apaga a imagem fisica do servidor, se nao for a imagem padrao
 				if (recipe.Image != "imageRecipe.png" && System.IO.File.Exists(imagePath))
 				{
 					System.IO.File.Delete(imagePath);

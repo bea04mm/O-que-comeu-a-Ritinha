@@ -17,7 +17,7 @@ namespace O_que_comeu_a_Ritinha.Data
 
 			// Se não houver Utilizadores Identity, cria-os
 			var users = Array.Empty<IdentityUser>();
-			//a hasher to hash the password before seeding the user to the db
+			//um hasher para hash da password antes de seeding o user para a db
 			var hasher = new PasswordHasher<IdentityUser>();
 
 			if (!dbContext.Users.Any())

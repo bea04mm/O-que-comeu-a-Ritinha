@@ -2,19 +2,28 @@
 
 namespace O_que_comeu_a_Ritinha.Models
 {
-    public class Tags
+	/// <summary>
+	/// Classe generica das Tags da aplicacao
+	/// </summary>
+	public class Tags
     {
         public Tags()
         {
             ListRecipesT = new HashSet<RecipesTags>();
         }
 
-        [Key]
+        [Key] // PK
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
+		/// <summary>
+		/// Nome da Tag
+		/// </summary>
+		[Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         public string Tag { get; set; }
 
-        public ICollection<RecipesTags> ListRecipesT { get; set; }
+		/// <summary>
+		/// Ligacao para tabela de RecipesTags
+		/// </summary>
+		public ICollection<RecipesTags> ListRecipesT { get; set; }
     }
 }

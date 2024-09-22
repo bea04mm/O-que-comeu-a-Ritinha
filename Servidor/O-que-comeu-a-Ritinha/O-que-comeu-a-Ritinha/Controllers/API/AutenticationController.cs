@@ -74,7 +74,7 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
 				await _emailSender.SendEmailAsync(Email, "Confirma a tua conta (token)",
 					$"Confirma a tua conta usando este token: {token}");
 
-				// Retorne o UserId após o registro
+				// Retorna o UserId apos o registro
 				return Ok(new { Message = "User registered successfully", UserId = newUser.Id });
 			}
 			catch (Exception ex)
@@ -105,7 +105,7 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
 
 				if (result.Succeeded)
 				{
-					var email = await _userManager.GetEmailAsync(user); // Obtém o e-mail do utilizador
+					var email = await _userManager.GetEmailAsync(user); // Obtem o email do utilizador
 					await _userManager.AddToRoleAsync(user, "Utilizador");
 					var callbackUrl = Url.Page(
 							"/Account/ResetPasswordConfirmation",
@@ -113,7 +113,7 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
 							values: new { userId = UserId },
 							protocol: Request.Scheme);
 						await _emailSender.SendEmailAsync(
-							email, // O e-mail do destinatário
+							email, // O email do destinatario
 							"Bem-vindo! 💝",
 							$"Obrigado por te juntares à família. ❤️");
 
@@ -146,7 +146,7 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
 
 				return Ok(new
 				{
-						userId = user.Id,  // Aqui estamos garantindo que o userId seja incluído
+						userId = user.Id,  // que userId seja incluido
 						email = user.Email,
 						roles
 			});
@@ -154,66 +154,5 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
 
 			return Unauthorized(new { message = "Invalid login attempt." });
 		}
-
-		//[HttpGet]
-		//[Route("Login")]
-		//public async Task<ActionResult> Login([FromQuery] string email, [FromQuery] string password, [FromQuery] bool remainder)
-		//{
-		//	try
-		//	{
-
-		//		IdentityUser resultUser = await _userManager.FindByEmailAsync(email);
-
-		//		if (resultUser != null)
-		//		{
-
-		//			if (resultUser.EmailConfirmed == false)
-		//			{
-		//				return BadRequest("Please Confirm Email First");
-		//			}
-
-		//			PasswordVerificationResult passWorks = new PasswordHasher<IdentityUser>().VerifyHashedPassword(resultUser, resultUser.PasswordHash, password);
-
-		//			if (passWorks == PasswordVerificationResult.Success)
-		//			{
-
-		//				await _signInManager.SignInAsync(resultUser, remainder); // 'remainder' determines if the user should be remembered for 14 days.
-
-
-		//				Utilizadores user = _context.Utilizadores.FirstOrDefault(u => u.UserId == resultUser.Id);
-
-		//				if (user != null)
-		//				{
-		//					// user to DTO
-		//					Utilizadores userdto = new Utilizadores
-		//					{
-		//						Id = user.Id,
-		//						Name = user.Name,
-		//						Birthday = user.Birthday,
-		//						Phone = user.Phone
-		//					};
-
-		//					return Ok(userdto);
-		//				}
-		//				else
-		//				{
-		//					return BadRequest("User details not found");
-		//				}
-		//			}
-		//			else
-		//			{
-		//				return BadRequest("Invalid password");
-		//			}
-		//		}
-		//		else
-		//		{
-		//			return BadRequest("User not found");
-		//		}
-		//	}
-		//	catch (Exception ex)
-		//	{
-		//		return BadRequest(ex.Message); // Return exception message
-		//	}
-		//}
 	}
 }

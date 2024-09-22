@@ -244,30 +244,30 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
 			string imageName = "";
 			bool haImagem = false;
 
-			// Handle image upload
+			// ha ficheiro?
 			if (ImageRecipe != null)
 			{
-				// Check if the uploaded file is a valid image
+				// ha ficheiro, mas é uma imagem?
 				if (ImageRecipe.ContentType == "image/png" || ImageRecipe.ContentType == "image/jpeg")
 				{
 					haImagem = true;
-					// Generate a unique name for the image
+					// gera nome imagem
 					Guid g = Guid.NewGuid();
 					imageName = g.ToString() + Path.GetExtension(ImageRecipe.FileName).ToLowerInvariant();
 					recipe.Image = imageName;
 				}
 				else
 				{
-					// Assign a default image if the uploaded file is not valid
+					// vamos usar uma imagem pre-definida
 					recipe.Image = "imageRecipe.png";
 				}
 			}
 
-			// Add the recipe to the database
+			// Adiciona a receita a BD
 			_context.Recipes.Add(recipe);
 			await _context.SaveChangesAsync();
 
-			// Add ingredients and quantities
+			// adicionar os ingredientes e quantidades
 			List<IngredientsRecipes> listIngredients = new List<IngredientsRecipes>();
 			for (int i = 0; i < Ingredients.Count; i++)
 			{
@@ -280,7 +280,7 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
 				listIngredients.Add(ingredientsRecipes);
 			}
 
-			// Add tags
+			// adicionar as tags
 			List<RecipesTags> listTags = new List<RecipesTags>();
 			for (int i = 0; i < Tags.Count; i++)
 			{
@@ -292,13 +292,13 @@ namespace O_que_comeu_a_Ritinha.Controllers.API
 				listTags.Add(recipesTags);
 			}
 
-			// Update recipe with associated ingredients and tags
+			// atualiza a receita com os ingredientes e tags associados
 			recipe.ListIngredients = listIngredients;
 			recipe.ListTags = listTags;
 			_context.Recipes.Update(recipe);
 			await _context.SaveChangesAsync();
 
-			// Save image to disk
+			// guardar a imagem da receita
 			if (haImagem)
 			{
 				string imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images");
